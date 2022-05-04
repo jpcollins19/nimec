@@ -1,0 +1,21 @@
+/* * {
+    box-sizing: border-box;
+  }
+  
+  .box {
+    height: 100%;
+    width: calc(50% - 2rem);
+    position: absolute; //this may not be needed
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .left {
+    left: 0;
+    background-color: red;
+  }
+  
+  .right {
+    right: 0;
+    background-color: blue;
+  }
+   */
