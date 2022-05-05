@@ -1,0 +1,21 @@
+.logo {
+  padding: 2% 0% 2% 0%;
+  margin: 10% 0% 10% 0%;
+  width: 20rem;
+  height: 8rem;
+}
+
+.navbar-text-selected {
+  color: rgb(215, 209, 209);
+  font-weight: bold;
+}
+
+.navbar-text {
+  color: rgb(0, 191, 255);
+  font-weight: bold;
+}
+
+.testing {
+  background-color: rgb(166, 229, 145);
+  color: rgb(25, 234, 245);
+}

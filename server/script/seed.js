@@ -1,30 +1,37 @@
 const {
   db,
-  models: { User },
+  models: { User, Client },
 } = require("../db/index.js");
 
 const users = [
   {
-    email: "joe@gmail.com",
-    password: "joe_pw",
-    name: "Joe",
+    email: "ahoover@nimec.net",
+    password: "lincoln",
   },
+];
+
+const clients = [
   {
-    email: "frank@gmail.com",
-    password: "frank_pw",
-    name: "Frank",
+    name: "Village of Arlington Heights",
   },
 ];
 
 const syncAndSeed = async () => {
   await db.sync({ force: true });
   /////////////////////////////////////////////////////////////
-  const [Joe, Frank] = await Promise.all(
+  const [Hoov] = await Promise.all(
     users.map((user) =>
       User.create({
         email: user.email,
         password: user.password,
-        name: user.name,
+      })
+    )
+  );
+
+  const [VillageOfArlingtonHeights] = await Promise.all(
+    clients.map((client) =>
+      Client.create({
+        name: client.name,
       })
     )
   );

@@ -26,14 +26,6 @@ const User = db.define("users", {
     type: STRING,
     allowNull: false,
   },
-  name: {
-    type: STRING,
-    defaultValue: null,
-    unique: true,
-    validate: {
-      notEmpty: true,
-    },
-  },
 });
 
 User.addHook("beforeSave", async function (user) {

@@ -1,13 +1,13 @@
 const app = require("express").Router();
 
 const {
-  models: { User },
+  models: { Chart },
 } = require("../db/index.js");
 
-app.get("/api/users", async (req, res, next) => {
+app.get("/api/charts", async (req, res, next) => {
   try {
-    const users = await User.findAll();
-    res.send(users);
+    const charts = await Chart.findAll();
+    res.send(charts);
   } catch (err) {
     next(err);
   }
