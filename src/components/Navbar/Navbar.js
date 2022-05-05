@@ -104,11 +104,10 @@ const Navbar = () => {
   return (
     <Drawer variant="permanent">
       <List disablePadding>
-        <ListItem>
-          <img src="/public/pics/nimecLogo.png" className="logo" />
-        </ListItem>
-
-        <Box sx={{ bgcolor: "#101F33", pt: 3, pb: 3 }}>
+        <Box height="100vh" sx={{ bgcolor: "#101F33", pb: 3 }}>
+          <ListItem sx={{ bgcolor: "#ffffff" }}>
+            <img src="/public/pics/nimecLogo.png" className="logo" />
+          </ListItem>
           {categories.map((category) => (
             <Box key={category.title} sx={{ bgcolor: "#101F33", pt: 1, pb: 1 }}>
               <ListItem
