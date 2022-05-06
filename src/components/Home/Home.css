@@ -39,7 +39,7 @@
 .slideshow > * {
   visibility: hidden;
   position: absolute;
-  animation: 8s autoplay1 infinite; /*how many seconds the entire slideshow will play before it starts from the top again*/
+  animation: 12s autoplay1 infinite; /*how many seconds the entire slideshow will play before it starts from the top again*/
 }
 
 .quote {
@@ -75,5 +75,5 @@
 }
 
 .slideshow > *:nth-child(2) {
-  animation-delay: 4s;
+  animation-delay: 6s;
 }
