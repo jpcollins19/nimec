@@ -3,19 +3,12 @@ const {
   models: { User, Client, Reference },
 } = require("../db/index.js");
 
-const users = [
-  {
-    email: "ahoover@nimec.net",
-    password: "lincoln",
-  },
-];
+const users = [{ email: "ahoover@nimec.net", password: "lincoln" }];
 
 const clients = [
-  {
-    name: "Village of Arlington Heights",
-  },
-  { name: "Village of Montgomery" },
-  { name: "Elburn" },
+  { name: "Village of Arlington Heights" },
+  { name: "Village of Montgomery", organization: "Village" },
+  { name: "Elburn", organization: "School" },
 ];
 
 const references = [
@@ -49,6 +42,8 @@ const syncAndSeed = async () => {
       clients.map((client) =>
         Client.create({
           name: client.name,
+          MunicipalAgg: client.MunicipalAgg,
+          organization: client.organization,
         })
       )
     );

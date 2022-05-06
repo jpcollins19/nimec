@@ -1,5 +1,22 @@
 //seed all data based on hoov answers
 
+////membership
+//can start on this page
+
+////resource center
+//can start this page
+
+////contact us
+//can start this page
+
+////who we are
+
+////our services
+
+////FAQ
+
+////about us
+
 ////nav bar
 //need to find icons for each page
 

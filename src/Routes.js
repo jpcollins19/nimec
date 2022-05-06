@@ -4,6 +4,7 @@ import { me } from "./store";
 import { useSelector, useDispatch } from "react-redux";
 import Login_Page from "./components/Login_Page";
 import Home_Page from "./components/Home/Home_Page";
+import Memberships_Page from "./components/Memberships/Memberships_Page";
 
 const Routes = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const Routes = () => {
     <Switch>
       <Route exact path="/" component={Home_Page} />
       <Route exact path="/home" component={Home_Page} />
+      <Route exact path="/memberships" component={Memberships_Page} />
     </Switch>
   );
 };

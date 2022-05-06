@@ -1,0 +1,17 @@
+.memberships-page {
+  /* width: "100%";
+  background-size: cover; */
+  border: solid 2px red;
+}
+
+.memberships-header {
+  border: solid 2px blue;
+}
+
+.memberships-cont {
+  border: solid 2px orange;
+}
+
+.memberships-cont-text {
+  border: solid 2px purple;
+}

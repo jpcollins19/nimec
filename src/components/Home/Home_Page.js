@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";
 import { useSelector } from "react-redux";
 import Quote from "@mui/icons-material/FormatQuote";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import "./Home.css";
 
 const Home_Page = () => {
