@@ -1,13 +1,13 @@
 const app = require("express").Router();
 
 const {
-  models: { Resource },
+  models: { Article },
 } = require("../db/index.js");
 
-app.get("/api/resources", async (req, res, next) => {
+app.get("/api/articles", async (req, res, next) => {
   try {
-    const resources = await Resource.findAll();
-    res.send(resources);
+    const articles = await Article.findAll();
+    res.send(articles);
   } catch (err) {
     next(err);
   }

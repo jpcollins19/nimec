@@ -2,18 +2,18 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { HashRouter as Router, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { loadClients } from "./store";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Navbar from "./components/Navbar/Navbar";
 import Routes from "./Routes";
-// import { loadUsers } from "./store";
 
 const App = () => {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(loadUsers());
-  // }, []);
+  useEffect(() => {
+    dispatch(loadClients());
+  }, []);
 
   const drawerWidth = 256;
 
@@ -77,9 +77,6 @@ const App = () => {
                 pt: 18.5,
                 pb: 0,
                 pl: 2,
-                // pb: 3,
-                // px: 4,
-                // bgcolor: "#9C27B0",
                 display: "flex",
                 justifyContent: "center",
                 minHeight: 9.8 / 10,
@@ -92,12 +89,6 @@ const App = () => {
       </ThemeProvider>
     </Router>
   );
-
-  // return (
-  //   <Router>
-  //     <Routes />
-  //   </Router>
-  // );
 };
 
 export default App;

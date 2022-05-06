@@ -110,61 +110,46 @@ const Navbar = () => {
           </ListItem>
           {categories.map((category) => (
             <Box key={category.title} sx={{ bgcolor: "#101F33", pt: 1, pb: 1 }}>
-              <ListItem
-                disablePadding
-                sx={{
-                  backgroundColor:
-                    pathname === category.url
-                      ? "rgba(19, 139, 213, 0.397)"
-                      : "#101F33",
-                }}
-              >
-                <ListItemButton>
-                  <ListItemIcon
-                    sx={{
-                      color:
-                        pathname === category.url
-                          ? "rgb(0, 191, 255)"
-                          : "rgb(215, 209, 209)",
-                    }}
-                  >
-                    {category.icon}
-                  </ListItemIcon>
-                  <ListItemText>
-                    <Link
-                      to={category.url}
-                      style={{ textDecoration: "none" }}
-                      className={
-                        pathname === category.url
-                          ? "navbar-text"
-                          : "navbar-text-selected"
-                      }
+              <Link to={category.url} style={{ textDecoration: "none" }}>
+                <ListItem
+                  disablePadding
+                  sx={{
+                    backgroundColor:
+                      pathname === category.url
+                        ? "rgba(19, 139, 213, 0.397)"
+                        : "#101F33",
+                  }}
+                >
+                  <ListItemButton>
+                    <ListItemIcon
+                      sx={{
+                        color:
+                          pathname === category.url
+                            ? "rgb(0, 191, 255)"
+                            : "rgb(215, 209, 209)",
+                      }}
                     >
-                      <div> {category.title}</div>
-                    </Link>
-                  </ListItemText>
-                </ListItemButton>
-              </ListItem>
-
+                      {category.icon}
+                    </ListItemIcon>
+                    <ListItemText>
+                      <div
+                        className={
+                          pathname === category.url
+                            ? "navbar-text"
+                            : "navbar-text-selected"
+                        }
+                      >
+                        {" "}
+                        {category.title}
+                      </div>
+                    </ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
               {/* <Divider sx={{ pt: 1, pb: 1 }} /> */}
             </Box>
           ))}
         </Box>
-
-        {/* <Box sx={{ bgcolor: "#2E7D32" }}>
-          <ListItem sx={{ py: 2, px: 3 }}>
-            <ListItemText sx={{ color: "#fff" }}>
-              <h3 className="navbar-title-text">phone number goes here</h3>
-            </ListItemText>
-          </ListItem>
-        </Box>
-        <Box sx={{ bgcolor: "#2E7D32" }}>
-          <ListItem sx={{ py: 2, px: 3 }}>
-            <ListItemText sx={{ color: "#fff" }}>
-              <h3 className="navbar-title-text">email goes here</h3>
-            </ListItemText>
-          </ListItem>
-        </Box> */}
       </List>
     </Drawer>
   );

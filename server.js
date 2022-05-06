@@ -1,3 +1,12 @@
+//seed all data based on hoov answers
+
+////nav bar
+//need to find icons for each page
+
+//start game planning each page
+
+//login page is last
+
 const express = require("express");
 const app = express();
 const syncAndSeed = require("./server/script/seed");

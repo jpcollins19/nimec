@@ -1,0 +1,44 @@
+.statement {
+  border: solid 2px red;
+}
+
+.statement > h2 {
+  text-align: center;
+}
+
+/*https://www.w3.org/Style/Examples/007/slideshow.en.html*/
+.slideshow {
+  height: 10rem;
+  position: relative;
+  margin-left: 6rem;
+  border: solid 2px green;
+}
+
+.slideshow > * {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: 8s autoplay1 infinite; /*how many seconds the entire slideshow will play before it starts from the top again*/
+}
+
+@keyframes autoplay1 {
+  0% {
+    visibility: visible;
+  }
+
+  /*  visibility = 100 / number of slides */
+  /*if there are three slides, then the answer below is 33.33%*/
+  /*if there are 10 slides, then the answer below is 10%*/
+  50% {
+    visibility: hidden;
+  }
+}
+
+.slideshow > *:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.slideshow > *:nth-child(2) {
+  animation-delay: 4s;
+}

@@ -2,28 +2,27 @@ const Sequelize = require("sequelize");
 const db = require("../db.js");
 const { STRING, UUID, UUIDV4, TEXT } = Sequelize;
 
-const Resource = db.define("resources", {
+const Reference = db.define("references", {
   id: {
     type: UUID,
     primaryKey: true,
     defaultValue: UUIDV4,
   },
+  name: {
+    type: STRING,
+    defaultValue: null,
+  },
   title: {
     type: STRING,
     defaultValue: null,
-    unique: true,
     validate: {
       notEmpty: true,
     },
   },
-  data: {
+  quote: {
     type: TEXT,
     defaultValue: null,
-    unique: true,
-    validate: {
-      notEmpty: true,
-    },
   },
 });
 
-module.exports = Resource;
+module.exports = Reference;
