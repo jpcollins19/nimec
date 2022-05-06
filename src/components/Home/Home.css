@@ -2,6 +2,7 @@
   background-image: url("https://ijec.org/wp-content/uploads/2013/07/Wind-Turbines03-1170x820.jpg");
   background-size: cover;
   overflow: auto;
+  cursor: default;
 }
 
 .statement {
@@ -26,6 +27,7 @@
   margin: 8% 0% 0% 30%;
   position: relative;
   min-width: 30%;
+
   /* background: linear-gradient(
     to bottom,
     rgb(204, 234, 233) 0%,
