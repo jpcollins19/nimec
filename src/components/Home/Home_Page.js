@@ -8,7 +8,6 @@ const Home_Page = () => {
     (client) => client.references.length
   );
 
-  console.log(references);
   return (
     <main>
       <div className="statement">
