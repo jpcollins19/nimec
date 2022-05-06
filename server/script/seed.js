@@ -23,7 +23,7 @@ const references = [
     name: "joe collins",
     title: "Public Works Director",
     quote:
-      "Thanks for your work in organizing the NIMEC communities to band together. You have led us to a monumental change in how governments work for the common good, and provided a real, tangible benefit to citizens across the state.",
+      "Thanks for your work in organizing the NIMEC communities to band together. You have led us to a monumental change in how governments work for the common good, and provided a real, tangible benefit to citizens across the state. ",
   },
   {
     title: "City Administrator",

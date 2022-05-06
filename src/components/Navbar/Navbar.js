@@ -104,7 +104,7 @@ const Navbar = () => {
   return (
     <Drawer variant="permanent">
       <List disablePadding>
-        <Box height="100vh" sx={{ bgcolor: "#101F33", pb: 3 }}>
+        <Box height="100vh" width="19.1vw" sx={{ bgcolor: "#101F33", pb: 3 }}>
           <ListItem sx={{ bgcolor: "#ffffff" }}>
             <img src="/public/pics/nimecLogo.png" className="logo" />
           </ListItem>
@@ -146,85 +146,12 @@ const Navbar = () => {
                   </ListItemButton>
                 </ListItem>
               </Link>
-              {/* <Divider sx={{ pt: 1, pb: 1 }} /> */}
             </Box>
           ))}
         </Box>
       </List>
     </Drawer>
   );
-
-  // return (
-  //   <Drawer variant="permanent">
-  //     <List disablePadding>
-  //       <ListItem>
-  //         <img src="/public/pics/comedChart.png" className="logo" />
-  //       </ListItem>
-
-  //       {/* {part.id && (
-  //         <div>
-  //           <h5 className="last-updated">Last Updated: Final</h5>
-  //           <h5 className="num-picks">
-  //             # of submitted picks: {SubmittedPicks.length}
-  //           </h5>
-  //         </div>
-  //       )} */}
-  //       <Box sx={{ bgcolor: "#101F33" }}>
-  //         <ListItem sx={{ py: 2, px: 3 }}></ListItem>
-  //         {/* {part.name === "Joe" && (
-  //           <ListItem>
-  //             <ListItemButton sx={item}>
-  //               <ListItemIcon>
-  //                 <SettingsAccessibility />
-  //               </ListItemIcon>
-  //               <ListItemText>
-  //                 <Link
-  //                   to={"/admin"}
-  //                   className="navbar-option-text"
-  //                   style={{ textDecoration: "none" }}
-  //                 >
-  //                   <div>Admin</div>
-  //                 </Link>
-  //               </ListItemText>
-  //             </ListItemButton>
-  //           </ListItem>
-  //         )} */}
-
-  //         {categories.map((category) => (
-  //           <ListItem key={category.title}>
-  //             <ListItemButton sx={item}>
-  //               <ListItemIcon>{category.icon}</ListItemIcon>
-  //               <ListItemText>
-  //                 <Link
-  //                   to={category.url}
-  //                   style={{ textDecoration: "none" }}
-  //                   sx={{ color: "rgb(248, 180, 180)" }}
-  //                 >
-  //                   <div>{category.title}</div>
-  //                 </Link>
-  //               </ListItemText>
-  //             </ListItemButton>
-  //           </ListItem>
-  //         ))}
-  //         <Divider sx={{ mt: 2 }} />
-  //       </Box>
-  //       <Box sx={{ bgcolor: "#2E7D32" }}>
-  //         <ListItem sx={{ py: 2, px: 3 }}>
-  //           <ListItemText sx={{ color: "#fff" }}>
-  //             <h3 className="navbar-title-text">phone number goes here</h3>
-  //           </ListItemText>
-  //         </ListItem>
-  //       </Box>
-  //       <Box sx={{ bgcolor: "#2E7D32" }}>
-  //         <ListItem sx={{ py: 2, px: 3 }}>
-  //           <ListItemText sx={{ color: "#fff" }}>
-  //             <h3 className="navbar-title-text">email goes here</h3>
-  //           </ListItemText>
-  //         </ListItem>
-  //       </Box>
-  //     </List>
-  //   </Drawer>
-  // );
 };
 
 export default Navbar;

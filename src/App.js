@@ -15,8 +15,6 @@ const App = () => {
     dispatch(loadClients());
   }, []);
 
-  const drawerWidth = 256;
-
   let theme = createTheme({
     palette: {
       primary: {
@@ -57,33 +55,23 @@ const App = () => {
           <Box
             component="nav"
             sx={{
-              width: { sm: drawerWidth },
+              width: { sm: "19.1vw" },
               flexShrink: { sm: 0 },
             }}
           >
             <Route path="/" component={Navbar} />
           </Box>
-
-          <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
-            {/* {part.id ? (
-              <Route path="/" component={Header_P} />
-            ) : (
-              <Route path="/" component={Header_NP} />
-            )} */}
-            <Box
-              component="main"
-              sx={{
-                flex: 1,
-                pt: 18.5,
-                pb: 0,
-                pl: 2,
-                display: "flex",
-                justifyContent: "center",
-                minHeight: 9.8 / 10,
-              }}
-            >
-              <Routes />
-            </Box>
+          <Box
+            component="main"
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              width: { sm: "80.9vw" },
+              flexShrink: { sm: 0 },
+            }}
+          >
+            <Routes />
           </Box>
         </Box>
       </ThemeProvider>
