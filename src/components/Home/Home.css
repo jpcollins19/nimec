@@ -23,20 +23,17 @@
 
 /*https://www.w3.org/Style/Examples/007/slideshow.en.html*/
 .slideshow {
-  margin-top: 10%;
+  margin: 8% 0% 0% 30%;
   position: relative;
-  width: fit-content;
-  height: fit-content;
-  min-width: 50%;
-  min-height: 25%;
-  background: linear-gradient(
+  min-width: 30%;
+  /* background: linear-gradient(
     to bottom,
     rgb(204, 234, 233) 0%,
     rgb(170, 195, 194) 25%,
     rgb(123, 141, 141) 50%,
     rgb(103, 117, 117) 75%,
     rgb(81, 93, 93) 100%
-  );
+  ); */
 }
 
 .slideshow > * {
@@ -54,7 +51,7 @@
 }
 
 .quotee {
-  color: rgb(180, 177, 177);
+  color: rgb(55, 54, 54);
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   font-size: medium;
