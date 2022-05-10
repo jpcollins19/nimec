@@ -1,17 +1,18 @@
 //seed all data based on hoov answers
 
 ////membership
-//can start on this page
+//make it cleaner by adding more .js files
+//need css work
 
-////resource center
-//can start this page
+////our services
+//need to start with adding Hoov answers
 
 ////contact us
 //can start this page
 
 ////who we are
 
-////our services
+////resource center
 
 ////FAQ
 

@@ -1,17 +1,63 @@
-.memberships-page {
-  /* width: "100%";
-  background-size: cover; */
+.membs-page {
   border: solid 2px red;
 }
 
-.memberships-header {
+.selected-org-header {
+  margin: 1% 0% 1% 0%;
+  text-align: center;
+  cursor: default;
+  border: solid 2px purple;
+}
+
+.membs-dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   border: solid 2px blue;
 }
 
-.memberships-cont {
+.membs-select {
+  text-align: center;
+  height: 2rem;
+  width: 15rem;
+  margin-bottom: 10%;
+}
+
+.membs-dropdown > button {
+  text-align: center;
+  height: 2rem;
+  width: 8rem;
+  cursor: pointer;
+}
+
+.asterisk-cont {
+  border: solid 2px red;
+}
+
+.membs-cont {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2% 0% 2% 0%;
+  min-width: 140vh;
+  min-height: 60vh;
+  overflow: auto;
+  cursor: default;
   border: solid 2px orange;
 }
 
-.memberships-cont-text {
-  border: solid 2px purple;
+.membs-text-cont {
+  display: flex;
+  justify-content: space-around;
+  min-width: 140vh;
+  border: solid 2px red;
+}
+
+.membs-text-cont > div {
+  border: solid 2px green;
+}
+
+.membs-text-cont > div > div {
+  min-width: 18rem;
+  border: solid 2px blue;
 }

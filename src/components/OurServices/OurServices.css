@@ -1,0 +1,10 @@
+.our-services-page {
+  border: solid 2px red;
+}
+
+.services-navbar {
+  width: 70vh;
+  display: flex;
+  justify-content: space-around;
+  border: solid 2px blue;
+}

@@ -55,7 +55,7 @@ const App = () => {
           <Box
             component="nav"
             sx={{
-              width: { sm: "19.1vw" },
+              width: { sm: "17vw" },
               flexShrink: { sm: 0 },
             }}
           >
@@ -67,7 +67,7 @@ const App = () => {
               display: "flex",
               justifyContent: "center",
               flexDirection: "column",
-              width: { sm: "80.9vw" },
+              width: { sm: "83vw" },
               flexShrink: { sm: 0 },
             }}
           >

@@ -5,17 +5,17 @@
   height: 8rem;
 }
 
-.navbar-text-selected {
+.navbar-text {
   color: rgb(215, 209, 209);
   font-weight: bold;
 }
 
-.navbar-text {
+.navbar-text-selected {
   color: rgb(0, 191, 255);
   font-weight: bold;
 }
 
 .testing {
   background-color: rgb(166, 229, 145);
-  color: #ffffff;
+  color: #162c49;
 }

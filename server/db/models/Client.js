@@ -16,7 +16,7 @@ const Client = db.define("clients", {
       notEmpty: true,
     },
   },
-  MunicipalAgg: {
+  municipalAgg: {
     type: BOOLEAN,
     defaultValue: false,
   },
