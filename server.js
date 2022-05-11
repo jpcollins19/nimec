@@ -1,5 +1,8 @@
 ////contact us
-//react-hot-toast
+//react-hot-toast = how to submit so the user gets an email...i think
+//uploading images: step 4 of roomer app:
+//Yup -- validates # of images?
+//Formik - easier way to submit a form?
 
 ////savings comparison
 //chart model/api - need to add instance info for more charts
