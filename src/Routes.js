@@ -6,6 +6,7 @@ import Login_Page from "./components/Login_Page";
 import Home_Page from "./components/Home/Home_Page";
 import Memberships_Page from "./components/Memberships/Memberships_Page";
 import OurServices_Page from "./components/OurServices/OurServices_Page";
+import Contact_Us_Page from "./components/Contact_Us/Contact_Us_Page";
 
 const Routes = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const Routes = () => {
       <Route exact path="/memberships" component={Memberships_Page} />
       <Route exact path="/our_services" component={OurServices_Page} />
       <Route path="/our_services" component={OurServices_Page} />
+      <Route path="/contact_us" component={Contact_Us_Page} />
     </Switch>
   );
 };

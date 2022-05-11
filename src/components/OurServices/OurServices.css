@@ -3,13 +3,13 @@
 }
 
 .service-header {
-  display: flex;
-  justify-content: space-around;
   border: solid 2px blue;
 }
 
-.service-body {
-  display: flex;
-  justify-content: space-around;
+.service-synopsis {
   border: solid 2px green;
+}
+
+.service-newsletter {
+  border: solid 2px orange;
 }

@@ -16,10 +16,16 @@ const Service = db.define("services", {
       notEmpty: true,
     },
   },
-  data: {
+  synopsis: {
     type: TEXT,
     defaultValue: null,
-    unique: true,
+    validate: {
+      notEmpty: true,
+    },
+  },
+  newsletter: {
+    type: TEXT,
+    defaultValue: null,
     validate: {
       notEmpty: true,
     },

@@ -53,7 +53,7 @@ const Home_Page = () => {
                 <Quote
                   fontSize="large"
                   sx={{
-                    color: "rgb(5, 5, 100)",
+                    color: "rgb(149, 149, 207)",
                   }}
                 />
                 {client.references.map((reference) => (

@@ -15,7 +15,8 @@ const Service = () => {
   return (
     <div>
       <div className="service-header">{service && service.title}</div>
-      <div className="service-body">{service && service.data}</div>
+      <div className="service-synopsis">{service && service.synopsis}</div>
+      <div className="service-newsletter">{service && service.newsletter}</div>
     </div>
   );
 };

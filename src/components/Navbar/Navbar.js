@@ -2,42 +2,48 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
-import SettingsAccessibility from "@mui/icons-material/SettingsAccessibility";
+import Home from "@mui/icons-material/Home";
+import WindPower from "@mui/icons-material/WindPower";
+import QuestionAnswer from "@mui/icons-material/QuestionAnswer";
+import HelpCenter from "@mui/icons-material/HelpCenter";
+import Paid from "@mui/icons-material/Paid";
+import EmojiPeople from "@mui/icons-material/EmojiPeople";
+import Groups from "@mui/icons-material/Groups";
 import Navbar_Item from "./Navbar_Item";
 import "./Navbar.css";
 
 const Navbar = () => {
   const categories = [
-    { title: "Home", icon: <SettingsAccessibility />, url: "/home" },
+    { title: "Home", icon: <Home />, url: "/home" },
     {
       title: "Who We Are",
-      icon: <SettingsAccessibility />,
+      icon: <Home />,
       url: "/who_we_are",
     },
     {
       title: "Memberships",
-      icon: <SettingsAccessibility />,
+      icon: <Groups />,
       url: "/memberships",
     },
     {
       title: "Our Services",
-      icon: <SettingsAccessibility />,
+      icon: <WindPower />,
       url: "/our_services",
     },
-    { title: "FAQ", icon: <SettingsAccessibility />, url: "/faq" },
+    { title: "FAQ", icon: <HelpCenter />, url: "/faq" },
     {
-      title: "Resource Center",
-      icon: <SettingsAccessibility />,
-      url: "/resource_center",
+      title: "Savings Comparison",
+      icon: <Paid />,
+      url: "/savings_comparison",
     },
     {
       title: "About Us",
-      icon: <SettingsAccessibility />,
+      icon: <EmojiPeople />,
       url: "/about_us",
     },
     {
       title: "Contact Us",
-      icon: <SettingsAccessibility />,
+      icon: <QuestionAnswer />,
       url: "/contact_us",
     },
   ];

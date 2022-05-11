@@ -1,26 +1,25 @@
-//seed all data based on hoov answers
+////contact us
+//react-hot-toast
 
-////membership
-//need css work
+////savings comparison
+//chart model/api - need to add instance info for more charts
+//waiting on hoov, but this page will house the comed/nicor/poppa hoov charts
+
+////who we are - might not be needed
+
+////about us
+//EE model and api
+
+////FAQ
+//need a model and api
+//add an order instance? look at how julie did the amenities stuff in the roomer app
+//need to control where each FAQ is listed on the web page
 
 ////our services
 //need css work
 
-////contact us
-//can start this page
-
-////who we are
-
-////resource center
-
-////FAQ
-
-////about us
-
-////nav bar
-//need to find icons for each page
-
-//start game planning each page
+////membership
+//need css work
 
 //login page is last
 

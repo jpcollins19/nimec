@@ -388,15 +388,21 @@ const references = [
 const services = [
   {
     title: "Municipalities",
-    data: "NIMEC is the leading municipal aggregator of electricity in northern Illinois, having managed 100 municipal aggregations with a population base over 2,000,000. Currently, NIMEC manages more Municipal Aggregation programs than anyone else. Illinois municipalities can now negotiate lower electric rates for its residents' home bills. In the same way municipalities negotiate community-wide contracts for waste disposal or cable television, NIMEC helps communities purchase power for their residents. NIMEC's purchasing power of $150 million per year helps our members achieve aggressive rates for their residents.",
+    synopsis:
+      "NIMEC is the leading municipal aggregator of electricity in northern Illinois, having managed 100 municipal aggregations with a population base over 2,000,000. Currently, NIMEC manages more Municipal Aggregation programs than anyone else. Illinois municipalities can now negotiate lower electric rates for its residents' home bills. In the same way municipalities negotiate community-wide contracts for waste disposal or cable television, NIMEC helps communities purchase power for their residents. NIMEC's purchasing power of $150 million per year helps our members achieve aggressive rates for their residents.",
+    newsletter: "newsletter goes here",
   },
   {
     title: "Commercial",
-    data: "NIMEC has been helping its members purchase power and natural gas since 2006. In addition to the 100+ municipalities in northern Illinois, NIMEC also works with Park Districts, Libraries, Churches, and School's to lower their utility costs. NIMEC's retention rate averages 99%, while growing each year. On average, NIMEC members save around 20% annually. NIMEC will work to provide those interested an overview of their current utility situation, with options to help reduce cost.",
+    synopsis:
+      "NIMEC has been helping its members purchase power and natural gas since 2006. In addition to the 100+ municipalities in northern Illinois, NIMEC also works with Park Districts, Libraries, Churches, and School's to lower their utility costs. NIMEC's retention rate averages 99%, while growing each year. On average, NIMEC members save around 20% annually. NIMEC will work to provide those interested an overview of their current utility situation, with options to help reduce cost.",
+    newsletter: "newsletter goes here",
   },
   {
     title: "Residential",
-    data: "A new opportunity has opened up for residents in Illinois.  Community Solar, which is backed and incentivized by the state of Illinois, allows for guaranteed 20% savings on the supply of your electric bill, while creating energy from a local solar field (no solar panels on property is required). Yet, the program is so popular that there is limited availability. If interested, please reach out and see what options are available. ",
+    synopsis:
+      "A new opportunity has opened up for residents in Illinois.  Community Solar, which is backed and incentivized by the state of Illinois, allows for guaranteed 20% savings on the supply of your electric bill, while creating energy from a local solar field (no solar panels on property is required). Yet, the program is so popular that there is limited availability. If interested, please reach out and see what options are available. ",
+    newsletter: "newsletter goes here",
   },
 ];
 
@@ -612,7 +618,8 @@ const syncAndSeed = async () => {
     services.map((service) =>
       Service.create({
         title: service.title,
-        data: service.data,
+        synopsis: service.synopsis,
+        newsletter: service.newsletter,
       })
     )
   );
