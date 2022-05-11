@@ -5,6 +5,7 @@ const Article = require("./models/Article");
 const Chart = require("./models/Chart");
 const EE = require("./models/EE");
 const Reference = require("./models/Reference");
+const Service = require("./models/Service");
 
 Client.hasMany(Reference);
 Reference.belongsTo(Client);
@@ -18,5 +19,6 @@ module.exports = {
     Chart,
     EE,
     Reference,
+    Service,
   },
 };

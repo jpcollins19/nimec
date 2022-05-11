@@ -2,9 +2,14 @@
   border: solid 2px red;
 }
 
-.services-navbar {
-  width: 70vh;
+.service-header {
   display: flex;
   justify-content: space-around;
   border: solid 2px blue;
+}
+
+.service-body {
+  display: flex;
+  justify-content: space-around;
+  border: solid 2px green;
 }

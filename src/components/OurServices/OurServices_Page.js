@@ -1,10 +1,8 @@
 import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
+import Service from "./Service";
 import "./OurServices.css";
 
 const OurServices_Page = () => {
-  const services = ["Municipalities", "Commercial", "Residential"];
-
   return (
     <Box
       sx={{
@@ -15,7 +13,7 @@ const OurServices_Page = () => {
       height="100vh"
       className="our-services-page"
     >
-      <div className="services-navbar">service info goes here</div>
+      <Service />
     </Box>
   );
 };

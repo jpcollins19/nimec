@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import { useSelector } from "react-redux";
-import "./Memberships.css";
+import Member_Column from "./Member_Column";
 import Select from "react-select";
+import "./Memberships.css";
 
 const Memberships_Page = () => {
   const [selectedOrg, setSelectedOrg] = useState(null);
@@ -80,30 +81,9 @@ const Memberships_Page = () => {
       <div className="asterisk-cont">* Municipality member </div>
       <div className="membs-cont">
         <div className="membs-text-cont">
-          <div>
-            {clientList1 &&
-              clientList1.map((client) => (
-                <div key={client.id}>
-                  {client.name} {client.municipalAgg && "*"}
-                </div>
-              ))}
-          </div>
-          <div>
-            {clientList2 &&
-              clientList2.map((client) => (
-                <div key={client.id}>
-                  {client.name} {client.municipalAgg && "*"}
-                </div>
-              ))}
-          </div>
-          <div>
-            {clientList3 &&
-              clientList3.map((client) => (
-                <div key={client.id}>
-                  {client.name} {client.municipalAgg && "*"}
-                </div>
-              ))}
-          </div>
+          <div>{clientList1 && <Member_Column clientList={clientList1} />}</div>
+          <div>{clientList2 && <Member_Column clientList={clientList2} />}</div>
+          <div>{clientList3 && <Member_Column clientList={clientList3} />}</div>
         </div>
       </div>
     </Box>

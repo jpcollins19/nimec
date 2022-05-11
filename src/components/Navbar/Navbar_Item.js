@@ -103,7 +103,7 @@ const Navbar_Item = ({ category }) => {
           sx={{
             position: "fixed",
             ml: "17%",
-            mt: "-2%",
+            mt: "-2.5%",
             bgcolor: "#101F33",
             pt: 1,
             pb: 1,

@@ -1,11 +1,10 @@
 //seed all data based on hoov answers
 
 ////membership
-//make it cleaner by adding more .js files
 //need css work
 
 ////our services
-//need to start with adding Hoov answers
+//need css work
 
 ////contact us
 //can start this page
@@ -36,6 +35,7 @@ app.use("/dist", express.static(path.join(__dirname, "dist")));
 
 app.use("/public/pics", express.static(path.join(__dirname, "public/pics")));
 
+app.use("/", require("./server/api/services.js"));
 app.use("/", require("./server/api/clients.js"));
 app.use("/", require("./server/api/auth.js"));
 app.use("/", (req, res, next) =>
