@@ -34,6 +34,13 @@ export const authenticate = (email, password) => async (dispatch) => {
   }
 };
 
+export const sendMessage = (message) => {
+  return async (dispatch) => {
+    console.log("message in thunk", message);
+    const data = await axios.post("/api/send-message", message);
+  };
+};
+
 export const logout = () => {
   window.localStorage.removeItem(TOKEN);
   return {

@@ -1,8 +1,11 @@
 ////contact us
-//react-hot-toast = how to submit so the user gets an email...i think
-//uploading images: step 4 of roomer app:
-//Yup -- validates # of images?
-//Formik - easier way to submit a form?
+//need to figure out the sendgrid stuff - start from scratch with registiring a new api key
+//ability to add a pdf or jpg file too
+//add the title of the file to the photo info when you choose a file to upload
+//make toaster notification say the users name
+//after you send a message - the app adds querystringparams to the url
+//work on error handling
+//css work
 
 ////savings comparison
 //chart model/api - need to add instance info for more charts
@@ -37,6 +40,7 @@ app.use("/dist", express.static(path.join(__dirname, "dist")));
 
 app.use("/public/pics", express.static(path.join(__dirname, "public/pics")));
 
+app.use("/", require("./server/api/sendMessage.js"));
 app.use("/", require("./server/api/services.js"));
 app.use("/", require("./server/api/clients.js"));
 app.use("/", require("./server/api/auth.js"));
