@@ -1,4 +1,5 @@
 ////contact us
+//working on getting the name of the photo into an obj that has the url - see photoList.js file
 //css work
 //add the title of the file to the photo info when you choose a file to upload
 //work on error handling

@@ -16,7 +16,7 @@ const Contact_Us_Page = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [photos, setPhotos] = useState([]);
-  const [attachments, setAttachments] = useState([]);
+  const [photoNames, setPhotoNames] = useState([]);
 
   const messageSent = () => {
     toast(
@@ -170,13 +170,13 @@ const Contact_Us_Page = () => {
                     fileReader.fileName = file.name;
                     fileReader.onload = (ev) => {
                       if (fileReader.readyState === 2) {
-                        setAttachments((prevAttachs) => [
-                          ...prevAttachs,
+                        setPhotoNames((prevNames) => [
+                          ...prevNames,
                           ev.target.fileName,
                         ]);
-                        setAttachments((prevAttachs) =>
-                          prevAttachs.filter((word, idx) => {
-                            return prevAttachs.indexOf(word) === idx;
+                        setPhotoNames((prevNames) =>
+                          prevNames.filter((word, idx) => {
+                            return prevNames.indexOf(word) === idx;
                           })
                         );
                         console.log("file result", ev.target.fileName);
@@ -189,7 +189,7 @@ const Contact_Us_Page = () => {
               />
             </label>
           </li>
-          <PhotosList photos={photos} attachments={attachments} />
+          <PhotosList photos={photos} photoNames={photoNames} />
           <div className="submit-cont">
             <div>
               <button>Submit</button>

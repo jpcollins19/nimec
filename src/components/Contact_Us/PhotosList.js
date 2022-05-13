@@ -2,19 +2,49 @@ import React, { useState, useEffect } from "react";
 import { Reorder, AnimatePresence, motion } from "framer-motion";
 import { X } from "react-feather";
 
-const PhotosList = ({ photos, attachments }) => {
+const PhotosList = ({ photos, photoNames }) => {
   const [items, setItems] = useState([]);
-  const [itemsA, setItemsA] = useState([]);
+  const [attachments, setAttachments] = useState([]);
+  const [attachmentCallNeeded, setAttachmentCallNeeded] = useState(true);
+
+  useEffect(
+    (prevPhotos) => {
+      setItems(photos);
+
+      if (prevPhotos) {
+        if (prevPhotos.length !== photos.length) {
+          setAttachmentCallNeeded(true);
+        }
+      }
+
+      console.log("photos", photos);
+    },
+    [photos]
+  );
 
   useEffect(() => {
-    setItems(photos);
-    console.log(attachments);
-  }, [photos]);
+    console.log("photoNames", photoNames);
+  }, [photoNames]);
 
   useEffect(() => {
-    setItemsA(attachments);
-    console.log(attachments);
+    console.log("attachments", attachments);
   }, [attachments]);
+
+  const ajustAttachments = (photos, photoNames) => {
+    console.log("attachment func called");
+    for (let i = 0; i < photos.length; i++) {
+      setAttachments((prevAttachs) => [
+        ...prevAttachs,
+        { url: photos[i], name: photoNames[i] },
+      ]);
+    }
+
+    setAttachmentCallNeeded(false);
+  };
+
+  if (attachmentCallNeeded) {
+    ajustAttachments(photos, photoNames);
+  }
 
   return (
     <Reorder.Group
@@ -45,8 +75,6 @@ const PhotosList = ({ photos, attachments }) => {
                   event.stopPropagation();
                   const updatedItems = items.filter((i) => i !== item);
                   setItems(updatedItems);
-                  const updatedItemsA = itemsA.filter((i) => i !== item);
-                  setItemsA(updatedItemsA);
                 }}
                 initial={false}
                 animate={{ backgroundColor: "#e3e3e3" }}
@@ -55,7 +83,7 @@ const PhotosList = ({ photos, attachments }) => {
                 <X />
               </motion.button>
               <div key={idx} className="photo-name">
-                {attachments[idx]}
+                photo name goes here
               </div>
             </Reorder.Item>
           );
