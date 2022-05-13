@@ -16,9 +16,18 @@ const Contact_Us_Page = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [photos, setPhotos] = useState([]);
+  const [attachments, setAttachments] = useState([]);
 
-  const notify = () =>
-    toast("Your information has been sent to a NIMEC representative.");
+  const messageSent = () => {
+    toast(
+      `Thank you ${firstName}!
+      
+      Your information has been sent to a NIMEC representative.`,
+      {
+        duration: 5000,
+      }
+    );
+  };
 
   const onSubmit = async (evt) => {
     evt.preventDefault();
@@ -39,7 +48,7 @@ const Contact_Us_Page = () => {
       setEmail("");
       setMessage("");
       setPhotos([]);
-      notify();
+      messageSent();
       evt.target.reset();
     } catch (err) {
       console.log(err);
@@ -138,7 +147,7 @@ const Contact_Us_Page = () => {
                   for (let i = 0; i < files.length; i++) {
                     const file = files[i];
                     const fileReader = new FileReader();
-                    fileReader.onload = (e) => {
+                    fileReader.onload = (ev) => {
                       if (fileReader.readyState === 2) {
                         setPhotos((prevPhotos) => [
                           ...prevPhotos,
@@ -151,17 +160,44 @@ const Contact_Us_Page = () => {
                         );
                       }
                     };
+
                     fileReader.readAsDataURL(file);
+                  }
+                  for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+
+                    const fileReader = new FileReader();
+                    fileReader.fileName = file.name;
+                    fileReader.onload = (ev) => {
+                      if (fileReader.readyState === 2) {
+                        setAttachments((prevAttachs) => [
+                          ...prevAttachs,
+                          ev.target.fileName,
+                        ]);
+                        setAttachments((prevAttachs) =>
+                          prevAttachs.filter((word, idx) => {
+                            return prevAttachs.indexOf(word) === idx;
+                          })
+                        );
+                        console.log("file result", ev.target.fileName);
+                      }
+                    };
+
+                    fileReader.readAsText(file);
                   }
                 }}
               />
             </label>
           </li>
-          <PhotosList photos={photos} />
+          <PhotosList photos={photos} attachments={attachments} />
           <div className="submit-cont">
             <div>
               <button>Submit</button>
-              <Toaster />
+              <Toaster
+                toastOptions={{
+                  className: "toaster-submit-confirmation",
+                }}
+              />
             </div>
             <div className="error-cont">
               <Alert severity="error" className="error-text">

@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
-import {
-  Reorder,
-  AnimatePresence,
-  useDragControls,
-  motion,
-} from "framer-motion";
+import { Reorder, AnimatePresence, motion } from "framer-motion";
 import { X } from "react-feather";
 
-const PhotosList = ({ photos }) => {
-  const controls = useDragControls();
+const PhotosList = ({ photos, attachments }) => {
   const [items, setItems] = useState([]);
+  const [itemsA, setItemsA] = useState([]);
 
   useEffect(() => {
     setItems(photos);
+    console.log(attachments);
   }, [photos]);
+
+  useEffect(() => {
+    setItemsA(attachments);
+    console.log(attachments);
+  }, [attachments]);
 
   return (
     <Reorder.Group
@@ -44,13 +45,18 @@ const PhotosList = ({ photos }) => {
                   event.stopPropagation();
                   const updatedItems = items.filter((i) => i !== item);
                   setItems(updatedItems);
+                  const updatedItemsA = itemsA.filter((i) => i !== item);
+                  setItemsA(updatedItemsA);
                 }}
                 initial={false}
                 animate={{ backgroundColor: "#e3e3e3" }}
-                className="kelly"
+                className="x"
               >
                 <X />
               </motion.button>
+              <div key={idx} className="photo-name">
+                {attachments[idx]}
+              </div>
             </Reorder.Item>
           );
         })}

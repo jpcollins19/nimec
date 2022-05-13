@@ -1,6 +1,5 @@
 ////contact us
 //css work
-//make toaster notification say the users name
 //add the title of the file to the photo info when you choose a file to upload
 //work on error handling
 //figure out how to add an attachment to the email that is sent
