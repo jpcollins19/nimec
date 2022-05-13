@@ -20,19 +20,6 @@ const Contact_Us_Page = () => {
   const notify = () =>
     toast("Your information has been sent to a NIMEC representative.");
 
-  // const emailContent1 = {
-  //   firstName,
-  //   lastName,
-  //   email,
-  //   message,
-  //   photos,
-  //   recipientEmail: "jpatcollins@gmail.com",
-  // };
-
-  // useEffect(() => {
-  //   console.log(emailContent1);
-  // }, [emailContent1]);
-
   const onSubmit = async (evt) => {
     evt.preventDefault();
 
@@ -53,6 +40,7 @@ const Contact_Us_Page = () => {
       setMessage("");
       setPhotos([]);
       notify();
+      evt.target.reset();
     } catch (err) {
       console.log(err);
     }

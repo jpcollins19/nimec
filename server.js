@@ -1,17 +1,18 @@
 ////contact us
-//need to figure out the sendgrid stuff - start from scratch with registiring a new api key
-//ability to add a pdf or jpg file too
-//add the title of the file to the photo info when you choose a file to upload
+//css work
 //make toaster notification say the users name
-//after you send a message - the app adds querystringparams to the url
+//add the title of the file to the photo info when you choose a file to upload
 //work on error handling
+//figure out how to add an attachment to the email that is sent
+//test error handling with an attachment that is too large?
+//ability to add a pdf or jpg file too
 //css work
 
 ////savings comparison
 //chart model/api - need to add instance info for more charts
 //waiting on hoov, but this page will house the comed/nicor/poppa hoov charts
 
-////who we are - might not be needed
+////who we are - might not be needed - waiting on hoov
 
 ////about us
 //EE model and api
@@ -26,6 +27,9 @@
 
 ////membership
 //need css work
+
+////contact us email receipt viewing
+//css work via sendGrid's template on their website
 
 //login page is last
 
