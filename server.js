@@ -1,16 +1,15 @@
 ////contact us
-//working on getting the name of the photo into an obj that has the url - see photoList.js file
-//css work
-//add the title of the file to the photo info when you choose a file to upload
+//css work - what is looks like after you add a file - what if there are 20+ file added, overflow: auto
+//clean up the contactUs.js file
+//see if you can make the contactUs.js file clearner by adding more .js files
 //work on error handling
-//figure out how to add an attachment to the email that is sent
-//test error handling with an attachment that is too large?
-//ability to add a pdf or jpg file too
+//sendgrid - try and remove the unsubscribe from the bottom of the email
+//ability to add a png or jpg file too
 //css work
 
 ////savings comparison
-//chart model/api - need to add instance info for more charts
 //waiting on hoov, but this page will house the comed/nicor/poppa hoov charts
+//chart model/api - need to add instance info for more charts
 
 ////who we are - might not be needed - waiting on hoov
 
@@ -37,6 +36,10 @@ const express = require("express");
 const app = express();
 const syncAndSeed = require("./server/script/seed");
 const path = require("path");
+
+const bodyParser = require("body-parser");
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 
 app.use(express.json());
 

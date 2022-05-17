@@ -5,7 +5,9 @@ import { sendMessage } from "../../store";
 import toast, { Toaster } from "react-hot-toast";
 import PhotosList from "./PhotosList";
 import Alert from "@mui/material/Alert";
-import FileUpload from "@mui/icons-material/FileUpload";
+import FileUploadImg from "@mui/icons-material/FileUpload";
+import { getFiles, uploadFile } from "../../store";
+import FileUpload from "./FileUpload";
 import "./Contact_Us.css";
 
 const Contact_Us_Page = () => {
@@ -16,7 +18,8 @@ const Contact_Us_Page = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [photos, setPhotos] = useState([]);
-  const [photoNames, setPhotoNames] = useState([]);
+  const [files, setFiles] = useState([]);
+  const [names, setNames] = useState([]);
 
   const messageSent = () => {
     toast(
@@ -38,7 +41,8 @@ const Contact_Us_Page = () => {
         lastName,
         email,
         message,
-        photos,
+        files,
+        names,
       };
 
       dispatch(sendMessage(emailContent));
@@ -48,6 +52,8 @@ const Contact_Us_Page = () => {
       setEmail("");
       setMessage("");
       setPhotos([]);
+      setFiles([]);
+      setNames([]);
       messageSent();
       evt.target.reset();
     } catch (err) {
@@ -69,6 +75,160 @@ const Contact_Us_Page = () => {
   //   const arrToObj = Object.fromEntries(filteredArr);
   //   return arrToObj;
   // };
+
+  const [fileName, setFileName] = useState("");
+  const [fileSize, setFileSize] = useState("");
+  const [fileSizeKB, setFileSizeKB] = useState("");
+  const [fileType, setFileType] = useState("");
+  const [src, setSrc] = useState("");
+
+  const clearFileUpload = () => {
+    setFileName("");
+    setFileSize("");
+    setFileType("");
+    setSrc("");
+    props.dataChanger("");
+  };
+
+  const onPickFile = (e) => {
+    e.preventDefault();
+    clearFileUpload();
+    document.getElementById(props?.name).click();
+  };
+
+  const formInitial = {
+    thumbImage: "",
+  };
+  const [formData, setFormData] = useState(formInitial);
+
+  const dataChangerThumbnail = (value) => {
+    setFormData({ ...formData, thumbImage: value });
+  };
+
+  const [baseImage, setBaseImage] = useState("");
+
+  const convertBase64 = (file) => {
+    // return new Promise((resolve, reject) => {
+    //   const fileReader = new FileReader();
+    //   fileReader.readAsDataURL(file);
+    //   fileReader.onload = () => {
+    //     resolve(fileReader.result);
+    //   };
+    //   fileReader.onerror = (error) => {
+    //     reject(error);
+    //   };
+    // });
+  };
+
+  const uploadImage = async (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+
+    // console.log(base64);
+  };
+
+  const [fileInfo, setFileInfo] = useState(null);
+
+  const fileToBase64 = (file, callback) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+      callback(null, reader.result);
+    };
+
+    reader.onerror = (err) => {
+      callback(error, null);
+    };
+  };
+
+  const fileChange = (e) => {
+    if (e.target.files < 1 || !e.target.validity.valid) {
+    }
+
+    fileToBase64(e.target.files[0], (err, result) => {
+      if (result) {
+        setFileInfo(result);
+      }
+    });
+  };
+
+  useEffect(() => {
+    console.log("files", files);
+  }, [files]);
+
+  useEffect(() => {
+    console.log("names", names);
+  }, [names]);
+
+  const nameConverter = () => {
+    files.forEach((file) => {
+      const fileReader = new FileReader();
+      fileReader.fileName = file.name;
+      fileReader.onload = (ev) => {
+        if (fileReader.readyState === 2) {
+          setNames((prevNames) => [...prevNames, ev.target.fileName]);
+        }
+      };
+
+      fileReader.readAsText(file);
+    });
+  };
+
+  const base64Converter = async (e) => {
+    // const files = e.target.files;
+    // for (let i = 0; i < files.length; i++) {
+    //   const file = files[i];
+    //   const fileReader = new FileReader();
+    //   fileReader.fileName = file.name;
+    //   fileReader.onload = (ev) => {
+    //     if (fileReader.readyState === 2) {
+    //       setFiles((prevFiles) => [...prevFiles, fileReader.result]);
+    //       // setFiles((prevFiles) =>
+    //       //   prevFiles.filter((word, idx) => {
+    //       //     return prevFiles.indexOf(word) === idx;
+    //       //   })
+    //       // );
+    //     }
+    //   };
+    //   fileReader.readAsDataURL(file);
+    // }
+    // setTimeout(() => {
+    //   nameConverter();
+    // }, 500);
+  };
+
+  const onChange = (e) => {
+    const files = e.target.files;
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const fileReader = new FileReader();
+      fileReader.fileName = file.name;
+      fileReader.onload = (ev) => {
+        if (fileReader.readyState === 2) {
+          setFiles((prevFiles) => [...prevFiles, fileReader.result]);
+          // setFiles((prevFiles) =>
+          //   prevFiles.filter((word, idx) => {
+          //     return prevFiles.indexOf(word) === idx;
+          //   })
+          // );
+        }
+      };
+      fileReader.readAsDataURL(file);
+    }
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const fileReader = new FileReader();
+      fileReader.fileName = file.name;
+      fileReader.onload = (ev) => {
+        if (fileReader.readyState === 2) {
+          setNames((prevNames) => [...prevNames, ev.target.fileName]);
+        }
+      };
+
+      fileReader.readAsText(file);
+    }
+  };
 
   return (
     <Box
@@ -130,11 +290,26 @@ const Contact_Us_Page = () => {
               onChange={(ev) => setMessage(ev.target.value)}
             ></textarea>
           </li>
-          <li className="photos">
-            <label htmlFor="photo">
+          <li className="files">
+            <input
+              type="file"
+              accept="application/pdf"
+              multiple
+              onChange={onChange}
+            />
+            <div>
+              {files.length === 0 ? (
+                <div>
+                  Drag your files here or click in this area to select to file
+                </div>
+              ) : (
+                files.map((file, idx) => <div key={idx}>{names[idx]}</div>)
+              )}
+            </div>
+            {/* <label htmlFor="photo">
               <span>
                 Upload Files
-                <FileUpload className="fileUploadIcon" />
+                <FileUploadImg className="fileUploadIcon" />
               </span>
               <input
                 name="photos"
@@ -187,12 +362,12 @@ const Contact_Us_Page = () => {
                   }
                 }}
               />
-            </label>
+            </label> */}
           </li>
-          <PhotosList photos={photos} photoNames={photoNames} />
+          {/* <PhotosList photos={photos} photoNames={photoNames} /> */}
           <div className="submit-cont">
             <div>
-              <button>Submit</button>
+              <button disabled={firstName.length === 0}>Submit</button>
               <Toaster
                 toastOptions={{
                   className: "toaster-submit-confirmation",

@@ -48,13 +48,8 @@ select {
 }
 
 .form-style-1 input[type="text"]:focus,
-.form-style-1 input[type="date"]:focus,
-.form-style-1 input[type="datetime"]:focus,
-.form-style-1 input[type="number"]:focus,
-.form-style-1 input[type="search"]:focus,
-.form-style-1 input[type="time"]:focus,
-.form-style-1 input[type="url"]:focus,
 .form-style-1 input[type="email"]:focus,
+.form-style-1 input[type="file"]:focus,
 .form-style-1 textarea:focus,
 .form-style-1 select:focus {
   -moz-box-shadow: 0 0 8px #88d5e9;
@@ -101,22 +96,79 @@ select {
   color: red;
 }
 
-.photos {
+.files {
+  overflow: auto;
   border: solid 2px red;
   /* my-5 rounded-lg border-dashed border-grey3 border-2 text-center p-10 */
 }
+/* 
+input[type="file"] {
+  display: none;
+} */
 
-.fileUploadIcon {
+.files > input {
+  color: transparent;
+  cursor: pointer;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 58vw;
+  height: 35vh;
   border: solid 2px blue;
-  /* inline-block w-5 h-5 */
 }
 
-.photoInput {
+::-webkit-file-upload-button {
+  display: none;
+}
+
+.files > div {
+  text-align: center;
+  width: 58vw;
+  height: 35vh;
+  color: black;
+  font-family: Arial;
+  margin: 0;
+  border: solid 2px green;
+}
+
+.files > div > div {
+  border: solid 2px red;
+}
+
+.submit-cont {
+  display: flex;
+  align-items: center;
+  border: solid 2px green;
+}
+
+.toaster-submit-confirmation {
+  text-align: center;
+  padding: 1rem 0rem 1rem 0rem;
+  margin-left: 17.2%;
+  min-width: 30rem;
+  font-weight: bold;
+}
+
+.error-cont {
+  border: solid 2px purple;
+}
+
+/*//////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////*/
+
+/* .fileUploadIcon {
+  border: solid 2px blue;
+  inline-block w-5 h-5
+} */
+
+/* .photoInput {
   border: solid 2px orange;
-  /* border-2 border-yellow-400 absolute inset-y-0 inset-x-0 z-20 left-0 opacity-0 cursor-pointer */
-}
+  border-2 border-yellow-400 absolute inset-y-0 inset-x-0 z-20 left-0 opacity-0 cursor-pointer
+} */
 
-.photoList-cont {
+/* .photoList-cont {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -169,20 +221,4 @@ select {
   opacity: 0.7;
 }
 
-.submit-cont {
-  display: flex;
-  align-items: center;
-  border: solid 2px green;
-}
-
-.toaster-submit-confirmation {
-  text-align: center;
-  padding: 1rem 0rem 1rem 0rem;
-  margin-left: 17.2%;
-  min-width: 30rem;
-  font-weight: bold;
-}
-
-.error-cont {
-  border: solid 2px purple;
-}
+ */

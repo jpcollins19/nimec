@@ -3,7 +3,24 @@ const app = require("express").Router();
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 const sendEmail = async (incomingMsg) => {
-  const { firstName, lastName, email, message, photos } = incomingMsg;
+  const { firstName, lastName, email, message, files, names } = incomingMsg;
+
+  const attachmentsToSend = files.reduce((a, file, idx) => {
+    const dataPDF = file.split(",")[1];
+
+    const obj = {
+      content: dataPDF,
+      filename: names[idx],
+      type: "application/pdf",
+      disposition: "attachment",
+      contentId: "myText",
+    };
+
+    a.push(obj);
+
+    return a;
+  }, []);
+
   const finalMessage = {
     to: process.env.SENDGRID_TO_ADDRESS,
     from: process.env.SENDGRID_FROM_ADDRESS,
@@ -14,9 +31,8 @@ const sendEmail = async (incomingMsg) => {
       email,
       message,
     },
+    attachments: attachmentsToSend,
   };
-
-  console.log("nugget", finalMessage);
 
   await sendgrid
     .send(finalMessage)
@@ -24,7 +40,7 @@ const sendEmail = async (incomingMsg) => {
       console.log("Email sent");
     })
     .catch((error) => {
-      console.error(error);
+      console.error(error.response.body);
     });
 };
 
