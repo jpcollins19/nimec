@@ -1,11 +1,10 @@
 ////contact us
-//css work - what is looks like after you add a file - what if there are 20+ file added, overflow: auto
-//clean up the contactUs.js file
-//see if you can make the contactUs.js file clearner by adding more .js files
 //work on error handling
+//need to figure out how to have the delete button not submit the entire form
 //sendgrid - try and remove the unsubscribe from the bottom of the email
 //ability to add a png or jpg file too
-//css work
+//disable the submit button until all required fields are completed
+//other random css work?
 
 ////savings comparison
 //waiting on hoov, but this page will house the comed/nicor/poppa hoov charts
@@ -18,7 +17,7 @@
 
 ////FAQ
 //need a model and api
-//add an order instance? look at how julie did the amenities stuff in the roomer app
+//add an order instance? look at how julie did the amenities and/or photo stuff in the roomer app
 //need to control where each FAQ is listed on the web page
 
 ////our services

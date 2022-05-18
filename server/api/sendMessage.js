@@ -34,6 +34,8 @@ const sendEmail = async (incomingMsg) => {
     attachments: attachmentsToSend,
   };
 
+  console.log("nugget", finalMessage);
+
   await sendgrid
     .send(finalMessage)
     .then(() => {

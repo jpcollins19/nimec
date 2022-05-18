@@ -111,8 +111,8 @@ input[type="file"] {
   position: absolute;
   margin: 0;
   padding: 0;
-  max-width: 56vw;
-  min-width: 56vw;
+  max-width: 50vw;
+  min-width: 50vw;
   height: 35vh;
   border: solid 2px blue;
 }
@@ -145,6 +145,10 @@ input[type="file"] {
 .fileName-cont {
   display: flex;
   flex: 1;
+}
+
+.clear {
+  cursor: pointer;
 }
 
 .submit-cont {
