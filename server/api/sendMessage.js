@@ -3,14 +3,14 @@ const app = require("express").Router();
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 const sendEmail = async (incomingMsg) => {
-  const { firstName, lastName, email, message, files, names } = incomingMsg;
+  const { firstName, lastName, email, message, attachments } = incomingMsg;
 
-  const attachmentsToSend = files.reduce((a, file, idx) => {
-    const dataPDF = file.split(",")[1];
+  const attachmentsToSend = attachments.reduce((a, attachment, idx) => {
+    const content = attachment.url.split(",")[1];
 
     const obj = {
-      content: dataPDF,
-      filename: names[idx],
+      content,
+      filename: attachment.name,
       type: "application/pdf",
       disposition: "attachment",
       contentId: "myText",

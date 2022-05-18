@@ -18,7 +18,7 @@ const Contact_Us_Page = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [photos, setPhotos] = useState([]);
-  const [files, setFiles] = useState([]);
+  const [attachments, setAttachments] = useState([]);
   const [names, setNames] = useState([]);
 
   const messageSent = () => {
@@ -41,8 +41,7 @@ const Contact_Us_Page = () => {
         lastName,
         email,
         message,
-        files,
-        names,
+        attachments,
       };
 
       dispatch(sendMessage(emailContent));
@@ -52,8 +51,8 @@ const Contact_Us_Page = () => {
       setEmail("");
       setMessage("");
       setPhotos([]);
-      setFiles([]);
-      setNames([]);
+      setAttachments([]);
+      //clear namesArr with func
       messageSent();
       evt.target.reset();
     } catch (err) {
@@ -153,13 +152,15 @@ const Contact_Us_Page = () => {
     });
   };
 
-  useEffect(() => {
-    console.log("files", files);
-  }, [files]);
+  const namesArr = [];
 
   useEffect(() => {
-    console.log("names", names);
-  }, [names]);
+    console.log("attachments", attachments);
+  }, [attachments]);
+
+  useEffect(() => {
+    console.log("namesArr", namesArr);
+  }, [namesArr]);
 
   const nameConverter = () => {
     files.forEach((file) => {
@@ -198,6 +199,16 @@ const Contact_Us_Page = () => {
     // }, 500);
   };
 
+  const applyFileName = (idx, name) => {
+    for (let i = 0; i < files.length; i++) {
+      if (i === idx) {
+        files[i].name = name;
+      }
+    }
+
+    return setFiles(files);
+  };
+
   const onChange = (e) => {
     const files = e.target.files;
     for (let i = 0; i < files.length; i++) {
@@ -206,7 +217,100 @@ const Contact_Us_Page = () => {
       fileReader.fileName = file.name;
       fileReader.onload = (ev) => {
         if (fileReader.readyState === 2) {
-          setFiles((prevFiles) => [...prevFiles, fileReader.result]);
+          namesArr.push(ev.target.fileName);
+        }
+      };
+
+      fileReader.readAsText(file);
+    }
+
+    // for (let i = 0; i < files.length; i++) {
+    //   const file = files[i];
+    //   const fileReader = new FileReader();
+    //   fileReader.fileName = file.name;
+    //   fileReader.onload = (ev) => {
+    //     if (fileReader.readyState === 2) {
+    //       console.log("attachment state is running", namesArr);
+    //       setAttachments((prevAttachments) => [
+    //         ...prevAttachments,
+    //         { url: fileReader.result, name: namesArr[i] },
+    //       ]);
+    //       // setFiles((prevFiles) =>
+    //       //   prevFiles.filter((word, idx) => {
+    //       //     return prevFiles.indexOf(word) === idx;
+    //       //   })
+    //       // );
+    //     }
+    //   };
+    //   fileReader.readAsDataURL(file);
+    // }
+
+    setTimeout(() => {
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const fileReader = new FileReader();
+        fileReader.fileName = file.name;
+        fileReader.onload = (ev) => {
+          if (fileReader.readyState === 2) {
+            console.log("attachment state is running", namesArr);
+            setAttachments((prevAttachments) => [
+              ...prevAttachments,
+              { url: fileReader.result, name: namesArr[i] },
+            ]);
+            // setFiles((prevFiles) =>
+            //   prevFiles.filter((word, idx) => {
+            //     return prevFiles.indexOf(word) === idx;
+            //   })
+            // );
+          }
+        };
+        fileReader.readAsDataURL(file);
+      }
+    }, 500);
+
+    // for (let i = 0; i < files.length; i++) {
+    //   const file = files[i];
+    //   const fileReader = new FileReader();
+    //   fileReader.fileName = file.name;
+    //   fileReader.onload = (ev) => {
+    //     if (fileReader.readyState === 2) {
+    //       setFiles((prevFiles) => [...prevFiles, fileReader.result]);
+    //       // setFiles((prevFiles) =>
+    //       //   prevFiles.filter((word, idx) => {
+    //       //     return prevFiles.indexOf(word) === idx;
+    //       //   })
+    //       // );
+    //     }
+    //   };
+    //   fileReader.readAsDataURL(file);
+    // }
+    // for (let i = 0; i < files.length; i++) {
+    //   const file = files[i];
+    //   const fileReader = new FileReader();
+    //   fileReader.fileName = file.name;
+    //   fileReader.onload = (ev) => {
+    //     if (fileReader.readyState === 2) {
+    //       setNames((prevNames) => [...prevNames, ev.target.fileName]);
+    //     }
+    //   };
+
+    //   fileReader.readAsText(file);
+    // }
+  };
+
+  const onChangeA = (e) => {
+    const files = e.target.files;
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const fileReader = new FileReader();
+      fileReader.fileName = file.name;
+      fileReader.onload = (ev) => {
+        if (fileReader.readyState === 2) {
+          console.log("attachment state is running", namesArr);
+          setAttachments((prevAttachments) => [
+            ...prevAttachments,
+            { url: fileReader.result, name: namesArr[i] },
+          ]);
           // setFiles((prevFiles) =>
           //   prevFiles.filter((word, idx) => {
           //     return prevFiles.indexOf(word) === idx;
@@ -215,18 +319,6 @@ const Contact_Us_Page = () => {
         }
       };
       fileReader.readAsDataURL(file);
-    }
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      const fileReader = new FileReader();
-      fileReader.fileName = file.name;
-      fileReader.onload = (ev) => {
-        if (fileReader.readyState === 2) {
-          setNames((prevNames) => [...prevNames, ev.target.fileName]);
-        }
-      };
-
-      fileReader.readAsText(file);
     }
   };
 
@@ -298,13 +390,9 @@ const Contact_Us_Page = () => {
               onChange={onChange}
             />
             <div>
-              {files.length === 0 ? (
-                <div>
-                  Drag your files here or click in this area to select to file
-                </div>
-              ) : (
-                files.map((file, idx) => <div key={idx}>{names[idx]}</div>)
-              )}
+              <div>
+                Drag your files here or click in this area to select to file
+              </div>
             </div>
             {/* <label htmlFor="photo">
               <span>
