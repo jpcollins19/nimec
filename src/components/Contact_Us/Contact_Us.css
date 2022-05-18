@@ -15,6 +15,8 @@
   display: block;
   list-style: none;
   margin: 10px 0 0 0;
+  max-width: 57vw;
+  min-width: 57vw;
 }
 
 .form-style-1 label {
@@ -25,13 +27,6 @@
 }
 
 .form-style-1 input[type="text"],
-.form-style-1 input[type="date"],
-.form-style-1 input[type="datetime"],
-.form-style-1 input[type="number"],
-.form-style-1 input[type="search"],
-.form-style-1 input[type="time"],
-.form-style-1 input[type="url"],
-.form-style-1 input[type="email"],
 textarea,
 select {
   box-sizing: border-box;
@@ -48,7 +43,6 @@ select {
 }
 
 .form-style-1 input[type="text"]:focus,
-.form-style-1 input[type="email"]:focus,
 .form-style-1 input[type="file"]:focus,
 .form-style-1 textarea:focus,
 .form-style-1 select:focus {
@@ -96,34 +90,37 @@ select {
   color: red;
 }
 
-.files {
-  overflow: auto;
-  border: solid 2px red;
-  /* my-5 rounded-lg border-dashed border-grey3 border-2 text-center p-10 */
+::-webkit-file-upload-button {
+  /* cursor: pointer; */
+  display: none;
 }
+
 /* 
 input[type="file"] {
   display: none;
 } */
 
-.files > input {
+.attachments {
+  overflow: auto;
+  border: solid 2px red;
+}
+
+.attachments > input {
   color: transparent;
   cursor: pointer;
   position: absolute;
   margin: 0;
   padding: 0;
-  width: 58vw;
+  max-width: 56vw;
+  min-width: 56vw;
   height: 35vh;
   border: solid 2px blue;
 }
 
-::-webkit-file-upload-button {
-  display: none;
-}
-
-.files > div {
+.attachments > div {
   text-align: center;
-  width: 58vw;
+  max-width: 56vw;
+  min-width: 56vw;
   height: 35vh;
   color: black;
   font-family: Arial;
@@ -131,8 +128,23 @@ input[type="file"] {
   border: solid 2px green;
 }
 
-.files > div > div {
-  border: solid 2px red;
+.attachments > div > div {
+  max-width: 56vw;
+  min-width: 56vw;
+  border: solid 2px green;
+}
+
+.attachment-single-cont {
+  display: flex;
+}
+
+.attachment-single-cont > div {
+  border: solid 2px blue;
+}
+
+.fileName-cont {
+  display: flex;
+  flex: 1;
 }
 
 .submit-cont {
@@ -152,73 +164,3 @@ input[type="file"] {
 .error-cont {
   border: solid 2px purple;
 }
-
-/*//////////////////////////////////////////////////*/
-/*//////////////////////////////////////////////////*/
-/*//////////////////////////////////////////////////*/
-/*//////////////////////////////////////////////////*/
-
-/* .fileUploadIcon {
-  border: solid 2px blue;
-  inline-block w-5 h-5
-} */
-
-/* .photoInput {
-  border: solid 2px orange;
-  border-2 border-yellow-400 absolute inset-y-0 inset-x-0 z-20 left-0 opacity-0 cursor-pointer
-} */
-
-/* .photoList-cont {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  border: solid 2px pink;
-}
-
-.single-photo-cont {
-  display: flex;
-  justify-content: center;
-  min-height: 200px;
-  max-height: 200px;
-  max-width: 200px;
-  min-width: 200px;
-  position: relative;
-  background-repeat: no-repeat;
-  background: center;
-  background-size: cover;
-  overflow: auto;
-  border-radius: 0.6rem;
-  border: solid 1px black;
-}
-
-.x {
-  position: absolute;
-  right: 0;
-  border-radius: 0.5rem;
-  border: none;
-}
-
-.photo-name {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  position: absolute;
-  bottom: 0;
-  border-bottom-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
-  max-width: 197px;
-  min-width: 197px;
-  min-height: 40px;
-  max-height: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  padding-left: 0.3rem;
-  background-color: rgb(235, 226, 226);
-}
-
-.photo-name:hover {
-  opacity: 0.7;
-}
-
- */
