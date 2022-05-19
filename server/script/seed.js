@@ -1,6 +1,6 @@
 const {
   db,
-  models: { User, Client, Reference, Service },
+  models: { User, Client, Reference, Service, EE },
 } = require("../db/index.js");
 
 const users = [{ email: "ahoover@nimec.net", password: "lincoln" }];
@@ -406,6 +406,40 @@ const services = [
   },
 ];
 
+const EEs = [
+  {
+    name: "David Hoover",
+    photo: "https://i.ytimg.com/vi/k_uZeCymShQ/maxresdefault.jpg",
+    title: "Boss",
+    email: "david@gmail.com",
+    phone: "555-555-5555",
+    synopsis: `David is NIMEC's Founder and Executive Director. He has consulted in the energy industry since 1992, having owned and managed Glenview Consulting Group through 2006. Glenview provided utility consulting services to 200 corporate and municipal clients. David formed NIMEC in 2006 to help his municipal clients take advantage of the savings opportunities presented through Illinois utility deregulation.  
+      
+      David holds an MBA from Arizona State University and graduated cum laude with concentration in Business from the University of Colorado.`,
+    order: 1,
+  },
+  {
+    name: "Adam Hoover",
+    photo: "https://i.ytimg.com/vi/k_uZeCymShQ/maxresdefault.jpg",
+    title: "Office Bitch",
+    email: "adam@gmail.com",
+    phone: "555-555-5555",
+    synopsis: `Adam is a Director of Strategic Accounts at NIMEC. He has implemented municipal aggregation deals, Community Solar opportunities, as well as fixed rates with power and natural gas for Fire Districts, Park Districts, schools, and churches. 
+    
+    Previously Adam was a teacher in Chicago Public Schools for 10 years, as well as a head basketball coach for eight years. He graduated from Taylor University, and got his Masters from Concordia in California. He is an avid Chicago sports fan, and enjoys time with his wife Karen, and 2 yr old dog, Lincoln.`,
+    order: 2,
+  },
+  {
+    name: "Dad Chad",
+    photo: "https://i.ytimg.com/vi/k_uZeCymShQ/maxresdefault.jpg",
+    title: "CEO",
+    email: "chad@gmail.com",
+    phone: "555-555-5555",
+    synopsis: `Chad enjoys long walks on the beach1`,
+    order: 3,
+  },
+];
+
 const syncAndSeed = async () => {
   await db.sync({ force: true });
   /////////////////////////////////////////////////////////////
@@ -620,6 +654,20 @@ const syncAndSeed = async () => {
         title: service.title,
         synopsis: service.synopsis,
         newsletter: service.newsletter,
+      })
+    )
+  );
+
+  const [David, Adam, Chad] = await Promise.all(
+    EEs.map((ee) =>
+      EE.create({
+        name: ee.name,
+        photo: ee.photo,
+        title: ee.title,
+        email: ee.email,
+        phone: ee.phone,
+        synopsis: ee.synopsis,
+        order: ee.order,
       })
     )
   );

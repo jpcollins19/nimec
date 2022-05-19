@@ -42,6 +42,7 @@ app.use("/dist", express.static(path.join(__dirname, "dist")));
 
 app.use("/public/pics", express.static(path.join(__dirname, "public/pics")));
 
+app.use("/", require("./server/api/ees.js"));
 app.use("/", require("./server/api/attachments.js"));
 app.use("/", require("./server/api/sendMessage.js"));
 app.use("/", require("./server/api/services.js"));

@@ -1,0 +1,48 @@
+.about-us-page {
+  border: solid 3px red;
+  overflow: auto;
+}
+
+.single-ee-cont {
+  display: flex;
+  min-width: 70%;
+  max-width: 70%;
+  margin: 2% 0% 2% 0%;
+  border: solid 3px blue;
+}
+
+.general-info-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  border: solid 3px green;
+}
+
+.photo {
+  grid-row: span 2;
+  grid-column: span 2;
+  width: 20vw;
+  height: 38vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border-radius: 60rem;
+}
+
+.general-info-cont > h2 {
+  margin: 0;
+}
+
+.phone-email {
+  display: flex;
+}
+
+.phone-email > h4 {
+  margin: 0;
+}
+
+.about-me-cont {
+  border: solid 3px purple;
+}

@@ -1,4 +1,5 @@
 .our-services-page {
+  overflow: auto;
   border: solid 2px red;
 }
 

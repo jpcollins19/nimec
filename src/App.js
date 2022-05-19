@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { HashRouter as Router, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { loadClients, loadServices, loadAttachments } from "./store";
+import { loadClients, loadServices, loadAttachments, loadEEs } from "./store";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Navbar from "./components/Navbar/Navbar";
@@ -15,6 +15,7 @@ const App = () => {
     dispatch(loadClients());
     dispatch(loadServices());
     dispatch(loadAttachments());
+    dispatch(loadEEs());
   }, []);
 
   let theme = createTheme({
@@ -31,6 +32,18 @@ const App = () => {
         fontSize: 26,
         letterSpacing: 0.5,
       },
+      fontFamily: [
+        "-apple-system",
+        "BlinkMacSystemFont",
+        '"Segoe UI"',
+        "Roboto",
+        '"Helvetica Neue"',
+        "Arial",
+        "sans-serif",
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(","),
     },
     shape: {
       borderRadius: 8,
