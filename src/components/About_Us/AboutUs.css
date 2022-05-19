@@ -1,48 +1,78 @@
 .about-us-page {
-  border: solid 3px red;
+  cursor: default;
   overflow: auto;
+  padding-top: 3%;
+  background-color: rgb(244, 235, 224);
 }
 
 .single-ee-cont {
   display: flex;
   min-width: 70%;
   max-width: 70%;
+  min-height: 57%;
+  max-height: 57%;
   margin: 2% 0% 2% 0%;
-  border: solid 3px blue;
+  border: solid 3px black;
+  background-color: black;
 }
 
 .general-info-cont {
   display: flex;
   flex-direction: column;
+  flex: 0.3;
   justify-content: center;
   align-items: center;
   padding: 2%;
-  border: solid 3px green;
+  background-color: black;
 }
 
 .photo {
   grid-row: span 2;
   grid-column: span 2;
-  width: 20vw;
-  height: 38vh;
+  width: 22rem;
+  height: 23rem;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   border-radius: 60rem;
 }
 
+.general-info-cont > h1 {
+  color: rgb(230, 212, 212);
+}
+
 .general-info-cont > h2 {
   margin: 0;
+  color: rgb(230, 212, 212);
 }
 
 .phone-email {
   display: flex;
+  flex-direction: column;
 }
 
 .phone-email > h4 {
   margin: 0;
+  text-align: center;
+  color: rgb(230, 212, 212);
 }
 
 .about-me-cont {
-  border: solid 3px purple;
+  display: flex;
+  flex: 0.7;
+  flex-direction: column;
+  padding: 0% 2% 0% 2%;
+  background-color: rgb(239, 234, 234);
+}
+
+.about-me-cont > h1 {
+  margin-bottom: 0;
+}
+
+.about-me-cont > div {
+  overflow: auto;
+  font-size: 25px;
+  border-top: solid 2px rgb(174, 166, 166);
+  padding: 1% 0% 0% 0%;
+  white-space: pre-wrap;
 }

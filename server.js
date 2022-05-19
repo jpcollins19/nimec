@@ -1,4 +1,6 @@
 ////about us
+//audit css for % for everything
+//overflow on the about me cont
 //EE model and api
 
 ////contact us
@@ -15,6 +17,8 @@
 //need a model and api
 //add an order instance? look at how julie did the amenities and/or photo stuff in the roomer app
 //need to control where each FAQ is listed on the web page
+
+//add web sockets
 
 ////our services
 //need css work

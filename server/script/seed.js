@@ -413,9 +413,8 @@ const EEs = [
     title: "Boss",
     email: "david@gmail.com",
     phone: "555-555-5555",
-    synopsis: `David is NIMEC's Founder and Executive Director. He has consulted in the energy industry since 1992, having owned and managed Glenview Consulting Group through 2006. Glenview provided utility consulting services to 200 corporate and municipal clients. David formed NIMEC in 2006 to help his municipal clients take advantage of the savings opportunities presented through Illinois utility deregulation.  
-      
-      David holds an MBA from Arizona State University and graduated cum laude with concentration in Business from the University of Colorado.`,
+    synopsis:
+      "David is NIMEC's Founder and Executive Director. He has consulted in the energy industry since 1992, having owned and managed Glenview Consulting Group through 2006. Glenview provided utility consulting services to 200 corporate and municipal clients. David formed NIMEC in 2006 to help his municipal clients take advantage of the savings opportunities presented through Illinois utility deregulation.\n\nDavid holds an MBA from Arizona State University and graduated cum laude with concentration in Business from the University of Colorado.",
     order: 1,
   },
   {
@@ -424,9 +423,7 @@ const EEs = [
     title: "Office Bitch",
     email: "adam@gmail.com",
     phone: "555-555-5555",
-    synopsis: `Adam is a Director of Strategic Accounts at NIMEC. He has implemented municipal aggregation deals, Community Solar opportunities, as well as fixed rates with power and natural gas for Fire Districts, Park Districts, schools, and churches. 
-    
-    Previously Adam was a teacher in Chicago Public Schools for 10 years, as well as a head basketball coach for eight years. He graduated from Taylor University, and got his Masters from Concordia in California. He is an avid Chicago sports fan, and enjoys time with his wife Karen, and 2 yr old dog, Lincoln.`,
+    synopsis: `Adam is a Director of Strategic Accounts at NIMEC. He has implemented municipal aggregation deals, Community Solar opportunities, as well as fixed rates with power and natural gas for Fire Districts, Park Districts, schools, and churches.\n\nPreviously Adam was a teacher in Chicago Public Schools for 10 years, as well as a head basketball coach for eight years. He graduated from Taylor University, and got his Masters from Concordia in California. He is an avid Chicago sports fan, and enjoys time with his wife Karen, and 2 yr old dog, Lincoln.`,
     order: 2,
   },
   {

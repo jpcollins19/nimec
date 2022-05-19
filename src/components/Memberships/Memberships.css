@@ -1,6 +1,6 @@
 .membs-page {
   overflow: auto;
-  border: solid 2px red;
+  background-color: rgb(246, 244, 241);
 }
 
 .selected-org-header {

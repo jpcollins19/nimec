@@ -33,6 +33,7 @@ const AboutUs_Page = () => {
               </div>
             </div>
             <div className="about-me-cont">
+              <h1>About {ee.name.split(" ")[0]}</h1>
               <div>{ee.synopsis}</div>
             </div>
           </div>
