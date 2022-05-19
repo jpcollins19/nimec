@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { sendMessage } from "../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { sendMessage, addAttachment, deleteAttachment } from "../../store";
 import Input_Cont from "./Input_Cont";
 import toast, { Toaster } from "react-hot-toast";
 import Alert from "@mui/material/Alert";
@@ -14,36 +14,12 @@ const Contact_Us_Page = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [attachments, setAttachments] = useState([]);
-  const [files, setFiles] = useState([]);
-  const [updateNeeded, setUpdateNeeded] = useState(false);
   const [error, setError] = useState("");
 
-  const idsUsed = [];
-
-  // useEffect(() => {
-  //   id = 0;
-  // });
+  const attachments = useSelector((state) => state.attachments);
 
   useEffect(() => {
-    let targetAttachments = attachments.map((attachment) => {
-      const name = files.find((file) => file.id === attachment.id);
-      console.log("name", name);
-      // attachment.name = name;
-      return attachment;
-    });
-    console.log("targetatt", targetAttachments);
-    console.log("files", files);
-
-    attachments.every(
-      (attachment) => attachment.name !== null && setUpdateNeeded(true)
-    );
-
-    if (updateNeeded) {
-      setAttachments([]);
-      setAttachments(targetAttachments);
-      setUpdateNeeded(false);
-    }
+    console.log("attachments", attachments);
   }, [attachments]);
 
   const messageSent = () => {
@@ -57,16 +33,12 @@ const Contact_Us_Page = () => {
     );
   };
 
-  useEffect(() => {
-    console.log("error", error);
-  }, [error]);
-
-  // const clearArr = (arr) => {
-  //   while (arr.length) {
-  //     arr.pop();
-  //     return clearArr(arr);
-  //   }
-  // };
+  const clearArr = (arr) => {
+    while (arr.length) {
+      arr.pop();
+      return clearArr(arr);
+    }
+  };
 
   const onSubmit = async (evt) => {
     evt.preventDefault();
@@ -82,13 +54,15 @@ const Contact_Us_Page = () => {
 
       dispatch(sendMessage(emailContent));
 
+      attachments.forEach((attachment) =>
+        dispatch(deleteAttachment(attachment))
+      );
+
+      clearArr(attachments);
       setFirstName("");
       setLastName("");
       setEmail("");
       setMessage("");
-      setAttachments([]);
-      setFiles([]);
-      id = 0;
       messageSent();
       evt.target.reset();
     } catch (err) {
@@ -99,47 +73,55 @@ const Contact_Us_Page = () => {
   const onChange = (e) => {
     const fileInfo = e.target.files;
 
-    if (fileInfo.length + attachments.length > 10) {
-      setError("too many files");
-    } else {
-      for (let i = 0; i < fileInfo.length; i++) {
-        const file = fileInfo[i];
-        const fileReader = new FileReader();
-        fileReader.onload = (ev) => {
-          if (fileReader.readyState === 2) {
-            let id = i;
-            console.log("id", id);
-            console.log("idsUsed", idsUsed);
-            while (idsUsed.includes(id)) {
-              id++;
-            }
-            idsUsed.push(id);
-            console.log("idsUsed after push", idsUsed);
-            setAttachments((prevAttachments) => [
-              ...prevAttachments,
-              { id, url: fileReader.result, name: null },
-            ]);
-            setFiles((prevFiles) => [
-              ...prevFiles,
-              { id, file, url: fileReader.result },
-            ]);
-          }
-        };
-        fileReader.readAsDataURL(file);
-      }
+    for (let i = 0; i < fileInfo.length; i++) {
+      const file = fileInfo[i];
+      const fileReader = new FileReader();
+      fileReader.onload = (ev) => {
+        if (fileReader.readyState === 2) {
+          const name = file.name;
+          const url = ev.target.result;
+          dispatch(addAttachment({ name, url }));
+        }
+      };
+      fileReader.readAsDataURL(file);
     }
   };
 
-  const remove = (id) => {
-    let targetAttachments = attachments;
+  // const onChange = (e) => {
+  //   const fileInfo = e.target.files;
 
-    targetAttachments = targetAttachments.filter(
-      (attachment) => attachment.id !== id
-    );
+  //   for (let i = 0; i < fileInfo.length; i++) {
+  //     const file = fileInfo[i];
+  //     const fileReader = new FileReader();
+  //     fileReader.onload = (ev) => {
+  //       if (fileReader.readyState === 2) {
+  //         id++;
+  //         console.log("id", id);
+  //         setUpdatedId(id);
+  //         setAttachments((prevAttachments) => [
+  //           ...prevAttachments,
+  //           { id, url: fileReader.result, name: null },
+  //         ]);
+  //         setFiles((prevFiles) => [
+  //           ...prevFiles,
+  //           { id, file, url: fileReader.result },
+  //         ]);
+  //       }
+  //     };
+  //     fileReader.readAsDataURL(file);
+  //   }
+  // };
 
-    setAttachments([]);
-    setAttachments(targetAttachments);
-  };
+  // const remove = (id) => {
+  //   let targetAttachments = attachments;
+
+  //   targetAttachments = targetAttachments.filter(
+  //     (attachment) => attachment.id !== id
+  //   );
+
+  //   setAttachments([]);
+  //   setAttachments(targetAttachments);
+  // };
 
   return (
     <Box
@@ -167,16 +149,11 @@ const Contact_Us_Page = () => {
             onChange={onChange}
           />
           <div>
-            {attachments.length ? (
+            {attachments && attachments.length ? (
               attachments.map((attachment, idx) => (
                 <div key={idx} className="attachment-single-cont">
                   <div className="fileName-cont">{attachment.name}</div>
-                  <button
-                    className="clear"
-                    onClick={() => remove(attachment.id)}
-                  >
-                    X
-                  </button>
+                  <button className="clear">X</button>
                 </div>
               ))
             ) : (
