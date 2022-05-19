@@ -22,7 +22,7 @@ const Input_Cont = ({
         ></textarea>
       ) : (
         <input
-          type="text"
+          type={value === "Email" ? "email" : "text"}
           className="field-divided"
           placeholder={value}
           onChange={(ev) => set(ev.target.value)}

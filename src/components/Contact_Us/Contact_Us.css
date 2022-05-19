@@ -10,6 +10,18 @@
   border: solid 2px blue;
 }
 
+.form-style-1 > h4 {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0rem 0rem 0rem;
+}
+
+.form-style-1 > h5 {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
 .form-style-1 li {
   padding: 0;
   display: block;
@@ -27,6 +39,7 @@
 }
 
 .form-style-1 input[type="text"],
+input[type="email"],
 textarea,
 select {
   box-sizing: border-box;
@@ -43,6 +56,7 @@ select {
 }
 
 .form-style-1 input[type="text"]:focus,
+.form-style-1 input[type="email"]:focus,
 .form-style-1 input[type="file"]:focus,
 .form-style-1 textarea:focus,
 .form-style-1 select:focus {
@@ -54,6 +68,7 @@ select {
 
 .form-style-1 .field-divided {
   width: 49%;
+  height: 4%;
 }
 
 .form-style-1 .field-long {
@@ -64,26 +79,16 @@ select {
   width: 100%;
 }
 
+.form-style-1 input {
+  font-family: sans-serif;
+  font-size: 1rem;
+}
+
 .form-style-1 .field-textarea {
   font-family: sans-serif;
+  font-size: 1rem;
   height: 150px;
   max-width: 100%;
-}
-
-.form-style-1 input[type="submit"],
-.form-style-1 input[type="button"] {
-  background: #4b99ad;
-  padding: 8px 15px 8px 15px;
-  border: none;
-  color: #fff;
-}
-
-.form-style-1 input[type="submit"]:hover,
-.form-style-1 input[type="button"]:hover {
-  background: #4691a4;
-  box-shadow: none;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
 }
 
 .form-style-1 .required {
@@ -153,9 +158,19 @@ input[type="file"] {
 
 .submit-cont {
   display: flex;
+  justify-content: center;
   align-items: center;
   border: solid 2px green;
 }
+
+/* 
+.submit-cont > button {
+  background: rgb(204, 204, 197);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  height: 2rem;
+  width: 5rem;
+} */
 
 .toaster-submit-confirmation {
   text-align: center;
@@ -165,6 +180,110 @@ input[type="file"] {
   font-weight: bold;
 }
 
-.error-cont {
-  border: solid 2px purple;
+.submit-cont > button {
+  position: relative;
+  padding: 1em 1.8em;
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 15px;
+  overflow: hidden;
+  border-radius: 1rem;
+  font-weight: bold;
+  border: 1px solid #162c49;
+  background: #162c49;
+  color: rgb(0, 191, 255);
+  transition: 0.2s;
+  cursor: pointer;
 }
+
+.submit-cont > button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: default;
+  pointer-events: none;
+}
+
+.submit-cont > button:hover {
+  box-shadow: 0 0 10px rgb(0, 191, 255), 0 0 25px rgb(2, 166, 220),
+    0 0 50px #162c49;
+  transition-delay: 0.9s;
+}
+
+.submit-cont > button span {
+  position: absolute;
+}
+
+.submit-cont > button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(2, 166, 220));
+}
+
+.submit-cont > button:hover span:nth-child(1) {
+  left: 100%;
+  transition: 0.8s;
+}
+
+.submit-cont > button span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(2, 166, 220));
+}
+
+.submit-cont > button:hover span:nth-child(3) {
+  right: 100%;
+  transition: 0.8s;
+  transition-delay: 0.35s;
+}
+
+.submit-cont > button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgb(2, 166, 220));
+}
+
+.submit-cont > button:hover span:nth-child(2) {
+  top: 100%;
+  transition: 0.7s;
+  transition-delay: 0.15s;
+}
+
+.submit-cont > button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, rgb(2, 166, 220));
+}
+
+.submit-cont > button:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 0.7s;
+  transition-delay: 0.52s;
+}
+
+/* .submit-cont > button:active {
+  background: #ae00af;
+  background: linear-gradient(to top right, #ae00af, #001eff);
+  color: #bfbfbf;
+  box-shadow: 0 0 8px #ae00ff, 0 0 8px #001eff, 0 0 8px #ae00ff;
+  transition: 0.1s;
+} */
+
+/* .submit-cont
+  > button:active
+  span:nth-child(1)
+  span:nth-child(2)
+  span:nth-child(2)
+  span:nth-child(2) {
+  transition: none;
+  transition-delay: none;
+} */

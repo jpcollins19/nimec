@@ -1,10 +1,9 @@
 import Box from "@mui/material/Box";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendMessage, addAttachment, deleteAttachment } from "../../store";
 import Input_Cont from "./Input_Cont";
 import toast, { Toaster } from "react-hot-toast";
-import Alert from "@mui/material/Alert";
 import "./Contact_Us.css";
 
 const Contact_Us_Page = () => {
@@ -17,10 +16,6 @@ const Contact_Us_Page = () => {
   const [error, setError] = useState("");
 
   const attachments = useSelector((state) => state.attachments);
-
-  useEffect(() => {
-    console.log("attachments", attachments);
-  }, [attachments]);
 
   const messageSent = () => {
     toast(
@@ -87,42 +82,6 @@ const Contact_Us_Page = () => {
     }
   };
 
-  // const onChange = (e) => {
-  //   const fileInfo = e.target.files;
-
-  //   for (let i = 0; i < fileInfo.length; i++) {
-  //     const file = fileInfo[i];
-  //     const fileReader = new FileReader();
-  //     fileReader.onload = (ev) => {
-  //       if (fileReader.readyState === 2) {
-  //         id++;
-  //         console.log("id", id);
-  //         setUpdatedId(id);
-  //         setAttachments((prevAttachments) => [
-  //           ...prevAttachments,
-  //           { id, url: fileReader.result, name: null },
-  //         ]);
-  //         setFiles((prevFiles) => [
-  //           ...prevFiles,
-  //           { id, file, url: fileReader.result },
-  //         ]);
-  //       }
-  //     };
-  //     fileReader.readAsDataURL(file);
-  //   }
-  // };
-
-  // const remove = (id) => {
-  //   let targetAttachments = attachments;
-
-  //   targetAttachments = targetAttachments.filter(
-  //     (attachment) => attachment.id !== id
-  //   );
-
-  //   setAttachments([]);
-  //   setAttachments(targetAttachments);
-  // };
-
   return (
     <Box
       sx={{
@@ -140,7 +99,8 @@ const Contact_Us_Page = () => {
           <Input_Cont value={"Email"} setEmail={setEmail} />
           <Input_Cont value={"Message"} setMessage={setMessage} />
         </form>
-        <div>Drop files below, or click inside the box to choose a file</div>
+        <h4>Drop files below, or click inside the box to choose a file</h4>
+        <h5>**File(s) must be pdf**</h5>
         <li className="attachments">
           <input
             type="file"
@@ -153,37 +113,44 @@ const Contact_Us_Page = () => {
               attachments.map((attachment, idx) => (
                 <div key={idx} className="attachment-single-cont">
                   <div className="fileName-cont">{attachment.name}</div>
-                  <button className="clear">X</button>
+                  <button
+                    onClick={() => dispatch(deleteAttachment(attachment))}
+                    className="clear"
+                  >
+                    X
+                  </button>
                 </div>
               ))
             ) : (
-              <div className="drag-message">Drag files here</div>
+              <div className="drag-message">Drag pdf files here</div>
             )}
           </div>
         </li>
+
         <div className="submit-cont">
-          <div>
-            <button
-              form="my-form"
-              type="submit"
-              disabled={firstName.length === 0}
-            >
-              Submit
-            </button>
-            <Toaster
-              toastOptions={{
-                className: "toaster-submit-confirmation",
-              }}
-            />
-          </div>
-          <div className="error-cont">
-            <Alert severity="error" className="error-text">
-              Error Info goes here
-            </Alert>
-          </div>
+          <button
+            form="my-form"
+            type="submit"
+            disabled={
+              firstName.length === 0 ||
+              lastName.length === 0 ||
+              email.length === 0 ||
+              message.length === 0
+            }
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+          </button>
+          <Toaster
+            toastOptions={{
+              className: "toaster-submit-confirmation",
+            }}
+          />
         </div>
       </ul>
-      {/* </form> */}
     </Box>
   );
 };

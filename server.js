@@ -1,19 +1,15 @@
+////about us
+//EE model and api
+
 ////contact us
-//work on error handling
-//need to figure out how to have the delete button not submit the entire form
-//sendgrid - try and remove the unsubscribe from the bottom of the email
 //ability to add a png or jpg file too
-//disable the submit button until all required fields are completed
-//other random css work?
+//css work on drag/drop area
 
 ////savings comparison
 //waiting on hoov, but this page will house the comed/nicor/poppa hoov charts
 //chart model/api - need to add instance info for more charts
 
 ////who we are - might not be needed - waiting on hoov
-
-////about us
-//EE model and api
 
 ////FAQ
 //need a model and api

@@ -8,7 +8,7 @@ const { services } = require("./services_store");
 const { attachments } = require("./attachments_store");
 
 const reducer = combineReducers({ auth, clients, services, attachments });
-const middleware = applyMiddleware(thunk, logger);
+const middleware = applyMiddleware(thunk);
 const store = createStore(reducer, middleware);
 
 export default store;
