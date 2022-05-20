@@ -3,15 +3,20 @@ const app = require("express").Router();
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 const sendEmail = async (incomingMsg) => {
-  const { firstName, lastName, email, message, attachments } = incomingMsg;
+  const { firstName, lastName, email, number, message, attachments } =
+    incomingMsg;
 
   const attachmentsToSend = attachments.reduce((a, attachment, idx) => {
     const content = attachment.url.split(",")[1];
 
+    const split = attachment.name.split(".");
+
+    const type = `.${split[split.length - 1]}`;
+
     const obj = {
       content,
       filename: attachment.name,
-      type: "application/pdf",
+      type,
       disposition: "attachment",
       contentId: "myText",
     };
@@ -24,11 +29,12 @@ const sendEmail = async (incomingMsg) => {
   const finalMessage = {
     to: process.env.SENDGRID_TO_ADDRESS,
     from: process.env.SENDGRID_FROM_ADDRESS,
-    templateId: "d-2e2fa931c4b342b39b21c5d184b6ca79",
+    templateId: "d-aa4acc9d661c423ab5b95a9ff545f4e0",
     dynamicTemplateData: {
       firstName,
       lastName,
       email,
+      number,
       message,
     },
     attachments: attachmentsToSend,

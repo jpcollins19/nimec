@@ -12,8 +12,8 @@ const Contact_Us_Page = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
-  const [error, setError] = useState("");
 
   const attachments = useSelector((state) => state.attachments);
 
@@ -43,6 +43,7 @@ const Contact_Us_Page = () => {
         firstName,
         lastName,
         email,
+        number,
         message,
         attachments,
       };
@@ -57,6 +58,7 @@ const Contact_Us_Page = () => {
       setFirstName("");
       setLastName("");
       setEmail("");
+      setNumber("");
       setMessage("");
       messageSent();
       evt.target.reset();
@@ -94,17 +96,82 @@ const Contact_Us_Page = () => {
     >
       <ul className="form-style-1">
         <form id="my-form" onSubmit={onSubmit}>
-          <Input_Cont value={"First Name"} setFirstName={setFirstName} />
-          <Input_Cont value={"Last Name"} setLastName={setLastName} />
-          <Input_Cont value={"Email"} setEmail={setEmail} />
-          <Input_Cont value={"Message"} setMessage={setMessage} />
+          <div className="joint-cont">
+            <li className="joint-cont-li">
+              <label>
+                First Name <span className="required">*</span>
+              </label>
+              <input
+                type="text"
+                className="field-divided"
+                placeholder="First Name"
+                onChange={(ev) => setFirstName(ev.target.value)}
+              />
+            </li>
+            <li className="joint-cont-li">
+              <label>
+                Last Name <span className="required">*</span>
+              </label>
+              <input
+                type="text"
+                className="field-divided"
+                placeholder="Last Name"
+                onChange={(ev) => setLastName(ev.target.value)}
+              />
+            </li>
+          </div>
+          <div className="joint-cont">
+            <li className="joint-cont-li">
+              <label>
+                Email <span className="required">*</span>
+              </label>
+              <input
+                type="email"
+                className="field-divided"
+                placeholder="Email"
+                onChange={(ev) => setEmail(ev.target.value)}
+              />
+            </li>
+            <li className="joint-cont-li">
+              <label>Number</label>
+              <input
+                type="text"
+                className="field-divided"
+                placeholder="Number"
+                onChange={(ev) => setNumber(ev.target.value)}
+              />
+            </li>
+          </div>
+          <div className="message-cont">
+            <li className="message-file">
+              <label>
+                Message <span className="required">*</span>
+              </label>
+              <textarea
+                className="field-long field-textarea"
+                placeholder="Your Message"
+                onChange={(ev) => setMessage(ev.target.value)}
+              ></textarea>
+            </li>
+          </div>
+          {/* <div className="joint-cont">
+            <Input_Cont value={"First Name"} setFirstName={setFirstName} />
+            <Input_Cont value={"Last Name"} setLastName={setLastName} />
+          </div>
+          <div className="joint-cont">
+            <Input_Cont value={"Email"} setEmail={setEmail} />
+            <Input_Cont value={"Number"} setNumber={setNumber} />
+          </div>
+          <div className="message-cont">
+            <Input_Cont value={"Message"} setMessage={setMessage} />
+          </div> */}
         </form>
         <h4>Drop files below, or click inside the box to choose a file</h4>
         <h5>**File(s) must be pdf**</h5>
         <li className="attachments">
           <input
             type="file"
-            accept="application/pdf"
+            accept=".pdf, .png, .jpg"
             multiple
             onChange={onChange}
           />
@@ -122,7 +189,7 @@ const Contact_Us_Page = () => {
                 </div>
               ))
             ) : (
-              <div className="drag-message">Drag pdf files here</div>
+              <div>Drag pdf files here</div>
             )}
           </div>
         </li>

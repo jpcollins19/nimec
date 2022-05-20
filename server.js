@@ -1,10 +1,5 @@
-////about us
-//audit css for % for everything
-//overflow on the about me cont
-//EE model and api
-
 ////contact us
-//ability to add a png or jpg file too
+//make contact us page clearn by adding an input.js file
 //css work on drag/drop area
 
 ////savings comparison

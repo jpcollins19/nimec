@@ -3,6 +3,7 @@ const Input_Cont = ({
   setFirstName,
   setLastName,
   setEmail,
+  setNumber,
   setMessage,
 }) => {
   const regex = /\S/g;
@@ -10,9 +11,9 @@ const Input_Cont = ({
   const set = eval(`set${combined}`);
 
   return (
-    <li>
+    <li className={value !== "Message" ? "joint-cont-li" : "message-file"}>
       <label>
-        {value} <span className="required">*</span>
+        {value} {value !== "Number" && <span className="required">*</span>}
       </label>
       {value === "Message" ? (
         <textarea

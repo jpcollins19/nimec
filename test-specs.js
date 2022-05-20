@@ -1,14 +1,25 @@
 const { expect } = require("chai");
-// const { calcHand } = require("./src/store/funcs");
+const { func } = require("./src/store/funcs");
 
-// describe("sort func, no locking", () => {
-//   let test;
+describe("func finds file type", () => {
+  it("does pdf", () => {
+    const name = "2022 nDORFins Benefit Guide copy.pdf";
+    const audit = func(name);
 
-//   beforeEach(() => {
-//     test = ["test1", "test2"];
-//   });
+    expect(audit).to.equal(".pdf");
+  });
 
-//   it("does something", () => {
-//     expect(ranks[0]).to.equal(3);
-//   });
-// });
+  it("does png", () => {
+    const name = "Screen Shot 2022-05-20 at 12.24.48 PM.png";
+    const audit = func(name);
+    console.log("nugget", audit);
+    expect(audit).to.equal(".png");
+  });
+
+  it("does jpg", () => {
+    const name = "FD-1.jpg";
+    const audit = func(name);
+
+    expect(audit).to.equal(".jpg");
+  });
+});
