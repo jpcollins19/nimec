@@ -6,10 +6,10 @@
 .form-style-1 {
   max-width: 48vw;
   min-width: 48vw;
-  padding: 20px 12px 10px 20px;
+  padding: 20px;
   font-family: sans-serif;
-  margin: 9rem;
-  border: solid 2px blue;
+  margin-top: 9rem;
+  border: solid 3px black;
 }
 
 .joint-cont {
@@ -61,8 +61,6 @@ select {
 
 .form-style-1 input[type="text"]:focus,
 .form-style-1 input[type="email"]:focus,
-.form-style-1 input[type="file"]:focus,
-.form-style-1 textarea:focus,
 .form-style-1 select:focus {
   -moz-box-shadow: 0 0 8px #88d5e9;
   -webkit-box-shadow: 0 0 8px #88d5e9;
@@ -115,24 +113,14 @@ input[type="file"] {
 .form-style-1 > h5 {
   display: flex;
   justify-content: center;
-  margin: 0;
+  margin: 0rem 0rem 1rem 0rem;
 }
 
 .attachments {
   overflow: auto;
-  border: solid 2px red;
-}
-
-.attachment-single-cont {
-  display: flex;
-}
-
-.attachment-single-cont > div {
-  border: solid 2px blue;
-}
-::-webkit-file-upload-button {
-  /* cursor: pointer; */
-  display: none;
+  border: dashed 3px rgb(196, 194, 194);
+  background-color: white;
+  height: 25vh;
 }
 
 .attachments > input {
@@ -141,32 +129,57 @@ input[type="file"] {
   position: absolute;
   margin: 0;
   padding: 0;
-  max-width: 50vw;
-  min-width: 50vw;
-  height: 35vh;
-  border: solid 2px blue;
+  max-width: 43.5vw;
+  min-width: 43.5vw;
+  max-height: 24vh;
+  min-height: 24vh;
+  /* border: solid 2px blue; */
 }
 
 .attachments > div {
   text-align: center;
-  max-width: 56vw;
-  min-width: 56vw;
-  height: 35vh;
+  max-width: 45vw;
+  min-width: 45vw;
+  max-height: 24vh;
+  min-height: 24vh;
   color: black;
   font-family: Arial;
   margin: 0;
-  border: solid 2px green;
+  /* border: solid 2px red; */
 }
 
 .attachments > div > div {
-  max-width: 56vw;
-  min-width: 56vw;
-  border: solid 2px green;
+  font-weight: bold;
+}
+
+.attachment-single-cont {
+  display: flex;
+  max-width: 45vw;
+  min-width: 45vw;
+  border-bottom: solid 1px black;
+  padding: 0.3rem 0.1rem 0.1rem 0.7rem;
+  margin: 1px 0px 1px 0px;
+}
+
+::-webkit-file-upload-button {
+  display: none;
+}
+
+.no-attachments {
+  display: flex;
+  justify-content: center;
 }
 
 .fileName-cont {
   display: flex;
   flex: 1;
+}
+
+.fileName-cont-empty {
+  font-size: 2rem;
+  opacity: 0.3;
+  display: flex;
+  align-items: center;
 }
 
 .clear {
@@ -177,7 +190,7 @@ input[type="file"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 2px green;
+  padding: 1rem 0rem 0rem 0rem;
 }
 
 .submit-cont > button {
@@ -277,35 +290,3 @@ input[type="file"] {
   min-width: 30rem;
   font-weight: bold;
 }
-/*////////////////////////////////*/
-/* 
-.form-style-1 .field-select {
-  width: 100%;
-} */
-
-/* 
-.submit-cont > button {
-  background: rgb(204, 204, 197);
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  height: 2rem;
-  width: 5rem;
-} */
-
-/* .submit-cont > button:active {
-  background: #ae00af;
-  background: linear-gradient(to top right, #ae00af, #001eff);
-  color: #bfbfbf;
-  box-shadow: 0 0 8px #ae00ff, 0 0 8px #001eff, 0 0 8px #ae00ff;
-  transition: 0.1s;
-} */
-
-/* .submit-cont
-  > button:active
-  span:nth-child(1)
-  span:nth-child(2)
-  span:nth-child(2)
-  span:nth-child(2) {
-  transition: none;
-  transition-delay: none;
-} */

@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendMessage, addAttachment, deleteAttachment } from "../../store";
-import Input_Cont from "./Input_Cont";
+import Joint_Cont from "./Joint_Cont";
 import toast, { Toaster } from "react-hot-toast";
 import "./Contact_Us.css";
 
@@ -96,78 +96,16 @@ const Contact_Us_Page = () => {
     >
       <ul className="form-style-1">
         <form id="my-form" onSubmit={onSubmit}>
-          <div className="joint-cont">
-            <li className="joint-cont-li">
-              <label>
-                First Name <span className="required">*</span>
-              </label>
-              <input
-                type="text"
-                className="field-divided"
-                placeholder="First Name"
-                onChange={(ev) => setFirstName(ev.target.value)}
-              />
-            </li>
-            <li className="joint-cont-li">
-              <label>
-                Last Name <span className="required">*</span>
-              </label>
-              <input
-                type="text"
-                className="field-divided"
-                placeholder="Last Name"
-                onChange={(ev) => setLastName(ev.target.value)}
-              />
-            </li>
-          </div>
-          <div className="joint-cont">
-            <li className="joint-cont-li">
-              <label>
-                Email <span className="required">*</span>
-              </label>
-              <input
-                type="email"
-                className="field-divided"
-                placeholder="Email"
-                onChange={(ev) => setEmail(ev.target.value)}
-              />
-            </li>
-            <li className="joint-cont-li">
-              <label>Number</label>
-              <input
-                type="text"
-                className="field-divided"
-                placeholder="Number"
-                onChange={(ev) => setNumber(ev.target.value)}
-              />
-            </li>
-          </div>
-          <div className="message-cont">
-            <li className="message-file">
-              <label>
-                Message <span className="required">*</span>
-              </label>
-              <textarea
-                className="field-long field-textarea"
-                placeholder="Your Message"
-                onChange={(ev) => setMessage(ev.target.value)}
-              ></textarea>
-            </li>
-          </div>
-          {/* <div className="joint-cont">
-            <Input_Cont value={"First Name"} setFirstName={setFirstName} />
-            <Input_Cont value={"Last Name"} setLastName={setLastName} />
-          </div>
-          <div className="joint-cont">
-            <Input_Cont value={"Email"} setEmail={setEmail} />
-            <Input_Cont value={"Number"} setNumber={setNumber} />
-          </div>
-          <div className="message-cont">
-            <Input_Cont value={"Message"} setMessage={setMessage} />
-          </div> */}
+          <Joint_Cont
+            cont={1}
+            setFirstName={setFirstName}
+            setLastName={setLastName}
+          />
+          <Joint_Cont cont={2} setEmail={setEmail} setNumber={setNumber} />
+          <Joint_Cont cont={3} setMessage={setMessage} />
         </form>
         <h4>Drop files below, or click inside the box to choose a file</h4>
-        <h5>**File(s) must be pdf**</h5>
+        <h5>**File(s) must be pdf, jpg or png**</h5>
         <li className="attachments">
           <input
             type="file"
@@ -175,7 +113,7 @@ const Contact_Us_Page = () => {
             multiple
             onChange={onChange}
           />
-          <div>
+          <div className={!attachments.length ? "no-attachments" : ""}>
             {attachments && attachments.length ? (
               attachments.map((attachment, idx) => (
                 <div key={idx} className="attachment-single-cont">
@@ -189,7 +127,7 @@ const Contact_Us_Page = () => {
                 </div>
               ))
             ) : (
-              <div>Drag pdf files here</div>
+              <div className="fileName-cont-empty">Drag & drop files here</div>
             )}
           </div>
         </li>

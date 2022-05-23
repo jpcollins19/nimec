@@ -1,7 +1,3 @@
-////contact us
-//make contact us page clearn by adding an input.js file
-//css work on drag/drop area
-
 ////savings comparison
 //waiting on hoov, but this page will house the comed/nicor/poppa hoov charts
 //chart model/api - need to add instance info for more charts

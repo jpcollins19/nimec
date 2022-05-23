@@ -1,32 +1,30 @@
-const Input_Cont = ({
-  value,
-  setFirstName,
-  setLastName,
-  setEmail,
-  setNumber,
-  setMessage,
-}) => {
-  const regex = /\S/g;
-  const combined = value.match(regex).join("");
-  const set = eval(`set${combined}`);
+const Input_Cont = ({ param, set1, set2 }) => {
+  const obj = {
+    "First Name": set1,
+    "Last Name": set2,
+    Email: set1,
+    Number: set2,
+    Message: set1,
+  };
 
   return (
-    <li className={value !== "Message" ? "joint-cont-li" : "message-file"}>
+    <li className={param === "Message" ? "message-file" : "joint-cont-li"}>
       <label>
-        {value} {value !== "Number" && <span className="required">*</span>}
+        {param} {param !== "Number" && <span className="required">*</span>}
       </label>
-      {value === "Message" ? (
+      {param === "Message" ? (
         <textarea
+          type="text"
           className="field-long field-textarea"
           placeholder="Your Message"
-          onChange={(ev) => set(ev.target.value)}
+          onChange={(ev) => obj[param](ev.target.value)}
         ></textarea>
       ) : (
         <input
-          type={value === "Email" ? "email" : "text"}
+          type={param === "Email" ? "email" : "text"}
           className="field-divided"
-          placeholder={value}
-          onChange={(ev) => set(ev.target.value)}
+          placeholder={param}
+          onChange={(ev) => obj[param](ev.target.value)}
         />
       )}
     </li>
