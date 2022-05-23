@@ -28,18 +28,6 @@ const ContactUs_Page = () => {
     );
   };
 
-  useEffect(() => {
-    console.log("blank use eff called");
-  }, []);
-
-  useEffect(() => {
-    console.log("attachments", attachments);
-  }, [attachments]);
-
-  useEffect(() => {
-    console.log("firstName", firstName);
-  }, [firstName]);
-
   const clearArr = (arr) => {
     while (arr.length) {
       arr.pop();

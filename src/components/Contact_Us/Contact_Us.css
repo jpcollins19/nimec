@@ -59,14 +59,37 @@ select {
   outline: none;
 }
 
+.form-style-1 input[type="file"],
+select {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: "none";
+  padding: 7px;
+  margin: 0px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  outline: none;
+}
+
 .form-style-1 input[type="text"]:focus,
 .form-style-1 input[type="email"]:focus,
+textarea:focus,
 .form-style-1 select:focus {
   -moz-box-shadow: 0 0 8px #88d5e9;
   -webkit-box-shadow: 0 0 8px #88d5e9;
   box-shadow: 0 0 8px #88d5e9;
   border: 1px solid #88d5e9;
 }
+
+/* .form-style-1 input[type="file"] {
+  -moz-box-shadow: "none";
+  -webkit-box-shadow: "none";
+  box-shadow: "none";
+  border: "none";
+} */
 
 .form-style-1 .field-divided {
   width: 100%;
