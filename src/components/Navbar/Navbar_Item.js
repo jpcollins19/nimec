@@ -177,46 +177,6 @@ const Navbar_Item = ({ category }) => {
       </Link>
     </Box>
   );
-
-  // return (
-  //   <Box key={category.title} sx={{ bgcolor: "#101F33", pt: 1, pb: 1 }}>
-  //     <Link to={category.url} style={{ textDecoration: "none" }}>
-  //       <ListItem
-  //         disablePadding
-  //         sx={{
-  //           backgroundColor:
-  //             pathname === category.url
-  //               ? "rgba(19, 139, 213, 0.397)"
-  //               : "#101F33",
-  //         }}
-  //       >
-  //         <ListItemButton sx={item}>
-  //           <ListItemIcon
-  //             sx={{
-  //               color:
-  //                 pathname === category.url
-  //                   ? "rgb(0, 191, 255)"
-  //                   : "rgb(215, 209, 209)",
-  //             }}
-  //           >
-  //             {category.icon}
-  //           </ListItemIcon>
-  //           <ListItemText>
-  //             <div
-  //               className={
-  //                 pathname === category.url
-  //                   ? "navbar-text-selected"
-  //                   : "navbar-text"
-  //               }
-  //             >
-  //               {category.title}
-  //             </div>
-  //           </ListItemText>
-  //         </ListItemButton>
-  //       </ListItem>
-  //     </Link>
-  //   </Box>
-  // );
 };
 
 export default Navbar_Item;

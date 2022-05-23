@@ -6,7 +6,7 @@ import Joint_Cont from "./Joint_Cont";
 import toast, { Toaster } from "react-hot-toast";
 import "./Contact_Us.css";
 
-const Contact_Us_Page = () => {
+const ContactUs_Page = () => {
   const dispatch = useDispatch();
 
   const [firstName, setFirstName] = useState("");
@@ -104,7 +104,7 @@ const Contact_Us_Page = () => {
           <Joint_Cont cont={2} setEmail={setEmail} setNumber={setNumber} />
           <Joint_Cont cont={3} setMessage={setMessage} />
         </form>
-        <h4>Drop files below, or click inside the box to choose a file</h4>
+        <h4>Drag/drop files below, or click inside the box to choose a file</h4>
         <h5>**File(s) must be pdf, jpg or png**</h5>
         <li className="attachments">
           <input
@@ -112,9 +112,11 @@ const Contact_Us_Page = () => {
             accept=".pdf, .png, .jpg"
             multiple
             onChange={onChange}
+            placeholder="Your Message"
           />
-          <div className={!attachments.length ? "no-attachments" : ""}>
-            {attachments && attachments.length ? (
+          <div>
+            {attachments &&
+              attachments.length > 0 &&
               attachments.map((attachment, idx) => (
                 <div key={idx} className="attachment-single-cont">
                   <div className="fileName-cont">{attachment.name}</div>
@@ -125,10 +127,7 @@ const Contact_Us_Page = () => {
                     X
                   </button>
                 </div>
-              ))
-            ) : (
-              <div className="fileName-cont-empty">Drag & drop files here</div>
-            )}
+              ))}
           </div>
         </li>
 
@@ -160,4 +159,4 @@ const Contact_Us_Page = () => {
   );
 };
 
-export default Contact_Us_Page;
+export default ContactUs_Page;

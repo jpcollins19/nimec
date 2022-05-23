@@ -6,25 +6,37 @@ import Login_Page from "./components/Login_Page";
 import Home_Page from "./components/Home/Home_Page";
 import Memberships_Page from "./components/Memberships/Memberships_Page";
 import OurServices_Page from "./components/OurServices/OurServices_Page";
-import Contact_Us_Page from "./components/Contact_Us/Contact_Us_Page";
+import ContactUs_Page from "./components/Contact_Us/ContactUs_Page";
 import AboutUs_Page from "./components/About_Us/AboutUs_Page";
 
 const Routes = () => {
-  const dispatch = useDispatch();
-
+  // const dispatch = useDispatch();
   // useEffect(() => dispatch(me()), []);
+  // const auth = useSelector((state) => state.auth);
 
-  const auth = useSelector((state) => state.auth);
+  const routeOptions = [
+    { path: "/", component: Home_Page },
+    { path: "/home", component: Home_Page },
+    { path: "/memberships", component: Memberships_Page },
+    { path: "/our_services", component: OurServices_Page },
+    { path: "/contact_us", component: ContactUs_Page },
+    { path: "/about_us", component: AboutUs_Page },
+  ];
 
   return (
     <Switch>
-      <Route exact path="/" component={Home_Page} />
-      <Route exact path="/home" component={Home_Page} />
-      <Route exact path="/memberships" component={Memberships_Page} />
-      <Route exact path="/our_services" component={OurServices_Page} />
-      <Route path="/our_services" component={OurServices_Page} />
-      <Route path="/contact_us" component={Contact_Us_Page} />
-      <Route path="/about_us" component={AboutUs_Page} />
+      {routeOptions.map((route) =>
+        route.path === "/our_services" ? (
+          <Route key={route} path={route.path} component={route.component} />
+        ) : (
+          <Route
+            key={route}
+            exact
+            path={route.path}
+            component={route.component}
+          />
+        )
+      )}
     </Switch>
   );
 };

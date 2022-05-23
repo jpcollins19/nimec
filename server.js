@@ -1,5 +1,11 @@
+////contact us
+//how to add a placeholder text if the input tag type = file
+//after you submit a first form, the sbumit button doesnt allow you to submit a 2nd form
+//need to add feature that shows the doc is loading
+
 ////savings comparison
-//waiting on hoov, but this page will house the comed/nicor/poppa hoov charts
+//waiting on hoov for answers
+//this page will house the comed/nicor/poppa hoov charts
 //chart model/api - need to add instance info for more charts
 
 ////who we are - might not be needed - waiting on hoov
