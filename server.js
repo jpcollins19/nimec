@@ -1,7 +1,11 @@
 ////contact us
-//how to add a placeholder text if the input tag type = file
-//after you submit a first form, the sbumit button doesnt allow you to submit a 2nd form
+//after you submit a first form, the submit button doesnt allow you to submit a 2nd form
 //need to add feature that shows the doc is loading
+
+////FAQ
+//need a model and api
+//add an order instance? look at how julie did the amenities and/or photo stuff in the roomer app
+//need to control where each FAQ is listed on the web page
 
 ////savings comparison
 //waiting on hoov for answers
@@ -9,11 +13,6 @@
 //chart model/api - need to add instance info for more charts
 
 ////who we are - might not be needed - waiting on hoov
-
-////FAQ
-//need a model and api
-//add an order instance? look at how julie did the amenities and/or photo stuff in the roomer app
-//need to control where each FAQ is listed on the web page
 
 //add web sockets
 

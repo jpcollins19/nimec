@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendMessage, addAttachment, deleteAttachment } from "../../store";
 import Joint_Cont from "./Joint_Cont";
@@ -27,6 +27,18 @@ const ContactUs_Page = () => {
       }
     );
   };
+
+  useEffect(() => {
+    console.log("blank use eff called");
+  }, []);
+
+  useEffect(() => {
+    console.log("attachments", attachments);
+  }, [attachments]);
+
+  useEffect(() => {
+    console.log("firstName", firstName);
+  }, [firstName]);
 
   const clearArr = (arr) => {
     while (arr.length) {
@@ -106,13 +118,12 @@ const ContactUs_Page = () => {
         </form>
         <h4>Drag/drop files below, or click inside the box to choose a file</h4>
         <h5>**File(s) must be pdf, jpg or png**</h5>
-        <li className="attachments">
+        <li className={attachments.length ? "attachments" : "no-attachments"}>
           <input
             type="file"
             accept=".pdf, .png, .jpg"
             multiple
             onChange={onChange}
-            placeholder="Your Message"
           />
           <div>
             {attachments &&

@@ -119,11 +119,53 @@ input[type="file"] {
 .attachments {
   overflow: auto;
   border: dashed 3px rgb(196, 194, 194);
-  /* background-color: white; */
+  background-color: white;
   height: 25vh;
 }
 
+.no-attachments {
+  overflow: auto;
+  border: dashed 3px rgb(196, 194, 194);
+  background-color: white;
+  height: 25vh;
+}
+
+.attachments > input[type="file"]::before {
+  content: "";
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+.no-attachments > input[type="file"]::before {
+  content: "Drag/drop files here";
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
 .attachments > input {
+  color: transparent;
+  cursor: pointer;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  max-width: 43.5vw;
+  min-width: 43.5vw;
+  max-height: 24vh;
+  min-height: 24vh;
+  /* border: solid 2px blue; */
+}
+
+.no-attachments > input {
   color: transparent;
   cursor: pointer;
   position: absolute;
@@ -148,7 +190,23 @@ input[type="file"] {
   /* border: solid 2px red; */
 }
 
+.no-attachments > div {
+  text-align: center;
+  max-width: 45vw;
+  min-width: 45vw;
+  max-height: 24vh;
+  min-height: 24vh;
+  color: black;
+  font-family: Arial;
+  margin: 0;
+  /* border: solid 2px red; */
+}
+
 .attachments > div > div {
+  font-weight: bold;
+}
+
+.no-attachments > div > div {
   font-weight: bold;
 }
 
