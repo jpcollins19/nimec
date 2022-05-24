@@ -37,7 +37,7 @@ export const addAttachment = (attachment, options) => {
 
     setTimeout(() => {
       dispatch(_attachmentCount());
-    }, 500);
+    }, 1000);
   };
 };
 
