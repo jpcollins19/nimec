@@ -4,13 +4,10 @@ const LOAD_ATTACHMENTS = "LOAD_ATTACHMENTS";
 const ADD_ATTACHMENT = "ADD_ATTACHMENT";
 const DELETE_ATTACHMENT = "DELETE_ATTACHMENT";
 const INCREASE_ATTACHMENT_COUNT = "INCREASE_ATTACHMENT_COUNT";
+const RESET_ATTACHMENT_COUNT = "RESET_ATTACHMENT_COUNT";
 
 const _loadAttachments = (attachments) => {
   return { type: LOAD_ATTACHMENTS, attachments };
-};
-
-const _attachmentCount = () => {
-  return { type: INCREASE_ATTACHMENT_COUNT };
 };
 
 const _addAttachment = (attachment) => {
@@ -19,6 +16,14 @@ const _addAttachment = (attachment) => {
 
 const _deleteAttachment = (attachment) => {
   return { type: DELETE_ATTACHMENT, attachment };
+};
+
+const _attachmentCount = () => {
+  return { type: INCREASE_ATTACHMENT_COUNT };
+};
+
+const _resetAttachmentCount = () => {
+  return { type: RESET_ATTACHMENT_COUNT };
 };
 
 export const loadAttachments = () => {
@@ -34,7 +39,10 @@ export const addAttachment = (attachment, options) => {
       .data;
 
     dispatch(_addAttachment(attachment));
-    dispatch(_attachmentCount());
+
+    setTimeout(() => {
+      dispatch(_attachmentCount());
+    }, 1000);
   };
 };
 
@@ -42,6 +50,12 @@ export const deleteAttachment = (attachment) => {
   return async (dispatch) => {
     await axios.delete(`/api/attachments/${attachment.id}`);
     dispatch(_deleteAttachment(attachment));
+  };
+};
+
+export const resetAttachmentCount = () => {
+  return async (dispatch) => {
+    dispatch(_resetAttachmentCount());
   };
 };
 
@@ -64,6 +78,9 @@ export const attachmentCount = (state = 0, action) => {
   switch (action.type) {
     case INCREASE_ATTACHMENT_COUNT:
       return state + 1;
+    case RESET_ATTACHMENT_COUNT:
+      state = 0;
+      return state;
     default:
       return state;
   }
