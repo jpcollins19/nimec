@@ -5,7 +5,7 @@ import auth from "./auth_store";
 
 const { clients } = require("./clients_store");
 const { services } = require("./services_store");
-const { attachments, attachmentsLoading } = require("./attachments_store");
+const { attachments, attachmentCount } = require("./attachments_store");
 const { EEs } = require("./ees_store");
 const { faqs } = require("./faqs_store");
 
@@ -14,7 +14,7 @@ const reducer = combineReducers({
   clients,
   services,
   attachments,
-  attachmentsLoading,
+  attachmentCount,
   EEs,
   faqs,
 });

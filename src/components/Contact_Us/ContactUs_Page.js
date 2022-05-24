@@ -15,14 +15,14 @@ const ContactUs_Page = () => {
   const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
   const [attachmentUploaded, setAttachmentUploaded] = useState(false);
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const attachments = useSelector((state) => state.attachments);
-  const loading = useSelector((state) => state.attachmentsLoading);
+  const count = useSelector((state) => state.attachmentCount);
 
   useEffect(() => {
-    console.log("loading", loading);
-  }, [loading]);
+    console.log("count", count);
+  }, [count]);
 
   const messageSent = () => {
     toast(
@@ -50,6 +50,10 @@ const ContactUs_Page = () => {
     clearAttachments(attachments);
     clearArr(attachments);
   }, []);
+
+  useEffect(() => {
+    attachments.length === count && setLoading(false);
+  }, [attachments]);
 
   const onSubmit = async (evt) => {
     evt.preventDefault();
@@ -83,7 +87,7 @@ const ContactUs_Page = () => {
 
   const onChange = (e) => {
     setAttachmentUploaded(true);
-    // setLoading(true);
+    setLoading(true);
     const fileInfo = e.target.files;
 
     for (let i = 0; i < fileInfo.length; i++) {

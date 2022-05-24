@@ -3,14 +3,14 @@ import axios from "axios";
 const LOAD_ATTACHMENTS = "LOAD_ATTACHMENTS";
 const ADD_ATTACHMENT = "ADD_ATTACHMENT";
 const DELETE_ATTACHMENT = "DELETE_ATTACHMENT";
-const ATTACHMENT_LOADING = "ATTACHMENT_LOADING";
+const INCREASE_ATTACHMENT_COUNT = "INCREASE_ATTACHMENT_COUNT";
 
 const _loadAttachments = (attachments) => {
   return { type: LOAD_ATTACHMENTS, attachments };
 };
 
-const _attachmentLoading = (boolean) => {
-  return { type: ATTACHMENT_LOADING, boolean };
+const _attachmentCount = () => {
+  return { type: INCREASE_ATTACHMENT_COUNT };
 };
 
 const _addAttachment = (attachment) => {
@@ -30,11 +30,11 @@ export const loadAttachments = () => {
 
 export const addAttachment = (attachment, options) => {
   return async (dispatch) => {
-    dispatch(_attachmentLoading(true));
     attachment = (await axios.post("/api/attachments", attachment, options))
       .data;
+
     dispatch(_addAttachment(attachment));
-    dispatch(_attachmentLoading(false));
+    dispatch(_attachmentCount());
   };
 };
 
@@ -60,10 +60,10 @@ export const attachments = (state = [], action) => {
   }
 };
 
-export const attachmentsLoading = (state = false, action) => {
+export const attachmentCount = (state = 0, action) => {
   switch (action.type) {
-    case ATTACHMENT_LOADING:
-      return action.boolean;
+    case INCREASE_ATTACHMENT_COUNT:
+      return state + 1;
     default:
       return state;
   }
