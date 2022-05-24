@@ -9,6 +9,7 @@
 ////who we are - might not be needed - waiting on hoov
 
 ////our services
+//waiting on hoov to provide newsletter info
 //need css work
 
 ////membership

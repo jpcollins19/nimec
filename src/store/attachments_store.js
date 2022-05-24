@@ -23,9 +23,10 @@ export const loadAttachments = () => {
   };
 };
 
-export const addAttachment = (attachment) => {
+export const addAttachment = (attachment, options) => {
   return async (dispatch) => {
-    attachment = (await axios.post("/api/attachments", attachment)).data;
+    attachment = (await axios.post("/api/attachments", attachment, options))
+      .data;
     dispatch(_addAttachment(attachment));
   };
 };

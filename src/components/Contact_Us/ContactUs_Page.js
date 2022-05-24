@@ -73,17 +73,33 @@ const ContactUs_Page = () => {
     }
   };
 
+  // { target: { files } }
+
   const onChange = (e) => {
     const fileInfo = e.target.files;
+
+    console.log(fileInfo[0]);
 
     for (let i = 0; i < fileInfo.length; i++) {
       const file = fileInfo[i];
       const fileReader = new FileReader();
+
+      const options = {
+        onUploadProgress: (progressEvent) => {
+          const { loaded, total } = progressEvent;
+          let percent = Math.floor((loaded * 100) / total);
+
+          console.log("loaded", loaded);
+          console.log("total", total);
+          console.log("percent", percent);
+        },
+      };
+
       fileReader.onload = (ev) => {
         if (fileReader.readyState === 2) {
           const name = file.name;
           const url = ev.target.result;
-          dispatch(addAttachment({ name, url }));
+          dispatch(addAttachment({ name, url }, options));
         }
       };
       fileReader.readAsDataURL(file);
