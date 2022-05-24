@@ -24,7 +24,7 @@ const ContactUs_Page = () => {
 
     clearArr(attachments);
 
-    // setAttachmentSubmitted(false);
+    attachments.length === 0 && setAttachmentSubmitted(false);
   }, []);
 
   useEffect(() => {
@@ -98,10 +98,6 @@ const ContactUs_Page = () => {
             onUploadProgress: (progressEvent) => {
               const { loaded, total } = progressEvent;
               let percentComplete = Math.floor((loaded * 100) / total);
-
-              while (percentComplete < 100) {
-                setLoading(true);
-              }
 
               console.log("loaded", loaded);
               console.log("total", total);
