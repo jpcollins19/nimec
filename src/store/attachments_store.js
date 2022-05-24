@@ -25,7 +25,6 @@ export const loadAttachments = () => {
 
 export const addAttachment = (attachment, options) => {
   return async (dispatch) => {
-    console.log("nugget", attachment);
     attachment = (await axios.post("/api/attachments", attachment, options))
       .data;
     dispatch(_addAttachment(attachment));

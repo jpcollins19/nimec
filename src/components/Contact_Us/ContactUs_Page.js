@@ -4,9 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { sendMessage, addAttachment, deleteAttachment } from "../../store";
 import Joint_Cont from "./Joint_Cont";
 import toast, { Toaster } from "react-hot-toast";
-import { ProgressBar } from "react-bootstrap";
-// import ProgressBar from "bootstrap-progress-bar";
-
 import "./Contact_Us.css";
 
 const ContactUs_Page = () => {
@@ -17,26 +14,22 @@ const ContactUs_Page = () => {
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
+  const [attachmentSubmitted, setAttachmentSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const attachments = useSelector((state) => state.attachments);
-
-  // let notLoadedName = [];
-  // let notLoadedObj = [];
 
   useEffect(() => {
     attachments.forEach((attachment) => dispatch(deleteAttachment(attachment)));
 
     clearArr(attachments);
+
+    // setAttachmentSubmitted(false);
   }, []);
 
-  // useEffect(() => {
-  //   console.log("notLoadedName", notLoadedName);
-  // }, [notLoadedName]);
-
-  // useEffect(() => {
-  //   console.log("notLoadedObj", notLoadedObj);
-  // }, [notLoadedObj]);
+  useEffect(() => {
+    attachments.length === 0 && setAttachmentSubmitted(false);
+  }, [attachments]);
 
   const messageSent = () => {
     toast(
@@ -81,6 +74,7 @@ const ContactUs_Page = () => {
       setEmail("");
       setNumber("");
       setMessage("");
+      setAttachmentSubmitted(false);
       messageSent();
       evt.target.reset();
     } catch (err) {
@@ -88,9 +82,8 @@ const ContactUs_Page = () => {
     }
   };
 
-  // { target: { files } }
-
   const onChange = (e) => {
+    setAttachmentSubmitted(true);
     setLoading(true);
     const fileInfo = e.target.files;
 
@@ -106,8 +99,8 @@ const ContactUs_Page = () => {
               const { loaded, total } = progressEvent;
               let percentComplete = Math.floor((loaded * 100) / total);
 
-              if (percentComplete === 100) {
-                setLoading(false);
+              while (percentComplete < 100) {
+                setLoading(true);
               }
 
               console.log("loaded", loaded);
@@ -122,6 +115,8 @@ const ContactUs_Page = () => {
       };
       fileReader.readAsDataURL(file);
     }
+
+    setLoading(false);
   };
 
   return (
@@ -146,15 +141,7 @@ const ContactUs_Page = () => {
         </form>
         <h4>Drag/drop files below, or click inside the box to choose a file</h4>
         <h5>**File(s) must be pdf, jpg or png**</h5>
-        <li
-          className={
-            loading
-              ? "attachments"
-              : attachments.length
-              ? "attachments"
-              : "no-attachments"
-          }
-        >
+        <li className={!attachmentSubmitted ? "no-attachments" : "attachments"}>
           <input
             type="file"
             accept=".pdf, .png, .jpg"
