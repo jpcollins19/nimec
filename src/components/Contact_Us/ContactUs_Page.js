@@ -21,18 +21,20 @@ const ContactUs_Page = () => {
   const count = useSelector((state) => state.attachmentCount);
 
   useEffect(() => {
-    if (attachments.length === count) {
-      setLoading(false);
-      console.log("loading set to false in use eff count call");
-    } else {
-      setLoading(true);
-      console.log("loading set to true in use eff count call");
-    }
+    setTimeout(() => {
+      if (attachments.length === count) {
+        setLoading(false);
+        console.log("loading set to false in use eff count call");
+      } else {
+        setLoading(true);
+        console.log("loading set to true in use eff count call");
+      }
 
-    console.log("count", count);
-    console.log("attachments", attachments);
-    console.log("----------");
-    console.log("END OF COUNT CALL");
+      console.log("count", count);
+      console.log("attachments", attachments);
+      console.log("----------");
+      console.log("END OF COUNT CALL");
+    }, 1000);
   }, [count]);
 
   useEffect(() => {
@@ -40,18 +42,20 @@ const ContactUs_Page = () => {
   }, [loading]);
 
   useEffect(() => {
-    if (attachments.length === count) {
-      setLoading(false);
-      console.log("loading set to false in use eff attachment call");
-    } else {
-      setLoading(true);
-      console.log("loading set to true in use eff attachment call");
-    }
+    setTimeout(() => {
+      if (attachments.length === count) {
+        setLoading(false);
+        console.log("loading set to false in use eff attachment call");
+      } else {
+        setLoading(true);
+        console.log("loading set to true in use eff attachment call");
+      }
 
-    console.log("count", count);
-    console.log("attachments", attachments);
-    console.log("----------");
-    console.log("END OF ATTACHMENT CALL");
+      console.log("count", count);
+      console.log("attachments", attachments);
+      console.log("----------");
+      console.log("END OF ATTACHMENT CALL");
+    }, 1000);
   }, [attachments]);
 
   const messageSent = () => {

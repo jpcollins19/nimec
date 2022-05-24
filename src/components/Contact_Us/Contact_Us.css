@@ -255,13 +255,6 @@ input[type="file"] {
   flex: 1;
 }
 
-.fileName-cont-empty {
-  font-size: 2rem;
-  opacity: 0.3;
-  display: flex;
-  align-items: center;
-}
-
 .clear {
   cursor: pointer;
 }

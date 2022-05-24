@@ -34,10 +34,7 @@ export const addAttachment = (attachment, options) => {
       .data;
 
     dispatch(_addAttachment(attachment));
-
-    setTimeout(() => {
-      dispatch(_attachmentCount());
-    }, 1000);
+    dispatch(_attachmentCount());
   };
 };
 
