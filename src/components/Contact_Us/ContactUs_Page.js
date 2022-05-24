@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { sendMessage, addAttachment, deleteAttachment } from "../../store";
 import Joint_Cont from "./Joint_Cont";
 import toast, { Toaster } from "react-hot-toast";
+import ProgressBar from "@ramonak/react-progress-bar";
 import "./Contact_Us.css";
 
 const ContactUs_Page = () => {
@@ -14,6 +15,7 @@ const ContactUs_Page = () => {
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
+  const [percent, setPercent] = useState(0);
 
   const attachments = useSelector((state) => state.attachments);
 
@@ -87,11 +89,12 @@ const ContactUs_Page = () => {
       const options = {
         onUploadProgress: (progressEvent) => {
           const { loaded, total } = progressEvent;
-          let percent = Math.floor((loaded * 100) / total);
+          let percentComplete = Math.floor((loaded * 100) / total);
+          setPercent(percentComplete);
 
           console.log("loaded", loaded);
           console.log("total", total);
-          console.log("percent", percent);
+          console.log("perpercentCompletecent", percentComplete);
         },
       };
 
@@ -141,6 +144,7 @@ const ContactUs_Page = () => {
               attachments.map((attachment, idx) => (
                 <div key={idx} className="attachment-single-cont">
                   <div className="fileName-cont">{attachment.name}</div>
+                  <ProgressBar completed={percent} />
                   <button
                     onClick={() => dispatch(deleteAttachment(attachment))}
                     className="clear"
