@@ -5,7 +5,7 @@ const ADD_ATTACHMENT = "ADD_ATTACHMENT";
 const DELETE_ATTACHMENT = "DELETE_ATTACHMENT";
 const INCREASE_ATTACHMENT_COUNT = "INCREASE_ATTACHMENT_COUNT";
 const DECREASE_ATTACHMENT_COUNT = "DECREASE_ATTACHMENT_COUNT";
-const RESET_ATTACHMENT_COUNT = "RESET_ATTACHMENT_COUNT";
+// const RESET_ATTACHMENT_COUNT = "RESET_ATTACHMENT_COUNT";
 
 const _loadAttachments = (attachments) => {
   return { type: LOAD_ATTACHMENTS, attachments };
@@ -23,8 +23,8 @@ const _increaseAttachmentCount = () => {
   return { type: INCREASE_ATTACHMENT_COUNT };
 };
 
-const _resetAttachmentCount = () => {
-  return { type: RESET_ATTACHMENT_COUNT };
+const _decreaseAttachmentCount = () => {
+  return { type: DECREASE_ATTACHMENT_COUNT };
 };
 
 export const loadAttachments = () => {
@@ -55,11 +55,11 @@ export const deleteAttachment = (attachment) => {
   };
 };
 
-export const resetAttachmentCount = () => {
-  return async (dispatch) => {
-    dispatch(_resetAttachmentCount());
-  };
-};
+// export const resetAttachmentCount = () => {
+//   return async (dispatch) => {
+//     dispatch(_resetAttachmentCount());
+//   };
+// };
 
 export const attachments = (state = [], action) => {
   switch (action.type) {
@@ -82,9 +82,9 @@ export const attachmentCount = (state = 0, action) => {
       return state + 1;
     case DECREASE_ATTACHMENT_COUNT:
       return state - 1;
-    case RESET_ATTACHMENT_COUNT:
-      state = 0;
-      return state;
+    // case RESET_ATTACHMENT_COUNT:
+    //   state = 0;
+    // return state;
     default:
       return state;
   }
