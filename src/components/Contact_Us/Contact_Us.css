@@ -154,7 +154,6 @@ input[type="file"] {
 }
 
 .attachments > input[type="file"]::before {
-  content: "";
   color: black;
   display: flex;
   align-items: center;

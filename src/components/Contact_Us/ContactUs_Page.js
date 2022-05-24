@@ -23,12 +23,12 @@ const ContactUs_Page = () => {
     attachments.forEach((attachment) => dispatch(deleteAttachment(attachment)));
 
     clearArr(attachments);
-
-    attachments.length === 0 && setAttachmentSubmitted(false);
   }, []);
 
   useEffect(() => {
-    attachments.length === 0 && setAttachmentSubmitted(false);
+    attachments.length === 0
+      ? setAttachmentSubmitted(false)
+      : setLoading(false);
   }, [attachments]);
 
   const messageSent = () => {
@@ -111,8 +111,6 @@ const ContactUs_Page = () => {
       };
       fileReader.readAsDataURL(file);
     }
-
-    setLoading(false);
   };
 
   return (
