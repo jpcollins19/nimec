@@ -15,15 +15,14 @@ const ContactUs_Page = () => {
   const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
   const [attachmentUploaded, setAttachmentUploaded] = useState(false);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   const attachments = useSelector((state) => state.attachments);
+  const loading = useSelector((state) => state.attachmentsLoading);
 
-  // useEffect(() => {
-  //   attachments.length === 0
-  //     ? setAttachmentUploaded(false)
-  //     : setLoading(false);
-  // }, [attachments]);
+  useEffect(() => {
+    console.log("loading", loading);
+  }, [loading]);
 
   const messageSent = () => {
     toast(
@@ -43,8 +42,12 @@ const ContactUs_Page = () => {
     }
   };
 
-  useEffect(() => {
+  const clearAttachments = (attachments) => {
     attachments.forEach((attachment) => dispatch(deleteAttachment(attachment)));
+  };
+
+  useEffect(() => {
+    clearAttachments(attachments);
     clearArr(attachments);
   }, []);
 
@@ -63,10 +66,7 @@ const ContactUs_Page = () => {
 
       dispatch(sendMessage(emailContent));
 
-      attachments.forEach((attachment) =>
-        dispatch(deleteAttachment(attachment))
-      );
-
+      clearAttachments(attachments);
       clearArr(attachments);
       setFirstName("");
       setLastName("");
@@ -83,7 +83,7 @@ const ContactUs_Page = () => {
 
   const onChange = (e) => {
     setAttachmentUploaded(true);
-    setLoading(true);
+    // setLoading(true);
     const fileInfo = e.target.files;
 
     for (let i = 0; i < fileInfo.length; i++) {
@@ -97,7 +97,7 @@ const ContactUs_Page = () => {
               const { loaded, total } = progressEvent;
               let percentComplete = Math.floor((loaded * 100) / total);
 
-              percentComplete < 100 ? setLoading(true) : setLoading(false);
+              // percentComplete < 100 ? setLoading(true) : setLoading(false);
 
               console.log("loaded", loaded);
               console.log("total", total);
