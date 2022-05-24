@@ -101,7 +101,7 @@ const ContactUs_Page = () => {
               const { loaded, total } = progressEvent;
               let percentComplete = Math.floor((loaded * 100) / total);
 
-              // percentComplete < 100 ? setLoading(true) : setLoading(false);
+              percentComplete < 100 && setLoading(false);
 
               console.log("loaded", loaded);
               console.log("total", total);
