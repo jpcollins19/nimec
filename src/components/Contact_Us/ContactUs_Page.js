@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { sendMessage, addAttachment, deleteAttachment } from "../../store";
 import Joint_Cont from "./Joint_Cont";
 import toast, { Toaster } from "react-hot-toast";
-import ProgressBar from "@ramonak/react-progress-bar";
+import { ProgressBar } from "react-bootstrap";
+// import ProgressBar from "bootstrap-progress-bar";
+
 import "./Contact_Us.css";
 
 const ContactUs_Page = () => {
@@ -19,11 +21,22 @@ const ContactUs_Page = () => {
 
   const attachments = useSelector((state) => state.attachments);
 
+  // let notLoadedName = [];
+  // let notLoadedObj = [];
+
   useEffect(() => {
     attachments.forEach((attachment) => dispatch(deleteAttachment(attachment)));
 
     clearArr(attachments);
   }, []);
+
+  // useEffect(() => {
+  //   console.log("notLoadedName", notLoadedName);
+  // }, [notLoadedName]);
+
+  // useEffect(() => {
+  //   console.log("notLoadedObj", notLoadedObj);
+  // }, [notLoadedObj]);
 
   const messageSent = () => {
     toast(
@@ -90,7 +103,27 @@ const ContactUs_Page = () => {
         onUploadProgress: (progressEvent) => {
           const { loaded, total } = progressEvent;
           let percentComplete = Math.floor((loaded * 100) / total);
+
           setPercent(percentComplete);
+
+          // const obj = {
+          //   name: file.name,
+          //   percent,
+          // };
+
+          // console.log("obj", obj);
+
+          // if (notLoadedName.includes(file.name)) {
+          //   notLoadedObj = notLoadedObj.map((obj) => {
+          //     if (obj.name === file.name) {
+          //       obj.percent = percent;
+          //     }
+          //     return obj;
+          //   });
+          // } else {
+          //   notLoadedName.push(file.name);
+          //   notLoadedObj.push(obj);
+          // }
 
           console.log("loaded", loaded);
           console.log("total", total);
@@ -144,7 +177,8 @@ const ContactUs_Page = () => {
               attachments.map((attachment, idx) => (
                 <div key={idx} className="attachment-single-cont">
                   <div className="fileName-cont">{attachment.name}</div>
-                  <ProgressBar completed={percent} />
+                  <ProgressBar now={percent} label={`${percent}%`} />
+
                   <button
                     onClick={() => dispatch(deleteAttachment(attachment))}
                     className="clear"
