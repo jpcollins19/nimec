@@ -30,7 +30,7 @@ const Navbar = () => {
       icon: <WindPower />,
       url: "/our_services",
     },
-    { title: "FAQ", icon: <HelpCenter />, url: "/faq" },
+    { title: "Municipal Aggregation FAQ", icon: <HelpCenter />, url: "/faqs" },
     {
       title: "Savings Comparison",
       icon: <Paid />,

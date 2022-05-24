@@ -2,7 +2,13 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { HashRouter as Router, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { loadClients, loadServices, loadAttachments, loadEEs } from "./store";
+import {
+  loadClients,
+  loadServices,
+  loadAttachments,
+  loadEEs,
+  loadFaqs,
+} from "./store";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Navbar from "./components/Navbar/Navbar";
@@ -16,6 +22,7 @@ const App = () => {
     dispatch(loadServices());
     dispatch(loadAttachments());
     dispatch(loadEEs());
+    dispatch(loadFaqs());
   }, []);
 
   let theme = createTheme({

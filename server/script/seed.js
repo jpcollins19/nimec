@@ -1,6 +1,6 @@
 const {
   db,
-  models: { User, Client, Reference, Service, EE },
+  models: { User, Client, Reference, Service, EE, FAQ },
 } = require("../db/index.js");
 
 const users = [{ email: "ahoover@nimec.net", password: "lincoln" }];
@@ -437,6 +437,67 @@ const EEs = [
   },
 ];
 
+const FAQs = [
+  {
+    order: 0,
+    Q: "What do residents have to do to be in the aggregation and get the lower rate?",
+    A: "All eligible residents are automatically included in the program once it has been approved by voters.",
+  },
+  {
+    order: 1,
+    Q: "What is the ComEd rate?",
+    A: "The ComEd rate consists of three portions, two of which are adjusted twice annually, and the third of which can change monthly. to discover the current ComEd rate, visit Plug In Illinois.",
+    linkNeeded: true,
+    link: "https://pluginillinois.org/FixedRateBreakdownComEd.aspx",
+    linkWord: "Plug In Illinois",
+  },
+  {
+    order: 2,
+    Q: "What if residents don't want to participate in the program?",
+    A: "Residents will receive two opportunities to opt out of the aggregation program. When a new supplier is selected, they will receive a letter with an opt out form and ComEd will also send an opt out form.",
+  },
+  {
+    order: 3,
+    Q: "Can residents opt out before the program begins then return later to the supplier that won the bid in the aggregation?",
+    A: "Yes.",
+  },
+  {
+    order: 4,
+    Q: "What is the referendum question?",
+    A: "“Shall the village/city have the authority to arrange for the supply of electricity for its residential and small commercial retail customers who have not opted out of such a program?",
+  },
+  {
+    order: 5,
+    Q: "Are commercial accounts included in the aggregation?",
+    A: "Currently, only commercial accounts that use less than 15,000 kWh’s/year are included. This generally includes only smaller commercial accounts. Larger commercial accounts are ineligible and need to negotiate an individual contract apart from the aggregation.",
+  },
+  {
+    order: 6,
+    Q: "What happens if the power goes out? Whom do residents call?",
+    A: "Residents should continue to call ComEd with any service issues. ComEd will still deliver electricity. Residents will simply have a new supplier.",
+  },
+  {
+    order: 7,
+    Q: "Will residents then receive two separate bills—- one from the deliverer, the other from the supplier?",
+    A: "No. Residents will only receive a bill from ComEd. The only difference on the bill is the new lower rate and the new supplier’s name will be listed.",
+  },
+  {
+    order: 8,
+    Q: "If a resident is getting offers from retail electric suppliers to switch for lower rates. What should they do?",
+    A: "If residents switch their electric account to a new supplier prior to the aggregation program, they will not be included in the community aggregation. If a resident switches to a new supplier, and later wants to join the community aggregation, they may (possibly have to pay a termination fee to their current supplier. Residents should review the details of their suppliers’ agreement. There is no fee from the aggregation supplier to join the aggregation.",
+  },
+  {
+    order: 9,
+    Q: "What happens with ComEd? Won’t they increase charges to keep their profit margins?",
+    A: "Residents’ choice of supplier has no impact on ComEd as they only deliver and do not supply the power. ComEd processes the bills for these supplier companies, and passes 100 percent of the revenue back to the company that generates the power. ComEd’s rates are regulated by the ICC, so any increase would have to first be approved by the ICC.",
+  },
+  {
+    order: 10,
+    Q: "What if the rate residents in the municipality currently have is lower than the power suppliers’ bids?",
+    A: "No action will be taken. The municipality’s residents’ electric accounts will not move to a new supplier. The referendum does not mandate the municipality to switch to a new provider.",
+  },
+];
+
 const syncAndSeed = async () => {
   await db.sync({ force: true });
   /////////////////////////////////////////////////////////////
@@ -665,6 +726,19 @@ const syncAndSeed = async () => {
         phone: ee.phone,
         synopsis: ee.synopsis,
         order: ee.order,
+      })
+    )
+  );
+
+  const [Q1] = await Promise.all(
+    FAQs.map((faq) =>
+      FAQ.create({
+        order: faq.order,
+        Q: faq.Q,
+        A: faq.A,
+        linkNeeded: faq.linkNeeded,
+        link: faq.link,
+        linkWord: faq.linkWord,
       })
     )
   );

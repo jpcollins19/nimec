@@ -7,8 +7,16 @@ const { clients } = require("./clients_store");
 const { services } = require("./services_store");
 const { attachments } = require("./attachments_store");
 const { EEs } = require("./ees_store");
+const { faqs } = require("./faqs_store");
 
-const reducer = combineReducers({ auth, clients, services, attachments, EEs });
+const reducer = combineReducers({
+  auth,
+  clients,
+  services,
+  attachments,
+  EEs,
+  faqs,
+});
 const middleware = applyMiddleware(thunk);
 const store = createStore(reducer, middleware);
 
@@ -18,4 +26,5 @@ export * from "./clients_store";
 export * from "./services_store";
 export * from "./attachments_store";
 export * from "./ees_store";
+export * from "./faqs_store";
 export * from "./funcs";

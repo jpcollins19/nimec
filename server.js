@@ -1,11 +1,5 @@
 ////contact us
-//after you submit a first form, the submit button doesnt allow you to submit a 2nd form
 //need to add feature that shows the doc is loading
-
-////FAQ
-//need a model and api
-//add an order instance? look at how julie did the amenities and/or photo stuff in the roomer app
-//need to control where each FAQ is listed on the web page
 
 ////savings comparison
 //waiting on hoov for answers
@@ -14,18 +8,22 @@
 
 ////who we are - might not be needed - waiting on hoov
 
-//add web sockets
-
 ////our services
 //need css work
 
 ////membership
 //need css work
 
+////FAQ
+//need css work
+
 ////contact us email receipt viewing
 //css work via sendGrid's template on their website
 
-//login page is last
+////login page is last
+//create your first page to udpate a page with a logged in user, and then audit on heroku to see if the updates show before you apply web sockets
+////FAQ
+//look at how julie did the amenities and/or photo stuff in the roomer app for a user friendly way to drag/drop to organize the sort order
 
 const express = require("express");
 const app = express();
@@ -42,6 +40,7 @@ app.use("/dist", express.static(path.join(__dirname, "dist")));
 
 app.use("/public/pics", express.static(path.join(__dirname, "public/pics")));
 
+app.use("/", require("./server/api/faqs.js"));
 app.use("/", require("./server/api/ees.js"));
 app.use("/", require("./server/api/attachments.js"));
 app.use("/", require("./server/api/sendMessage.js"));

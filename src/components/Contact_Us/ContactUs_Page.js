@@ -17,6 +17,12 @@ const ContactUs_Page = () => {
 
   const attachments = useSelector((state) => state.attachments);
 
+  useEffect(() => {
+    attachments.forEach((attachment) => dispatch(deleteAttachment(attachment)));
+
+    clearArr(attachments);
+  }, []);
+
   const messageSent = () => {
     toast(
       `Thank you ${firstName}!
