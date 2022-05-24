@@ -17,7 +17,7 @@ const ContactUs_Page = () => {
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
-  const [percent, setPercent] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const attachments = useSelector((state) => state.attachments);
 
@@ -91,11 +91,11 @@ const ContactUs_Page = () => {
   // { target: { files } }
 
   const onChange = (e) => {
+    setLoading(true);
     const fileInfo = e.target.files;
 
-    console.log(fileInfo[0]);
-
     for (let i = 0; i < fileInfo.length; i++) {
+      setLoading(true);
       const file = fileInfo[i];
       const fileReader = new FileReader();
 
@@ -106,8 +106,8 @@ const ContactUs_Page = () => {
               const { loaded, total } = progressEvent;
               let percentComplete = Math.floor((loaded * 100) / total);
 
-              if (percentComplete < 100) {
-                setPercent(percentComplete);
+              if (percentComplete === 100) {
+                setLoading(false);
               }
 
               console.log("loaded", loaded);
@@ -146,7 +146,15 @@ const ContactUs_Page = () => {
         </form>
         <h4>Drag/drop files below, or click inside the box to choose a file</h4>
         <h5>**File(s) must be pdf, jpg or png**</h5>
-        <li className={attachments.length ? "attachments" : "no-attachments"}>
+        <li
+          className={
+            loading
+              ? "attachments"
+              : attachments.length
+              ? "attachments"
+              : "no-attachments"
+          }
+        >
           <input
             type="file"
             accept=".pdf, .png, .jpg"
@@ -154,7 +162,26 @@ const ContactUs_Page = () => {
             onChange={onChange}
           />
           <div>
-            {attachments &&
+            {loading ? (
+              <div>loading</div>
+            ) : (
+              attachments &&
+              attachments.length > 0 &&
+              attachments.map((attachment, idx) => (
+                <div key={idx} className="attachment-single-cont">
+                  <div className="fileName-cont">{attachment.name}</div>
+                  {/* <ProgressBar now={percent} label={`${percent}%`} /> */}
+
+                  <button
+                    onClick={() => dispatch(deleteAttachment(attachment))}
+                    className="clear"
+                  >
+                    X
+                  </button>
+                </div>
+              ))
+            )}
+            {/* {attachments &&
               attachments.length > 0 &&
               attachments.map((attachment, idx) => (
                 <div key={idx} className="attachment-single-cont">
@@ -168,7 +195,7 @@ const ContactUs_Page = () => {
                     X
                   </button>
                 </div>
-              ))}
+              ))} */}
           </div>
         </li>
 
