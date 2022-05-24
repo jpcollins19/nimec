@@ -21,8 +21,38 @@ const ContactUs_Page = () => {
   const count = useSelector((state) => state.attachmentCount);
 
   useEffect(() => {
+    if (attachments.length === count) {
+      setLoading(false);
+      console.log("loading set to false in use eff count call");
+    } else {
+      setLoading(true);
+      console.log("loading set to true in use eff count call");
+    }
+
     console.log("count", count);
+    console.log("attachments", attachments);
+    console.log("----------");
+    console.log("END OF COUNT CALL");
   }, [count]);
+
+  useEffect(() => {
+    console.log("loading", loading);
+  }, [loading]);
+
+  useEffect(() => {
+    if (attachments.length === count) {
+      setLoading(false);
+      console.log("loading set to false in use eff attachment call");
+    } else {
+      setLoading(true);
+      console.log("loading set to true in use eff attachment call");
+    }
+
+    console.log("count", count);
+    console.log("attachments", attachments);
+    console.log("----------");
+    console.log("END OF ATTACHMENT CALL");
+  }, [attachments]);
 
   const messageSent = () => {
     toast(
@@ -50,10 +80,6 @@ const ContactUs_Page = () => {
     clearAttachments(attachments);
     clearArr(attachments);
   }, []);
-
-  useEffect(() => {
-    attachments.length === count && setLoading(false);
-  }, [attachments]);
 
   const onSubmit = async (evt) => {
     evt.preventDefault();
@@ -88,6 +114,9 @@ const ContactUs_Page = () => {
   const onChange = (e) => {
     setAttachmentUploaded(true);
     setLoading(true);
+
+    console.log("loading set to true in beginning of onChange call");
+
     const fileInfo = e.target.files;
 
     for (let i = 0; i < fileInfo.length; i++) {
@@ -101,11 +130,12 @@ const ContactUs_Page = () => {
               const { loaded, total } = progressEvent;
               let percentComplete = Math.floor((loaded * 100) / total);
 
-              percentComplete < 100 && setLoading(false);
+              if (percentComplete < 100) {
+                setLoading(true);
+                console.log("loading set to true in filereader options call");
+              }
 
-              console.log("loaded", loaded);
-              console.log("total", total);
-              console.log("perpercentCompletecent", percentComplete);
+              console.log("percentComplete", percentComplete);
             },
           };
           const name = file.name;
