@@ -99,40 +99,22 @@ const ContactUs_Page = () => {
       const file = fileInfo[i];
       const fileReader = new FileReader();
 
-      const options = {
-        onUploadProgress: (progressEvent) => {
-          const { loaded, total } = progressEvent;
-          let percentComplete = Math.floor((loaded * 100) / total);
-
-          setPercent(percentComplete);
-
-          // const obj = {
-          //   name: file.name,
-          //   percent,
-          // };
-
-          // console.log("obj", obj);
-
-          // if (notLoadedName.includes(file.name)) {
-          //   notLoadedObj = notLoadedObj.map((obj) => {
-          //     if (obj.name === file.name) {
-          //       obj.percent = percent;
-          //     }
-          //     return obj;
-          //   });
-          // } else {
-          //   notLoadedName.push(file.name);
-          //   notLoadedObj.push(obj);
-          // }
-
-          console.log("loaded", loaded);
-          console.log("total", total);
-          console.log("perpercentCompletecent", percentComplete);
-        },
-      };
-
       fileReader.onload = (ev) => {
         if (fileReader.readyState === 2) {
+          const options = {
+            onUploadProgress: (progressEvent) => {
+              const { loaded, total } = progressEvent;
+              let percentComplete = Math.floor((loaded * 100) / total);
+
+              if (percentComplete < 100) {
+                setPercent(percentComplete);
+              }
+
+              console.log("loaded", loaded);
+              console.log("total", total);
+              console.log("perpercentCompletecent", percentComplete);
+            },
+          };
           const name = file.name;
           const url = ev.target.result;
           dispatch(addAttachment({ name, url }, options));
