@@ -14,22 +14,16 @@ const ContactUs_Page = () => {
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
-  const [attachmentSubmitted, setAttachmentSubmitted] = useState(false);
+  const [attachmentUploaded, setAttachmentUploaded] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const attachments = useSelector((state) => state.attachments);
 
-  useEffect(() => {
-    attachments.forEach((attachment) => dispatch(deleteAttachment(attachment)));
-
-    clearArr(attachments);
-  }, []);
-
-  useEffect(() => {
-    attachments.length === 0
-      ? setAttachmentSubmitted(false)
-      : setLoading(false);
-  }, [attachments]);
+  // useEffect(() => {
+  //   attachments.length === 0
+  //     ? setAttachmentUploaded(false)
+  //     : setLoading(false);
+  // }, [attachments]);
 
   const messageSent = () => {
     toast(
@@ -48,6 +42,11 @@ const ContactUs_Page = () => {
       return clearArr(arr);
     }
   };
+
+  useEffect(() => {
+    attachments.forEach((attachment) => dispatch(deleteAttachment(attachment)));
+    clearArr(attachments);
+  }, []);
 
   const onSubmit = async (evt) => {
     evt.preventDefault();
@@ -74,7 +73,7 @@ const ContactUs_Page = () => {
       setEmail("");
       setNumber("");
       setMessage("");
-      setAttachmentSubmitted(false);
+      setAttachmentUploaded(false);
       messageSent();
       evt.target.reset();
     } catch (err) {
@@ -83,12 +82,11 @@ const ContactUs_Page = () => {
   };
 
   const onChange = (e) => {
-    setAttachmentSubmitted(true);
+    setAttachmentUploaded(true);
     setLoading(true);
     const fileInfo = e.target.files;
 
     for (let i = 0; i < fileInfo.length; i++) {
-      setLoading(true);
       const file = fileInfo[i];
       const fileReader = new FileReader();
 
@@ -98,6 +96,8 @@ const ContactUs_Page = () => {
             onUploadProgress: (progressEvent) => {
               const { loaded, total } = progressEvent;
               let percentComplete = Math.floor((loaded * 100) / total);
+
+              percentComplete < 100 ? setLoading(true) : setLoading(false);
 
               console.log("loaded", loaded);
               console.log("total", total);
@@ -135,7 +135,7 @@ const ContactUs_Page = () => {
         </form>
         <h4>Drag/drop files below, or click inside the box to choose a file</h4>
         <h5>**File(s) must be pdf, jpg or png**</h5>
-        <li className={!attachmentSubmitted ? "no-attachments" : "attachments"}>
+        <li className={!attachmentUploaded ? "no-attachments" : "attachments"}>
           <input
             type="file"
             accept=".pdf, .png, .jpg"
@@ -151,8 +151,6 @@ const ContactUs_Page = () => {
               attachments.map((attachment, idx) => (
                 <div key={idx} className="attachment-single-cont">
                   <div className="fileName-cont">{attachment.name}</div>
-                  {/* <ProgressBar now={percent} label={`${percent}%`} /> */}
-
                   <button
                     onClick={() => dispatch(deleteAttachment(attachment))}
                     className="clear"
