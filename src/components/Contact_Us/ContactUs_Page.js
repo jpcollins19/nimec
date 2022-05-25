@@ -27,23 +27,21 @@ const ContactUs_Page = () => {
   const count = useSelector((state) => state.attachmentCount);
 
   useEffect(() => {
-    setTimeout(() => {
-      console.log("START OF COUNT CALL");
-      if (attachments.length === count) {
-        setLoading(false);
-        console.log("loading set to false in use eff count call");
-      } else {
-        setLoading(true);
-        console.log("loading set to true in use eff count call");
-      }
+    console.log("START OF COUNT CALL");
+    if (attachments.length === count) {
+      setLoading(false);
+      console.log("loading set to false in use eff count call");
+    } else {
+      setLoading(true);
+      console.log("loading set to true in use eff count call");
+    }
 
-      attachments.length === 0 && setAttachmentUploaded(false);
+    attachments.length === 0 && setAttachmentUploaded(false);
 
-      console.log("count", count);
-      console.log("attachments", attachments);
-      console.log("END OF COUNT CALL");
-      console.log("----------");
-    }, 1000);
+    console.log("count", count);
+    console.log("attachments", attachments);
+    console.log("END OF COUNT CALL");
+    console.log("----------");
   }, [count]);
 
   useEffect(() => {
