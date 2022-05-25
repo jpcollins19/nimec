@@ -3,9 +3,10 @@ import axios from "axios";
 const LOAD_ATTACHMENTS = "LOAD_ATTACHMENTS";
 const ADD_ATTACHMENT = "ADD_ATTACHMENT";
 const DELETE_ATTACHMENT = "DELETE_ATTACHMENT";
+const RESET_ATTACHMENTS = "RESET_ATTACHMENTS";
 const INCREASE_ATTACHMENT_COUNT = "INCREASE_ATTACHMENT_COUNT";
 const DECREASE_ATTACHMENT_COUNT = "DECREASE_ATTACHMENT_COUNT";
-// const RESET_ATTACHMENT_COUNT = "RESET_ATTACHMENT_COUNT";
+const RESET_ATTACHMENT_COUNT = "RESET_ATTACHMENT_COUNT";
 
 const _loadAttachments = (attachments) => {
   return { type: LOAD_ATTACHMENTS, attachments };
@@ -19,12 +20,20 @@ const _deleteAttachment = (attachment) => {
   return { type: DELETE_ATTACHMENT, attachment };
 };
 
+const _resetAttachments = () => {
+  return { type: RESET_ATTACHMENTS };
+};
+
 const _increaseAttachmentCount = () => {
   return { type: INCREASE_ATTACHMENT_COUNT };
 };
 
 const _decreaseAttachmentCount = () => {
   return { type: DECREASE_ATTACHMENT_COUNT };
+};
+
+const _resetAttachmentCount = () => {
+  return { type: RESET_ATTACHMENT_COUNT };
 };
 
 export const loadAttachments = () => {
@@ -55,11 +64,17 @@ export const deleteAttachment = (attachment) => {
   };
 };
 
-// export const resetAttachmentCount = () => {
-//   return async (dispatch) => {
-//     dispatch(_resetAttachmentCount());
-//   };
-// };
+export const resetAttachments = () => {
+  return async (dispatch) => {
+    dispatch(_resetAttachments());
+  };
+};
+
+export const resetAttachmentCount = () => {
+  return async (dispatch) => {
+    dispatch(_resetAttachmentCount());
+  };
+};
 
 export const attachments = (state = [], action) => {
   switch (action.type) {
@@ -71,6 +86,9 @@ export const attachments = (state = [], action) => {
       return [...state].filter(
         (attachment) => attachment.id !== action.attachment.id
       );
+    case RESET_ATTACHMENTS:
+      state = [];
+      return state;
     default:
       return state;
   }
@@ -82,9 +100,9 @@ export const attachmentCount = (state = 0, action) => {
       return state + 1;
     case DECREASE_ATTACHMENT_COUNT:
       return state - 1;
-    // case RESET_ATTACHMENT_COUNT:
-    //   state = 0;
-    // return state;
+    case RESET_ATTACHMENT_COUNT:
+      state = 0;
+      return state;
     default:
       return state;
   }

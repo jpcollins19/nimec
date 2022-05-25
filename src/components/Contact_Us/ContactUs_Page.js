@@ -1,7 +1,13 @@
 import Box from "@mui/material/Box";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { sendMessage, addAttachment, deleteAttachment } from "../../store";
+import {
+  sendMessage,
+  addAttachment,
+  deleteAttachment,
+  resetAttachmentCount,
+  resetAttachments,
+} from "../../store";
 import Joint_Cont from "./Joint_Cont";
 import toast, { Toaster } from "react-hot-toast";
 import "./Contact_Us.css";
@@ -21,6 +27,7 @@ const ContactUs_Page = () => {
   const count = useSelector((state) => state.attachmentCount);
 
   useEffect(() => {
+    console.log("START OF COUNT CALL");
     if (attachments.length === count) {
       setLoading(false);
       console.log("loading set to false in use eff count call");
@@ -29,10 +36,12 @@ const ContactUs_Page = () => {
       console.log("loading set to true in use eff count call");
     }
 
+    attachments.length === 0 && setAttachmentUploaded(false);
+
     console.log("count", count);
     console.log("attachments", attachments);
-    console.log("----------");
     console.log("END OF COUNT CALL");
+    console.log("----------");
   }, [count]);
 
   useEffect(() => {
@@ -40,6 +49,8 @@ const ContactUs_Page = () => {
   }, [loading]);
 
   useEffect(() => {
+    console.log("START OF ATTACHMENT CALL");
+
     if (attachments.length === count) {
       setLoading(false);
       console.log("loading set to false in use eff attachment call");
@@ -48,10 +59,15 @@ const ContactUs_Page = () => {
       console.log("loading set to true in use eff attachment call");
     }
 
+    if (attachments.length && !attachmentUploaded) {
+      dispatch(resetAttachments());
+      console.log("attachments reset in attachment callß");
+    }
+
     console.log("count", count);
     console.log("attachments", attachments);
-    console.log("----------");
     console.log("END OF ATTACHMENT CALL");
+    console.log("----------");
   }, [attachments]);
 
   const messageSent = () => {
@@ -65,20 +81,20 @@ const ContactUs_Page = () => {
     );
   };
 
-  const clearArr = (arr) => {
-    while (arr.length) {
-      arr.pop();
-      return clearArr(arr);
-    }
-  };
-
-  const clearAttachments = (attachments) => {
-    attachments.forEach((attachment) => dispatch(deleteAttachment(attachment)));
-  };
+  // const clearArr = (arr) => {
+  //   while (arr.length) {
+  //     arr.pop();
+  //     return clearArr(arr);
+  //   }
+  // };
 
   useEffect(() => {
-    clearAttachments(attachments);
-    clearArr(attachments);
+    dispatch(resetAttachments());
+    // clearArr(attachments);
+    setAttachmentUploaded(false);
+    setLoading(false);
+    dispatch(resetAttachmentCount());
+    console.log("OG use eff called - attachments are:", attachments);
   }, []);
 
   const onSubmit = async (evt) => {
@@ -96,8 +112,10 @@ const ContactUs_Page = () => {
 
       dispatch(sendMessage(emailContent));
 
-      clearAttachments(attachments);
-      clearArr(attachments);
+      dispatch(resetAttachments());
+      dispatch(resetAttachmentCount());
+      // clearAttachments(attachments);
+      // clearArr(attachments);
       setFirstName("");
       setLastName("");
       setEmail("");
@@ -194,21 +212,6 @@ const ContactUs_Page = () => {
                 </div>
               ))
             )}
-            {/* {attachments &&
-              attachments.length > 0 &&
-              attachments.map((attachment, idx) => (
-                <div key={idx} className="attachment-single-cont">
-                  <div className="fileName-cont">{attachment.name}</div>
-                  <ProgressBar now={percent} label={`${percent}%`} />
-
-                  <button
-                    onClick={() => dispatch(deleteAttachment(attachment))}
-                    className="clear"
-                  >
-                    X
-                  </button>
-                </div>
-              ))} */}
           </div>
         </li>
 
@@ -220,7 +223,8 @@ const ContactUs_Page = () => {
               firstName.length === 0 ||
               lastName.length === 0 ||
               email.length === 0 ||
-              message.length === 0
+              message.length === 0 ||
+              loading
             }
           >
             <span></span>

@@ -1,6 +1,6 @@
 ////contact us
 //need to add feature that shows the doc is loading
-//when you upload more files than can fit, a side scroll bar appears
+//when you upload more files than can fit inside the set cont width, a side scroll bar appears
 
 ////savings comparison
 //waiting on hoov for answers
