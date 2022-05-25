@@ -27,74 +27,27 @@ const ContactUs_Page = () => {
   const count = useSelector((state) => state.attachmentCount);
 
   useEffect(() => {
-    console.log("START OF COUNT CALL");
-    if (attachments.length === count) {
-      setLoading(false);
-      console.log("loading set to false in use eff count call");
-    } else {
-      setLoading(true);
-      console.log("loading set to true in use eff count call");
-    }
-
+    attachments.length === count ? setLoading(false) : setLoading(true);
     attachments.length === 0 && setAttachmentUploaded(false);
-
-    console.log("count", count);
-    console.log("attachments", attachments);
-    console.log("END OF COUNT CALL");
-    console.log("----------");
   }, [count]);
 
   useEffect(() => {
-    console.log("loading", loading);
-  }, [loading]);
-
-  useEffect(() => {
-    console.log("START OF ATTACHMENT CALL");
-
-    if (attachments.length === count) {
-      setLoading(false);
-      console.log("loading set to false in use eff attachment call");
-    } else {
-      setLoading(true);
-      console.log("loading set to true in use eff attachment call");
-    }
-
-    if (attachments.length && !attachmentUploaded) {
-      dispatch(resetAttachments());
-      console.log("attachments reset in attachment callß");
-    }
-
-    console.log("count", count);
-    console.log("attachments", attachments);
-    console.log("END OF ATTACHMENT CALL");
-    console.log("----------");
+    attachments.length === count ? setLoading(false) : setLoading(true);
+    attachments.length && !attachmentUploaded && dispatch(resetAttachments());
   }, [attachments]);
 
   const messageSent = () => {
     toast(
-      `Thank you ${firstName}!
-      
-      Your information has been sent to a NIMEC representative.`,
-      {
-        duration: 5000,
-      }
+      `Thank you ${firstName}!\n\nYour information has been sent to a NIMEC representative.`,
+      { duration: 5000 }
     );
   };
 
-  // const clearArr = (arr) => {
-  //   while (arr.length) {
-  //     arr.pop();
-  //     return clearArr(arr);
-  //   }
-  // };
-
   useEffect(() => {
     dispatch(resetAttachments());
-    // clearArr(attachments);
     setAttachmentUploaded(false);
     setLoading(false);
     dispatch(resetAttachmentCount());
-    console.log("OG use eff called - attachments are:", attachments);
   }, []);
 
   const onSubmit = async (evt) => {
@@ -111,11 +64,8 @@ const ContactUs_Page = () => {
       };
 
       dispatch(sendMessage(emailContent));
-
       dispatch(resetAttachments());
       dispatch(resetAttachmentCount());
-      // clearAttachments(attachments);
-      // clearArr(attachments);
       setFirstName("");
       setLastName("");
       setEmail("");
@@ -133,8 +83,6 @@ const ContactUs_Page = () => {
     setAttachmentUploaded(true);
     setLoading(true);
 
-    console.log("loading set to true in beginning of onChange call");
-
     const fileInfo = e.target.files;
 
     for (let i = 0; i < fileInfo.length; i++) {
@@ -148,12 +96,7 @@ const ContactUs_Page = () => {
               const { loaded, total } = progressEvent;
               let percentComplete = Math.floor((loaded * 100) / total);
 
-              if (percentComplete < 100) {
-                setLoading(true);
-                console.log("loading set to true in filereader options call");
-              }
-
-              console.log("percentComplete", percentComplete);
+              percentComplete < 100 && setLoading(true);
             },
           };
           const name = file.name;
