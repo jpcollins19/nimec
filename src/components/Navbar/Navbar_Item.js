@@ -12,7 +12,7 @@ const Navbar_Item = ({ category }) => {
   const [dropdown, setDropdown] = useState(false);
 
   const item = {
-    color: "rgb(255, 255, 255);;",
+    color: "rgb(255, 255, 255)",
     "&:hover, &:focus": {
       bgcolor: "#162c49;",
     },

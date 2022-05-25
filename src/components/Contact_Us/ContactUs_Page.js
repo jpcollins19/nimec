@@ -9,6 +9,7 @@ import {
   resetAttachments,
 } from "../../store";
 import Joint_Cont from "./Joint_Cont";
+import Loading from "./Loading";
 import toast, { Toaster } from "react-hot-toast";
 import "./Contact_Us.css";
 
@@ -21,7 +22,7 @@ const ContactUs_Page = () => {
   const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
   const [attachmentUploaded, setAttachmentUploaded] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const attachments = useSelector((state) => state.attachments);
   const count = useSelector((state) => state.attachmentCount);
@@ -42,6 +43,10 @@ const ContactUs_Page = () => {
       { duration: 5000 }
     );
   };
+
+  useEffect(() => {
+    console.log("loading", loading);
+  }, [loading]);
 
   useEffect(() => {
     dispatch(resetAttachments());
@@ -139,7 +144,7 @@ const ContactUs_Page = () => {
           />
           <div>
             {loading ? (
-              <div>loading</div>
+              <Loading />
             ) : (
               attachments &&
               attachments.length > 0 &&

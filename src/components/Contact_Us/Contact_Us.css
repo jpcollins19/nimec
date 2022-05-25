@@ -139,6 +139,30 @@ input[type="file"] {
   margin: 0rem 0rem 1rem 0rem;
 }
 
+.loading-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 46vw;
+  min-width: 46vw;
+  max-height: 24.5vh;
+  min-height: 24.5vh;
+  background-color: #162c49;
+  opacity: 0.8;
+  position: absolute;
+}
+
+.loading-cont > h2 {
+  color: white;
+  margin: 1% 0% 0% 0%;
+}
+
+.loading-cont > h3 {
+  color: white;
+  margin: 0;
+}
+
 .attachments {
   overflow: auto;
   border: dashed 3px rgb(196, 194, 194);
@@ -151,6 +175,7 @@ input[type="file"] {
   border: dashed 3px rgb(196, 194, 194);
   background-color: white;
   height: 25vh;
+  color: rgb(255, 255, 255);
 }
 
 .attachments > input[type="file"]::before {
@@ -161,6 +186,7 @@ input[type="file"] {
   margin-top: 10%;
   font-size: 2rem;
   opacity: 0.5;
+  padding: 0;
 }
 
 .no-attachments > input[type="file"]::before {
@@ -172,6 +198,7 @@ input[type="file"] {
   margin-top: 10%;
   font-size: 2rem;
   opacity: 0.5;
+  padding-left: 2rem;
 }
 
 .attachments > input {
