@@ -1,6 +1,8 @@
 ////contact us
-//need to add feature that shows the doc is loading
 //when you upload more files than can fit inside the set cont width, a side scroll bar appears
+//css-work - on drag/drop area - make it different color on hover
+//css work - for files that have been attached
+//css work - on toaster notification - "Your information has been sent to Adam Hoover, he will respond shortly."
 
 ////savings comparison
 //waiting on hoov for answers
@@ -9,11 +11,14 @@
 
 ////who we are - might not be needed - waiting on hoov
 
+////about us
+//waiting on pics for all, and all of chads info
+
 ////our services
-//waiting on hoov to provide newsletter info
 //need css work
 
 ////membership
+//fix the select dropdown to match what you did in world cup
 //need css work
 
 ////FAQ

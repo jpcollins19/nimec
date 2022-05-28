@@ -12,5 +12,6 @@
 }
 
 .service-newsletter {
+  white-space: pre-wrap;
   border: solid 2px orange;
 }

@@ -67,7 +67,7 @@
 .slideshow > * {
   visibility: hidden;
   position: absolute;
-  animation: 12s autoplay1 infinite; /*how many seconds the entire slideshow will play before it starts from the top again*/
+  animation: 70s autoplay1 infinite; /*how many seconds the entire slideshow will play before it starts from the top again*/
 }
 
 .quote {
@@ -95,7 +95,7 @@
   /*  visibility = 100 / number of slides */
   /*if there are three slides, then the answer below is 33.33%*/
   /*if there are 10 slides, then the answer below is 10%*/
-  50% {
+  14% {
     visibility: hidden;
   }
 }
@@ -105,5 +105,25 @@
 }
 
 .slideshow > *:nth-child(2) {
-  animation-delay: 6s;
+  animation-delay: 10s;
+}
+
+.slideshow > *:nth-child(3) {
+  animation-delay: 20s;
+}
+
+.slideshow > *:nth-child(4) {
+  animation-delay: 30s;
+}
+
+.slideshow > *:nth-child(5) {
+  animation-delay: 40s;
+}
+
+.slideshow > *:nth-child(6) {
+  animation-delay: 50s;
+}
+
+.slideshow > *:nth-child(7) {
+  animation-delay: 60s;
 }

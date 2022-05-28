@@ -45,10 +45,6 @@ const ContactUs_Page = () => {
   };
 
   useEffect(() => {
-    console.log("loading", loading);
-  }, [loading]);
-
-  useEffect(() => {
     dispatch(resetAttachments());
     setAttachmentUploaded(false);
     setLoading(false);

@@ -373,15 +373,39 @@ const clients = [
 
 const references = [
   {
-    name: "joe collins",
     title: "Public Works Director",
     quote:
-      "Thanks for your work in organizing the NIMEC communities to band together. You have led us to a monumental change in how governments work for the common good, and provided a real, tangible benefit to citizens across the state. ",
+      "Thanks for your work in organizing the NIMEC communities to band together. You have led us to a monumental change in how governments work for the common good, and provided a real, tangible benefit to citizens across the state.",
+  },
+  {
+    title: "Finance Director",
+    quote:
+      "Once approved by voters, NIMEC provided a sample Plan of Operation and Governance, managed the bid process, and assisted in the negotiation of the contract. There were a few small glitches, as with any new program, and NIMEC was ready, willing, and more than able to handle those as they came up. Overall, NIMEC was an important asset to have throughout the entire process.",
   },
   {
     title: "City Administrator",
     quote:
       "NIMEC is a very professional company to work with. They walked the Village through the aggregation process and met personally with the Village along the way. Their promptness, organization and detail were exemplary.",
+  },
+  {
+    title: "City Administrator",
+    quote:
+      "We had a great experience with NIMEC. They first introduced us to aggregation, then led us through the entire process. Our legal costs were kept to a minimum by using NIMEC's standardized documents. NIMEC saved our staff significant amounts of time and I'd definitely use them again.",
+  },
+  {
+    title: "City Administrator",
+    quote:
+      "The experience working with NIMEC has been smooth sailing; the knowledge base of electric aggregation that was shared with the City was instrumental to the program's success. As this was a big change for the community and a large-scale program, NIMEC was up to the task at hand and always went above and beyond to assist not only City Staff but also residents that inquired about the program.",
+  },
+  {
+    title: "Mayor",
+    quote:
+      "When considering the intimidating language in the state statute, the support and professional assistance received from NIMEC made the Electric Aggregation process simple. From the 'boilerplate' forms provided to the personal attendance by a professional consultant at our Public Hearings, NIMEC was there to walk the City Council through the process. In these tough economic times, NIMEC is one of the best things to happen to the citizens of the City of Morris in a long, long time!",
+  },
+  {
+    title: "Mayor",
+    quote:
+      "NIMEC has been a tremendous resource in passing the electric aggregation referendum. His assistance and knowledge during this process has been invaluable. I would not hesitate in using NIMEC in the future if considering electrical aggregation.",
   },
 ];
 
@@ -390,19 +414,22 @@ const services = [
     title: "Municipalities",
     synopsis:
       "NIMEC is the leading municipal aggregator of electricity in northern Illinois, having managed 100 municipal aggregations with a population base over 2,000,000. Currently, NIMEC manages more Municipal Aggregation programs than anyone else. Illinois municipalities can now negotiate lower electric rates for its residents' home bills. In the same way municipalities negotiate community-wide contracts for waste disposal or cable television, NIMEC helps communities purchase power for their residents. NIMEC's purchasing power of $150 million per year helps our members achieve aggressive rates for their residents.",
-    newsletter: "newsletter goes here",
+    newsletter:
+      "As rising prices with electricity and natural gas spread throughout the world, many are looking for new opportunities to reduce costs. Fortunately, a new opportunity for residents and municipalities called Community Solar can help. In this program, savings go to the resident on their electric bills, support green energy, and can run with a current municipal aggregation program.\n\nThis is not a new type of municipal aggregation program, and does not require any contracts or board approval. There is no commitment on the municipalities end.\n\nCommunity Solar offers two major benefits, green energy, as well as reduced costs. NIMEC’s suppliers can still help resident’s guarantee savings of 20% on the net metering energy credits on the ComEd bills, after the monthly subscription fee. Those savings are guaranteed each month, even when the ComEd rate changes.\n\nThe second benefit of Community Solar is the support of green energy. When using Community Solar, subscribers are supporting the use of a local solar farm in Illinois.\n\nPrices have been rising in Illinois, and worldwide. They currently are at a 10-year high. Demand for power in the US growing consistently since the lows in the 2020 year of COVID, but gas producers have been hesitant to add new production. This, coupled with the Ukraine situation, has caused power prices to escalate to multiyear highs.\n\nOnce a municipality moves forward, NIMEC’s suppliers will mail a postcard to residents with an opt-in to Community Solar. The post card is customizable to each municipalities’ wishes to ensure the best messaging and opt in rates. Other electronic options are available as well.\n\nIf a resident chooses to opt-in, they will receive two different bills, one from ComEd, and another from a supplier with the reduced costs and savings. There are no cancellation fees for the resident. In previous municipalities that have run this program, the opt in rate is around 3-5%.\n\nThere are also customizable options and benefits to the municipality if desired as well.\n\nNIMEC would welcome the opportunity to sit down and chat about how to implement this program, and achieve savings for the residents.",
   },
   {
     title: "Commercial",
     synopsis:
       "NIMEC has been helping its members purchase power and natural gas since 2006. In addition to the 100+ municipalities in northern Illinois, NIMEC also works with Park Districts, Libraries, Churches, and School's to lower their utility costs. NIMEC's retention rate averages 99%, while growing each year. On average, NIMEC members save around 20% annually. NIMEC will work to provide those interested an overview of their current utility situation, with options to help reduce cost.",
-    newsletter: "newsletter goes here",
+    newsletter:
+      "The State of Illinois has set a target of 100% renewable energy in Illinois by 2050. The State created the Community Solar initiative to help achieve their goal.\n\nCommunity Solar allows park districts/libraries to support solar energy projects in Illinois while reducing their energy costs. Savings vary by account but estimates of 10-15% savings are available on certain accounts.\n\nUnder the new legislation, developers will purchase acreage in northern and central Illinois and construct a solar farm. Individual park districts/libraries can then essentially commit to purchasing all the power from a certain number of solar panels.\n\nThis way, park districts and libraries can support solar energy without having to install solar panels at any of their facilities.\n\nBy purchasing power directly from the solar farm, savings are available to park districts and libraires. Each eligible account receives credits for 100% of the power produced by their panels. The developer then charges the account 80% of the value of that account's credits. Hence, that account is guaranteed to receive a 20% discount on the power generated by their panels. This translates into energy savings between 10 and 15% for the average account.\n\nThe park district/library will need to set up an automatic payment with the solar farm developer. The park district or library then receives the credit on their ComEd or supplier bill.\n\nThese accounts can continue to participate in NIMEC's group bidding; no change to your supplier is needed.\n\nOne may ask: how can the State of Illinois afford to pay the Community Solar credits to park districts/libraries. The answer is: the State is not paying these credits. All ComEd customers are!\n\nA small charge is appearing at the bottom of all ComEd bills, called Renewable Portfolio Standard, which includes monies for Community Solar. The credits to park districts/libraries are paid out of these RPS funds.\n\nNote: space Is limited.\n\nNIMEC is available to assist your move to CS. Contact us at your convenience.",
   },
   {
     title: "Residential",
     synopsis:
       "A new opportunity has opened up for residents in Illinois.  Community Solar, which is backed and incentivized by the state of Illinois, allows for guaranteed 20% savings on the supply of your electric bill, while creating energy from a local solar field (no solar panels on property is required). Yet, the program is so popular that there is limited availability. If interested, please reach out and see what options are available. ",
-    newsletter: "newsletter goes here",
+    newsletter:
+      "The State of Illinois has set a target of 100% renewable energy in Illinois by 2050. The State created the Community Solar initiative to help achieve their goal.\n\nCommunity Solar allows park districts/libraries to support solar energy projects in Illinois while reducing their energy costs. Savings vary by account but estimates of 10-15% savings are available on certain accounts.\n\nUnder the new legislation, developers will purchase acreage in northern and central Illinois and construct a solar farm. Individual park districts/libraries can then essentially commit to purchasing all the power from a certain number of solar panels.\n\nThis way, park districts and libraries can support solar energy without having to install solar panels at any of their facilities.\n\nBy purchasing power directly from the solar farm, savings are available to park districts and libraires. Each eligible account receives credits for 100% of the power produced by their panels. The developer then charges the account 80% of the value of that account's credits. Hence, that account is guaranteed to receive a 20% discount on the power generated by their panels. This translates into energy savings between 10 and 15% for the average account.\n\nThe park district/library will need to set up an automatic payment with the solar farm developer. The park district or library then receives the credit on their ComEd or supplier bill.\n\nThese accounts can continue to participate in NIMEC's group bidding; no change to your supplier is needed.\n\nOne may ask: how can the State of Illinois afford to pay the Community Solar credits to park districts/libraries. The answer is: the State is not paying these credits. All ComEd customers are!\n\nA small charge is appearing at the bottom of all ComEd bills, called Renewable Portfolio Standard, which includes monies for Community Solar. The credits to park districts/libraries are paid out of these RPS funds.\n\nNote: space Is limited.\n\nNIMEC is available to assist your move to CS. Contact us at your convenience.",
   },
 ];
 
@@ -410,9 +437,9 @@ const EEs = [
   {
     name: "David Hoover",
     photo: "https://i.ytimg.com/vi/k_uZeCymShQ/maxresdefault.jpg",
-    title: "Boss",
-    email: "david@gmail.com",
-    phone: "555-555-5555",
+    title: "Director",
+    email: "dhoover@nimec.net",
+    phone: "847-392-9300",
     synopsis:
       "David is NIMEC's Founder and Executive Director. He has consulted in the energy industry since 1992, having owned and managed Glenview Consulting Group through 2006. Glenview provided utility consulting services to 200 corporate and municipal clients. David formed NIMEC in 2006 to help his municipal clients take advantage of the savings opportunities presented through Illinois utility deregulation.\n\nDavid holds an MBA from Arizona State University and graduated cum laude with concentration in Business from the University of Colorado.",
     order: 1,
@@ -420,9 +447,9 @@ const EEs = [
   {
     name: "Adam Hoover",
     photo: "https://i.ytimg.com/vi/k_uZeCymShQ/maxresdefault.jpg",
-    title: "Office Bitch",
-    email: "adam@gmail.com",
-    phone: "555-555-5555",
+    title: "Director, Strategic Accounts",
+    email: "ahoover@nimec.net",
+    phone: "847-732-2515",
     synopsis: `Adam is a Director of Strategic Accounts at NIMEC. He has implemented municipal aggregation deals, Community Solar opportunities, as well as fixed rates with power and natural gas for Fire Districts, Park Districts, schools, and churches.\n\nPreviously Adam was a teacher in Chicago Public Schools for 10 years, as well as a head basketball coach for eight years. He graduated from Taylor University, and got his Masters from Concordia in California. He is an avid Chicago sports fan, and enjoys time with his wife Karen, and 2 yr old dog, Lincoln.`,
     order: 2,
   },
@@ -696,7 +723,7 @@ const syncAndSeed = async () => {
     )
   );
 
-  const [ref1, ref2] = await Promise.all(
+  const [ref1, ref2, ref3, ref4, ref5, ref6, ref7] = await Promise.all(
     references.map((reference) =>
       Reference.create({
         name: reference.name,
@@ -743,10 +770,23 @@ const syncAndSeed = async () => {
     )
   );
 
-  ref1.clientId = abundantLifeAssembly.id;
-  ref2.clientId = arlingtonHeights.id;
+  ref1.clientId = montgomery.id;
+  ref2.clientId = sugarGrove.id;
+  ref3.clientId = elburn.id;
+  ref4.clientId = harvard.id;
+  ref5.clientId = woodDale.id;
+  ref6.clientId = morris.id;
+  ref7.clientId = crestHill.id;
 
-  await Promise.all([ref1.save(), ref2.save()]);
+  await Promise.all([
+    ref1.save(),
+    ref2.save(),
+    ref3.save(),
+    ref4.save(),
+    ref5.save(),
+    ref6.save(),
+    ref7.save(),
+  ]);
 };
 
 module.exports = syncAndSeed;

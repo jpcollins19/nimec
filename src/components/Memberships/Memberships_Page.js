@@ -78,7 +78,7 @@ const Memberships_Page = () => {
         />
         <button onClick={() => setSelectedOrg(null)}>Clear Filter</button>
       </div>
-      <div className="asterisk-cont">* Municipality member </div>
+      <div className="asterisk-cont">* Municpal Aggregation</div>
       <div className="membs-cont">
         <div className="membs-text-cont">
           <div>{clientList1 && <Member_Column clientList={clientList1} />}</div>
