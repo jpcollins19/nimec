@@ -1,5 +1,4 @@
 ////contact us
-//when you upload more files than can fit inside the set cont width, a side scroll bar appears
 //css-work - on drag/drop area - make it different color on hover
 //css work - for files that have been attached
 //css work - on toaster notification - "Your information has been sent to Adam Hoover, he will respond shortly."
@@ -26,6 +25,8 @@
 
 ////contact us email receipt viewing
 //css work via sendGrid's template on their website
+
+//connect the hover website to the heroku app
 
 ////login page is last
 //create your first page to udpate a page with a logged in user, and then audit on heroku to see if the updates show before you apply web sockets

@@ -10,8 +10,6 @@ const Home_Page = () => {
     (client) => client.references.length
   );
 
-  console.log("references", references);
-
   return (
     <Box
       sx={{

@@ -82,7 +82,7 @@ const ContactUs_Page = () => {
 
   const onChange = (e) => {
     setAttachmentUploaded(true);
-    setLoading(true);
+    // setLoading(true);
 
     const fileInfo = e.target.files;
 
