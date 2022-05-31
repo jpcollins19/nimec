@@ -25,8 +25,14 @@ const FAQs_Page = () => {
               urlNeeded(faq, idx)
             ) : (
               <div key={idx} className="faq-single-cont">
-                <div className="q">Q: {faq.Q}</div>
-                <div className="a">A: {faq.A}</div>
+                <div className="row-cont">
+                  <div className="head">Q:</div>
+                  <div className="q">{faq.Q}</div>
+                </div>
+                <div className="row-cont">
+                  <div className="head">A:</div>
+                  <div className="a">{faq.A}</div>
+                </div>
               </div>
             )
           )}

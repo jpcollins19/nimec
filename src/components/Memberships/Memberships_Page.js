@@ -57,6 +57,63 @@ const Memberships_Page = () => {
   const clientList2 = targetClients.slice(clientLength, clientLength * 2);
   const clientList3 = targetClients.slice(clientLength * 2);
 
+  const styles = {
+    placeholder: (styles) => {
+      return {
+        ...styles,
+        color: "black",
+      };
+    },
+    dropdownIndicator: (styles) => {
+      return {
+        ...styles,
+        color: "black",
+        "&:hover": {
+          color: "black",
+        },
+      };
+    },
+    indicatorSeparator: (styles) => {
+      return {
+        ...styles,
+        background: "black",
+      };
+    },
+    control: (styles) => {
+      return {
+        ...styles,
+        background: "none",
+        color: "black",
+        border: "solid black 1px",
+        cursor: "pointer",
+        width: "15rem",
+        height: 38,
+        minHeight: 38,
+        fontSize: "1rem",
+        textAlign: "center",
+        "&:hover": {
+          border: "solid black 1px",
+        },
+      };
+    },
+    option: (styles) => {
+      return {
+        ...styles,
+        background: "white",
+        color: "black",
+        borderBottom: "solid lightGrey 2px",
+        cursor: "pointer",
+        width: "13rem",
+        height: "2.5rem",
+        fontSize: "1rem",
+        textAlign: "center",
+        "&:hover": {
+          background: "rgb(242, 242, 234)",
+        },
+      };
+    },
+  };
+
   return (
     <Box
       sx={{
@@ -67,14 +124,15 @@ const Memberships_Page = () => {
       height="100vh"
       className="membs-page"
     >
-      <div className="selected-org-header">Memberships</div>
       <div className="membs-dropdown">
         <Select
-          className="membs-select"
-          onChange={(value) => setSelectedOrg(value)}
           options={organizations.length && organizations}
+          onChange={(value) => setSelectedOrg(value)}
+          styles={styles}
+          isSearchable={false}
           value={selectedOrg}
           placeholder={"Filter by Organization"}
+          className="mems-select"
         />
         <button onClick={() => setSelectedOrg(null)}>Clear Filter</button>
       </div>

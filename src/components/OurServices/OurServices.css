@@ -4,14 +4,72 @@
 }
 
 .service-header {
-  border: solid 2px blue;
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+  font-size: 3rem;
+  font-weight: bold;
+  border-bottom: solid 2px rgb(193, 193, 205);
 }
 
 .service-synopsis {
-  border: solid 2px green;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1rem;
+  font-size: 1.2rem;
+  border-bottom: solid 2px rgb(193, 193, 205);
+  min-height: 12%;
+  max-height: 12%;
+}
+
+.service-newsletter-cont {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-height: 74vh;
+  min-height: 74vh;
+}
+
+.border {
+  border-radius: 0.5rem;
+  border: solid 4px #101f33;
 }
 
 .service-newsletter {
+  flex-direction: column;
   white-space: pre-wrap;
-  border: solid 2px orange;
+  max-width: 50vw;
+  min-width: 50vw;
+  max-height: 69vh;
+  min-height: 69vh;
+  overflow: auto;
+  border-radius: 0.3rem;
+  border: solid 4px rgba(19, 139, 213, 0.397);
+}
+
+.newsletter-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.header {
+  font-size: 2rem;
+  display: flex;
+  flex: 1;
+}
+
+.title {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.date {
+  font-size: 1rem;
+}
+
+.verbiage {
+  margin: 1rem;
 }

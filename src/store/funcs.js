@@ -25,18 +25,25 @@ const urlNeeded = (faq, idx) => {
 
   return (
     <div key={idx} className="faq-single-cont">
-      <div className="q">Q: {faq.Q}</div>
-      <div className="a-l">
-        A: {first}
-        <a
-          className="link"
-          onClick={() => {
-            window.open(faq.link);
-          }}
-        >
-          {phrase}
-        </a>
-        {second}
+      <div className="row-cont">
+        <div className="head">Q:</div>
+        <div className="q">{faq.Q}</div>
+      </div>
+
+      <div className="row-cont">
+        <div className="head">A:</div>
+        <div className="a-l">
+          {first}
+          <a
+            className="link"
+            onClick={() => {
+              window.open(faq.link);
+            }}
+          >
+            {phrase}
+          </a>
+          {second}
+        </div>
       </div>
     </div>
   );

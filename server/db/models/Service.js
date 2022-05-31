@@ -8,13 +8,19 @@ const Service = db.define("services", {
     primaryKey: true,
     defaultValue: UUIDV4,
   },
-  title: {
+  service: {
     type: STRING,
     defaultValue: null,
     unique: true,
     validate: {
       notEmpty: true,
     },
+  },
+  date: {
+    type: STRING,
+  },
+  title: {
+    type: STRING,
   },
   synopsis: {
     type: TEXT,

@@ -3,13 +3,6 @@
   background-color: rgb(246, 244, 241);
 }
 
-.selected-org-header {
-  margin: 1% 0% 1% 0%;
-  text-align: center;
-  cursor: default;
-  border: solid 2px purple;
-}
-
 .membs-dropdown {
   display: flex;
   justify-content: center;
@@ -18,11 +11,23 @@
   border: solid 2px blue;
 }
 
-.membs-select {
+/* .membs-select {
   text-align: center;
   height: 2rem;
   width: 15rem;
   margin-bottom: 10%;
+} */
+
+.mems-select {
+  background: linear-gradient(
+    to bottom,
+    rgba(39, 135, 195, 0.397) 0%,
+    rgba(179, 200, 213, 0.397) 25%,
+    rgba(156, 191, 213, 0.397) 50%,
+    rgba(179, 200, 213, 0.397) 75%,
+    rgba(19, 139, 213, 0.397) 100%
+  );
+  border-radius: 0.5rem;
 }
 
 .membs-dropdown > button {

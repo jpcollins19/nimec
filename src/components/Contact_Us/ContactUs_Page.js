@@ -39,7 +39,7 @@ const ContactUs_Page = () => {
 
   const messageSent = () => {
     toast(
-      `Thank you ${firstName}!\n\nYour information has been sent to a NIMEC representative.`,
+      `Thank you ${firstName}!\n\nYour information has been sent to Adam Hoover, he will respond shortly.`,
       { duration: 5000 }
     );
   };

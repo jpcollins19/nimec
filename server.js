@@ -1,27 +1,15 @@
-////contact us
-//css-work - on drag/drop area - make it different color on hover
-//css work - for files that have been attached
-//css work - on toaster notification - "Your information has been sent to Adam Hoover, he will respond shortly."
+////membership
+//need css work
 
 ////savings comparison
 //waiting on hoov for answers
-//this page will house the comed/nicor/poppa hoov charts
-//chart model/api - need to add instance info for more charts
+//this page will house the poppa hoov charts
+//chart model/api - need to add/update instance info - no more nicor or comed charts
 
 ////who we are - might not be needed - waiting on hoov
 
 ////about us
 //waiting on pics for all, and all of chads info
-
-////our services
-//need css work
-
-////membership
-//fix the select dropdown to match what you did in world cup
-//need css work
-
-////FAQ
-//need css work
 
 ////contact us email receipt viewing
 //css work via sendGrid's template on their website
