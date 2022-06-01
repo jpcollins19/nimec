@@ -1,6 +1,3 @@
-////membership
-//need css work
-
 ////savings comparison
 //waiting on hoov for answers
 //this page will house the poppa hoov charts

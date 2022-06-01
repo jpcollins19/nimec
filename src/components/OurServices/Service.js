@@ -20,7 +20,7 @@ const Service = () => {
         <div className="header">
           NIMEC Newsletter - {service && service.date}
         </div>
-        <div className="border">
+        <div className="border-services">
           <div className="service-newsletter">
             <div className="newsletter-header">
               <div className="title"> {service && service.title}</div>

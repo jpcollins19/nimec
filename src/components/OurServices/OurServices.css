@@ -31,9 +31,11 @@
   min-height: 74vh;
 }
 
-.border {
+.border-services {
   border-radius: 0.5rem;
-  border: solid 4px #101f33;
+  max-height: 69vh;
+  min-height: 69vh;
+  border: solid 5px #101f33;
 }
 
 .service-newsletter {
@@ -41,11 +43,11 @@
   white-space: pre-wrap;
   max-width: 50vw;
   min-width: 50vw;
-  max-height: 69vh;
-  min-height: 69vh;
+  max-height: 68vh;
+  min-height: 68vh;
   overflow: auto;
   border-radius: 0.3rem;
-  border: solid 4px rgba(19, 139, 213, 0.397);
+  border: solid 5px rgba(19, 139, 213, 0.397);
 }
 
 .newsletter-header {
@@ -72,4 +74,5 @@
 
 .verbiage {
   margin: 1rem;
+  font-size: 1.2rem;
 }

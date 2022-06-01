@@ -137,11 +137,19 @@ const Memberships_Page = () => {
         <button onClick={() => setSelectedOrg(null)}>Clear Filter</button>
       </div>
       <div className="asterisk-cont">* Municpal Aggregation</div>
-      <div className="membs-cont">
-        <div className="membs-text-cont">
-          <div>{clientList1 && <Member_Column clientList={clientList1} />}</div>
-          <div>{clientList2 && <Member_Column clientList={clientList2} />}</div>
-          <div>{clientList3 && <Member_Column clientList={clientList3} />}</div>
+      <div className="border">
+        <div className="membs-cont">
+          <div className="membs-text-cont">
+            <div>
+              {clientList1 && <Member_Column clientList={clientList1} />}
+            </div>
+            <div>
+              {clientList2 && <Member_Column clientList={clientList2} />}
+            </div>
+            <div>
+              {clientList3 && <Member_Column clientList={clientList3} />}
+            </div>
+          </div>
         </div>
       </div>
     </Box>

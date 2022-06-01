@@ -7,8 +7,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  border: solid 2px blue;
+  width: 50vw;
+  margin: 2% 0% 2% 0%;
+  /* border: solid 2px blue; */
 }
 
 /* .membs-select {
@@ -28,42 +29,59 @@
     rgba(19, 139, 213, 0.397) 100%
   );
   border-radius: 0.5rem;
+  margin-right: 4%;
 }
 
 .membs-dropdown > button {
   text-align: center;
-  height: 2rem;
+  height: 2.5rem;
   width: 8rem;
   cursor: pointer;
+  margin-left: 4%;
+  background-color: rgb(215, 208, 208);
+  border-radius: 0.5rem;
 }
 
 .asterisk-cont {
-  border: solid 2px red;
+  margin: 0.5%;
+  width: 140vh;
+  font-weight: bold;
+}
+
+.border {
+  border-radius: 0.5rem;
+  min-height: 80.7vh;
+  max-height: 80.7vh;
+  border: solid 5px #101f33;
 }
 
 .membs-cont {
   display: flex;
   flex-wrap: wrap;
-  margin: 2% 0% 2% 0%;
+  margin: 0% 0% 2% 0%;
   min-width: 140vh;
-  min-height: 60vh;
+  min-height: 80vh;
+  max-height: 80vh;
   overflow: auto;
   cursor: default;
-  border: solid 2px orange;
+  border-radius: 0.3rem;
+  border: solid 5px rgba(19, 139, 213, 0.397);
 }
 
 .membs-text-cont {
   display: flex;
   justify-content: space-around;
   min-width: 140vh;
-  border: solid 2px red;
+  margin: 1% 0% 1% 0%;
+  /* border: solid 2px red; */
 }
 
-.membs-text-cont > div {
+/* .membs-text-cont > div {
   border: solid 2px green;
-}
+} */
 
 .membs-text-cont > div > div {
   min-width: 18rem;
-  border: solid 2px blue;
+  font-size: 1.5rem;
+  border-bottom: solid 2px rgb(193, 193, 204);
 }
