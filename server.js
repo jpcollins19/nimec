@@ -1,3 +1,7 @@
+//put video in between synopsis and service-newsletter-cont
+//add youtube video: https://www.youtube.com/watch?v=F4Kybq8U3nE
+//Learn more about Community Solar from ComEd:
+
 ////savings comparison
 //waiting on hoov for answers
 //this page will house the poppa hoov charts

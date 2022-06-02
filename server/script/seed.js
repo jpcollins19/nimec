@@ -9,7 +9,7 @@ const clients = [
   {
     name: "Abundant Life Assembly",
     municipalAgg: false,
-    organization: "Church",
+    organization: "Misc",
   },
   {
     name: "Arlington Heights.",
@@ -69,7 +69,7 @@ const clients = [
   {
     name: "Covenant Presbyterian Church",
     municipalAgg: false,
-    organization: "Church",
+    organization: "Misc",
   },
   { name: "Crest Hill", municipalAgg: true, organization: "Municipality" },
   { name: "Crete", municipalAgg: false, organization: "Municipality" },
@@ -77,7 +77,7 @@ const clients = [
   {
     name: "Da Vinci Waldorf School",
     municipalAgg: false,
-    organization: "School",
+    organization: "Misc",
   },
   { name: "Darien", municipalAgg: true, organization: "Municipality" },
   { name: "Deerfield", municipalAgg: false, organization: "Municipality" },
@@ -170,7 +170,7 @@ const clients = [
   {
     name: "Joliet Montessori School",
     municipalAgg: false,
-    organization: "School",
+    organization: "Misc",
   },
   { name: "Itasca", municipalAgg: true, organization: "Municipality" },
   { name: "Kankakee", municipalAgg: true, organization: "Municipality" },
@@ -292,7 +292,7 @@ const clients = [
   { name: "Park Ridge", municipalAgg: false, organization: "Municipality" },
   { name: "Pingree Grove", municipalAgg: false, organization: "Municipality" },
   { name: "Plainfield", municipalAgg: false, organization: "Municipality" },
-  { name: "Plato Academy", municipalAgg: false, organization: "School" },
+  { name: "Plato Academy", municipalAgg: false, organization: "Misc" },
   { name: "Pontiac", municipalAgg: true, organization: "Municipality" },
   { name: "Prairie Grove", municipalAgg: true, organization: "Municipality" },
   {
@@ -338,7 +338,7 @@ const clients = [
   {
     name: "Unity Christian Academy",
     municipalAgg: false,
-    organization: "School",
+    organization: "Misc",
   },
   { name: "Villa Park", municipalAgg: false, organization: "Municipality" },
   { name: "Warrenville", municipalAgg: true, organization: "Municipality" },

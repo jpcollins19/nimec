@@ -1,7 +1,7 @@
 .faqs-page {
   cursor: default;
   overflow: auto;
-  background-color: rgb(244, 235, 224);
+  background-color: white;
 }
 
 .faq-full-cont {

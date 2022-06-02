@@ -25,6 +25,18 @@ const Home_Page = () => {
         that band together to drive down pricing for residential and municipal
         electricity.
       </div>
+      <div
+        className="home-img"
+        style={{
+          backgroundImage: `url(
+            "https://imageio.forbes.com/specials-images/imageserve/1057157166/Chicago-skyline-aerial-drone-view-from-above--lake-Michigan-and-city-of-Chicago/960x0.jpg?format=jpg&width=960"
+          )`,
+        }}
+      ></div>
+      {/* <img
+        className="home-img"
+        src="https://imageio.forbes.com/specials-images/imageserve/1057157166/Chicago-skyline-aerial-drone-view-from-above--lake-Michigan-and-city-of-Chicago/960x0.jpg?format=jpg&width=960"
+      ></img> */}
       <div className="synopsis-cont">
         <div className="synopsis1">
           NIMEC is the leading municipal aggregator of electricity in northern

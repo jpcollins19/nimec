@@ -1,6 +1,7 @@
 .membs-page {
   overflow: auto;
-  background-color: rgb(246, 244, 241);
+  background-color: white;
+  cursor: default;
 }
 
 .membs-dropdown {

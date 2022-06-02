@@ -103,7 +103,7 @@ const Memberships_Page = () => {
         color: "black",
         borderBottom: "solid lightGrey 2px",
         cursor: "pointer",
-        width: "13rem",
+        width: "15rem",
         height: "2.5rem",
         fontSize: "1rem",
         textAlign: "center",

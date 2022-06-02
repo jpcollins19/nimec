@@ -16,11 +16,6 @@ const Navbar = () => {
   const categories = [
     { title: "Home", icon: <Home />, url: "/home" },
     {
-      title: "Who We Are",
-      icon: <Home />,
-      url: "/who_we_are",
-    },
-    {
       title: "Memberships",
       icon: <Groups />,
       url: "/memberships",
