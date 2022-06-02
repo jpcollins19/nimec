@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import { useLocation } from "react-router-dom";
 import { formatFirstLettertoUpperCase } from "../../store";
 import { useSelector } from "react-redux";

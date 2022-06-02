@@ -1,5 +1,3 @@
-//copy updated code from world cup app
-
 import { useDispatch } from "react-redux";
 import { authenticate } from "../store";
 import { useState } from "react";

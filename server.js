@@ -18,6 +18,7 @@
 //connect the hover website to the heroku app
 
 ////login page is last
+//copy updated code from world cup app
 //create your first page to udpate a page with a logged in user, and then audit on heroku to see if the updates show before you apply web sockets
 ////FAQ
 //look at how julie did the amenities and/or photo stuff in the roomer app for a user friendly way to drag/drop to organize the sort order
