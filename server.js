@@ -1,21 +1,15 @@
-//put video in between synopsis and service-newsletter-cont
-//add youtube video: https://www.youtube.com/watch?v=F4Kybq8U3nE
-//Learn more about Community Solar from ComEd:
-
 ////savings comparison
 //waiting on hoov for answers
 //this page will house the poppa hoov charts
 //chart model/api - need to add/update instance info - no more nicor or comed charts
 
-////who we are - might not be needed - waiting on hoov
-
 ////about us
 //waiting on pics for all, and all of chads info
 
+//connect the hover website to the heroku app
+
 ////contact us email receipt viewing
 //css work via sendGrid's template on their website
-
-//connect the hover website to the heroku app
 
 ////login page is last
 //copy updated code from world cup app

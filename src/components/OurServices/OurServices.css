@@ -17,12 +17,40 @@
 .service-synopsis {
   display: flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  margin: 1rem;
+  margin: 1% 1% 1% 1%;
   font-size: 1.5rem;
   /* border-bottom: solid 2px rgb(193, 193, 205); */
-  min-height: 12%;
-  max-height: 12%;
+  min-height: 10%;
+  max-height: 10%;
+}
+
+.service-synopsis > div {
+  min-width: 75vw;
+  max-width: 75vw;
+}
+
+.youtube-video-header {
+  margin-top: 0;
+  text-align: center;
+}
+
+.video-responsive {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0%;
+  position: relative;
+  height: 35vh;
+  width: 100vw;
+}
+
+.video-responsive iframe {
+  top: 0;
+  height: 85%;
+  width: 30%;
+  position: absolute;
 }
 
 .service-newsletter-cont {
