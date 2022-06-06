@@ -45,6 +45,15 @@ const Navbar_Item = ({ category }) => {
 
   const services = ["Municipalities", "Commercial", "Residential"];
 
+  const adminPages = [
+    "Home",
+    "Memberships",
+    "Services",
+    "FAQ",
+    "Savings",
+    "About",
+  ];
+
   return category && category.title === "Our Services" ? (
     <Box key={category.title} sx={{ bgcolor: "#101F33", pt: 1, pb: 1 }}>
       <ListItem
@@ -130,6 +139,117 @@ const Navbar_Item = ({ category }) => {
                 <ListItemButton sx={item}>
                   <ListItemText>
                     <div className="navbar-text">{service}</div>
+                  </ListItemText>
+                </ListItemButton>
+              </Link>
+            ))}
+          </ListItem>
+        </Box>
+      )}
+    </Box>
+  ) : category.title === "Admin" ? (
+    <Box key={category.title} sx={{ bgcolor: "#101F33", pt: 1, pb: 1 }}>
+      <ListItem
+        disablePadding
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        sx={{
+          backgroundColor:
+            pathname.split("/")[2] === "home"
+              ? "rgba(19, 139, 213, 0.397)"
+              : pathname.split("/")[2] === "memberships"
+              ? "rgba(19, 139, 213, 0.397)"
+              : pathname.split("/")[2] === "services"
+              ? "rgba(19, 139, 213, 0.397)"
+              : pathname.split("/")[2] === "faq"
+              ? "rgba(19, 139, 213, 0.397)"
+              : pathname.split("/")[2] === "savings"
+              ? "rgba(19, 139, 213, 0.397)"
+              : pathname.split("/")[2] === "about"
+              ? "rgba(19, 139, 213, 0.397)"
+              : "#101F33",
+        }}
+      >
+        <ListItemButton
+          sx={item}
+          aria-expanded={dropdown ? "true" : "false"}
+          onClick={() => setDropdown(true)}
+        >
+          <ListItemIcon
+            sx={{
+              color:
+                pathname.split("/")[2] === "home"
+                  ? "rgb(0, 191, 255)"
+                  : pathname.split("/")[2] === "memberships"
+                  ? "rgb(0, 191, 255)"
+                  : pathname.split("/")[2] === "services"
+                  ? "rgb(0, 191, 255)"
+                  : pathname.split("/")[2] === "faq"
+                  ? "rgb(0, 191, 255)"
+                  : pathname.split("/")[2] === "savings"
+                  ? "rgb(0, 191, 255)"
+                  : pathname.split("/")[2] === "about"
+                  ? "rgb(0, 191, 255)"
+                  : "rgb(215, 209, 209)",
+            }}
+          >
+            {category.icon}
+          </ListItemIcon>
+          <ListItemText>
+            <div
+              className={
+                pathname.split("/")[2] === "home"
+                  ? "navbar-text-selected"
+                  : pathname.split("/")[2] === "memberships"
+                  ? "navbar-text-selected"
+                  : pathname.split("/")[2] === "services"
+                  ? "navbar-text-selected"
+                  : pathname.split("/")[2] === "faq"
+                  ? "navbar-text-selected"
+                  : pathname.split("/")[2] === "savings"
+                  ? "navbar-text-selected"
+                  : pathname.split("/")[2] === "about"
+                  ? "navbar-text-selected"
+                  : "navbar-text"
+              }
+            >
+              {category.title}
+            </div>
+          </ListItemText>
+        </ListItemButton>
+      </ListItem>
+      {dropdown && (
+        <Box
+          sx={{
+            position: "fixed",
+            ml: "17%",
+            mt: "-2.5%",
+            bgcolor: "#101F33",
+            pt: 1,
+            pb: 1,
+          }}
+        >
+          <ListItem
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor:
+                pathname === category.url
+                  ? "rgba(19, 139, 213, 0.397)"
+                  : "#101F33",
+            }}
+          >
+            {adminPages.map((page, idx) => (
+              <Link
+                to={`/admin/${page.toLowerCase()}`}
+                style={{ textDecoration: "none" }}
+                key={idx}
+              >
+                <ListItemButton sx={item}>
+                  <ListItemText>
+                    <div className="navbar-text">{page}</div>
                   </ListItemText>
                 </ListItemButton>
               </Link>
