@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { withRouter, Route, Switch } from "react-router-dom";
 import { me } from "./store";
 import { useSelector, useDispatch } from "react-redux";
-import Login_Page from "./components/Login_Page";
 import Home_Page from "./components/Home/Home_Page";
 import Memberships_Page from "./components/Memberships/Memberships_Page";
 import OurServices_Page from "./components/OurServices/OurServices_Page";
 import ContactUs_Page from "./components/Contact_Us/ContactUs_Page";
 import AboutUs_Page from "./components/About_Us/AboutUs_Page";
 import FAQs_Page from "./components/FAQs/FAQs_Page";
+import Login_Page from "./components/Login/Login_Page";
 
 const Routes = () => {
   // const dispatch = useDispatch();
@@ -23,6 +23,7 @@ const Routes = () => {
     { path: "/contact_us", component: ContactUs_Page },
     { path: "/about_us", component: AboutUs_Page },
     { path: "/faqs", component: FAQs_Page },
+    { path: "/byah", component: Login_Page },
   ];
 
   return (

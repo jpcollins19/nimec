@@ -1,7 +1,6 @@
 ////savings comparison
 //waiting on hoov for answers
 //this page will house the poppa hoov charts
-//chart model/api - need to add/update instance info - no more nicor or comed charts
 
 ////about us
 //waiting on pics for all, and all of chads info
@@ -12,9 +11,9 @@
 //css work via sendGrid's template on their website
 
 ////login page is last
-//copy updated code from world cup app
 //create your first page to udpate a page with a logged in user, and then audit on heroku to see if the updates show before you apply web sockets
-////FAQ
+
+////FAQ for logged in user
 //look at how julie did the amenities and/or photo stuff in the roomer app for a user friendly way to drag/drop to organize the sort order
 
 const express = require("express");

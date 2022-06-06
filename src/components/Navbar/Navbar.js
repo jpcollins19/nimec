@@ -1,3 +1,6 @@
+import { useDispatch } from "react-redux";
+import { logout } from "../../store";
+import { Link } from "react-router-dom";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Box from "@mui/material/Box";
@@ -9,10 +12,13 @@ import HelpCenter from "@mui/icons-material/HelpCenter";
 import Paid from "@mui/icons-material/Paid";
 import EmojiPeople from "@mui/icons-material/EmojiPeople";
 import Groups from "@mui/icons-material/Groups";
+import Admin from "@mui/icons-material/SportsSoccer";
 import Navbar_Item from "./Navbar_Item";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ auth }) => {
+  const dispatch = useDispatch();
+
   const categories = [
     { title: "Home", icon: <Home />, url: "/home" },
     {
@@ -56,9 +62,21 @@ const Navbar = () => {
           >
             <img src="/public/pics/nimecLogo.png" className="logo" />
           </ListItem>
+          {auth.id && (
+            <Navbar_Item
+              category={{ title: "Admin", icon: <Admin />, url: "/admin" }}
+            />
+          )}
           {categories.map((category, idx) => (
             <Navbar_Item key={idx} category={category} />
           ))}
+          {auth.id && (
+            <div className="logout" onClick={() => dispatch(logout())}>
+              <Link to="/home" style={{ textDecoration: "none" }}>
+                Sign Out
+              </Link>
+            </div>
+          )}
         </Box>
       </List>
     </Drawer>

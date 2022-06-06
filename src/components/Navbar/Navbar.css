@@ -15,7 +15,10 @@
   font-weight: bold;
 }
 
-.testing {
-  background-color: rgb(166, 229, 145);
-  color: #162c49;
+.logout {
+  padding-left: 10%;
+}
+
+.logout > a {
+  color: #4f8fe3;
 }

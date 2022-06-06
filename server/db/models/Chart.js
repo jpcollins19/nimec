@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const db = require("../db.js");
-const { STRING, UUID, UUIDV4 } = Sequelize;
+const { STRING, UUID, UUIDV4, TEXT, INTEGER } = Sequelize;
 
 const Chart = db.define("charts", {
   id: {
@@ -8,19 +8,21 @@ const Chart = db.define("charts", {
     primaryKey: true,
     defaultValue: UUIDV4,
   },
-  comed: {
-    type: STRING,
+  order: {
+    type: INTEGER,
     defaultValue: null,
-    img: {
-      type: STRING,
-    },
   },
-  nicor: {
+  name: {
     type: STRING,
     defaultValue: null,
-    img: {
-      type: STRING,
-    },
+  },
+  img: {
+    type: TEXT,
+    defaultValue: null,
+  },
+  description: {
+    type: TEXT,
+    defaultValue: null,
   },
 });
 

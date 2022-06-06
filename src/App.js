@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { HashRouter as Router, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import {
@@ -8,6 +8,7 @@ import {
   loadAttachments,
   loadEEs,
   loadFaqs,
+  me,
 } from "./store";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
@@ -23,7 +24,10 @@ const App = () => {
     dispatch(loadAttachments());
     dispatch(loadEEs());
     dispatch(loadFaqs());
+    dispatch(me());
   }, []);
+
+  const auth = useSelector((state) => state.auth);
 
   let theme = createTheme({
     palette: {
@@ -81,7 +85,10 @@ const App = () => {
               flexShrink: { sm: 0 },
             }}
           >
-            <Route path="/" component={Navbar} />
+            <Route
+              path="/"
+              render={(props) => <Navbar auth={auth} {...props} />}
+            />
           </Box>
           <Box
             component="main"

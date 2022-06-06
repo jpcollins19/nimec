@@ -1,0 +1,37 @@
+.login-page {
+  overflow: auto;
+  background-color: white;
+  cursor: default;
+}
+
+.main-cont-login {
+  border-radius: 1rem;
+  padding: 0.5rem;
+  border: solid 4px black;
+  height: 28rem;
+  width: 30rem;
+}
+
+.error-cont-login {
+  min-height: 3rem;
+}
+
+.view-pw {
+  font-size: 1rem;
+  text-shadow: none;
+  cursor: pointer;
+  padding-bottom: 1rem;
+}
+
+.button-cont {
+  display: flex;
+  justify-content: center;
+}
+
+.button-cont > button {
+  font-size: 17px;
+  font-weight: bold;
+  padding: 2%;
+  width: 8rem;
+  cursor: pointer;
+}
