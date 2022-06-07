@@ -7,6 +7,7 @@ const Reference = require("./models/Reference");
 const Service = require("./models/Service");
 const Attachment = require("./models/Attachment");
 const FAQ = require("./models/FAQ");
+const Mission = require("./models/Mission");
 
 Client.hasMany(Reference);
 Reference.belongsTo(Client);
@@ -22,5 +23,6 @@ module.exports = {
     Service,
     Attachment,
     FAQ,
+    Mission,
   },
 };

@@ -9,11 +9,16 @@ import ContactUs_Page from "./components/Contact_Us/ContactUs_Page";
 import AboutUs_Page from "./components/About_Us/AboutUs_Page";
 import FAQs_Page from "./components/FAQs/FAQs_Page";
 import Login_Page from "./components/Login/Login_Page";
+import Home_Page_A from "./components/Admin/home/Home_Page_A";
 
-const Routes = () => {
+const Routes = ({ auth }) => {
   // const dispatch = useDispatch();
-  // useEffect(() => dispatch(me()), []);
+
+  // useEffect(async () => await dispatch(me()), []);
+
   // const auth = useSelector((state) => state.auth);
+
+  const adminOptions = [{ path: "/admin/home", component: Home_Page_A }];
 
   const routeOptions = [
     { path: "/", component: Home_Page },
@@ -40,6 +45,11 @@ const Routes = () => {
           />
         )
       )}
+      {auth &&
+        auth.id &&
+        adminOptions.map((route) => (
+          <Route key={route} path={route.path} component={route.component} />
+        ))}
     </Switch>
   );
 };

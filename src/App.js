@@ -8,6 +8,7 @@ import {
   loadAttachments,
   loadEEs,
   loadFaqs,
+  loadMissions,
   me,
 } from "./store";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -24,6 +25,7 @@ const App = () => {
     dispatch(loadAttachments());
     dispatch(loadEEs());
     dispatch(loadFaqs());
+    dispatch(loadMissions());
     dispatch(me());
   }, []);
 
@@ -100,7 +102,7 @@ const App = () => {
               flexShrink: { sm: 0 },
             }}
           >
-            <Routes />
+            <Routes auth={auth} />
           </Box>
         </Box>
       </ThemeProvider>

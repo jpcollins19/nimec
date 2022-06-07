@@ -1,6 +1,6 @@
 const {
   db,
-  models: { User, Client, Reference, Service, EE, FAQ },
+  models: { User, Client, Reference, Service, EE, FAQ, Mission },
 } = require("../db/index.js");
 
 const users = [{ email: "ahoover@nimec.net", password: "lincoln" }];
@@ -531,6 +531,14 @@ const FAQs = [
   },
 ];
 
+const missions = [
+  {
+    idd: 1,
+    statement:
+      "NIMEC is the leading municipal aggregator of electricity in northern Illinois, having managed 100 municipal aggregations with a population base approaching 2,000,000. NIMEC is the leader in Municipal Aggregation in Northern Illinois, managing more Municipal Aggregation programs than anyone else. Illinois municipalities can now negotiate lower electric rates for its residents' home bills. In the same way municipalities negotiate community-wide contracts for waste disposal or cable television, NIMEC helps communities purchase power for their residents. NIMEC's purchasing power of $150 million per year helps our members achieve aggressive rates for their residents.\n\nAdditionally, NIMEC has been helping its members (libraries, schools, fire districts, and park districts) purchase power for their water pumping, street lighting, and natural gas. NIMEC's retention rate averages 99%, while growing each year.",
+  },
+];
+
 const syncAndSeed = async () => {
   await db.sync({ force: true });
   /////////////////////////////////////////////////////////////
@@ -774,6 +782,15 @@ const syncAndSeed = async () => {
         linkNeeded: faq.linkNeeded,
         link: faq.link,
         linkWord: faq.linkWord,
+      })
+    )
+  );
+
+  const [M1] = await Promise.all(
+    missions.map((mission) =>
+      Mission.create({
+        idd: mission.idd,
+        statement: mission.statement,
       })
     )
   );

@@ -8,6 +8,7 @@ const { services } = require("./services_store");
 const { attachments, attachmentCount } = require("./attachments_store");
 const { EEs } = require("./ees_store");
 const { faqs } = require("./faqs_store");
+const { missions } = require("./missions_store");
 
 const reducer = combineReducers({
   auth,
@@ -17,6 +18,7 @@ const reducer = combineReducers({
   attachmentCount,
   EEs,
   faqs,
+  missions,
 });
 const middleware = applyMiddleware(thunk);
 const store = createStore(reducer, middleware);
@@ -28,4 +30,5 @@ export * from "./services_store";
 export * from "./attachments_store";
 export * from "./ees_store";
 export * from "./faqs_store";
+export * from "./missions_store";
 export * from "./funcs";

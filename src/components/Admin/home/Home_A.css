@@ -1,0 +1,42 @@
+.home-page-a {
+  overflow: auto;
+  cursor: default;
+  overflow: auto;
+}
+
+.header-admin {
+  margin-top: 2%;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.home-admin-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  min-width: 50vw;
+  max-width: 50vw;
+  min-height: 35vw;
+  max-height: 35vw;
+  border: solid 2px black;
+}
+
+.mission-statement {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  min-width: 40vw;
+  max-width: 40vw;
+  min-height: 30vw;
+  max-height: 30vw;
+  margin: 2%;
+}
+
+.home-admin-cont > button {
+  font-size: 1.5rem;
+  width: 10rem;
+  height: 2.5rem;
+  cursor: pointer;
+  margin-bottom: 2%;
+}

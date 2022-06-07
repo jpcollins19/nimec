@@ -41,10 +41,7 @@
 
 .synopsis1 {
   margin-top: 2%;
-}
-
-.synopsis2 {
-  margin-top: 1%;
+  white-space: pre-wrap;
 }
 
 /*https://www.w3.org/Style/Examples/007/slideshow.en.html*/
