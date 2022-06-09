@@ -31,6 +31,7 @@
   min-height: 30vw;
   max-height: 30vw;
   margin: 2%;
+  border: solid rgb(110, 108, 108);
 }
 
 .home-admin-cont > button {

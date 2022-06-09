@@ -1,0 +1,46 @@
+.memberships-page-a {
+  overflow: auto;
+  cursor: default;
+  overflow: auto;
+}
+
+.header-admin {
+  margin-top: 2%;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.buttons-cont {
+  display: flex;
+  justify-content: space-around;
+  width: 50vw;
+  margin-top: 3%;
+}
+
+.buttons-cont > button {
+  width: 6rem;
+  height: 2rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.edit-cont {
+  margin-top: 5%;
+  width: 80vw;
+  min-height: 70vh;
+  border: solid 2px rgb(104, 102, 102);
+}
+
+.edit-header {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.cancel-cont {
+  text-align: center;
+  margin-top: 1rem;
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}

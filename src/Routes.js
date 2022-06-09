@@ -10,6 +10,7 @@ import AboutUs_Page from "./components/About_Us/AboutUs_Page";
 import FAQs_Page from "./components/FAQs/FAQs_Page";
 import Login_Page from "./components/Login/Login_Page";
 import Home_Page_A from "./components/Admin/home/Home_Page_A";
+import Memberships_Page_A from "./components/Admin/memberships/Memberships_Page_A";
 
 const Routes = ({ auth }) => {
   // const dispatch = useDispatch();
@@ -18,7 +19,10 @@ const Routes = ({ auth }) => {
 
   // const auth = useSelector((state) => state.auth);
 
-  const adminOptions = [{ path: "/admin/home", component: Home_Page_A }];
+  const adminOptions = [
+    { path: "/admin/home", component: Home_Page_A },
+    { path: "/admin/memberships", component: Memberships_Page_A },
+  ];
 
   const routeOptions = [
     { path: "/", component: Home_Page },

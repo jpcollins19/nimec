@@ -5,16 +5,18 @@
 ////about us
 //waiting on pics for all, and all of chads info
 
-//connect the hover website to the heroku app
+//final css work onall pages
 
-////contact us email receipt viewing
-//css work via sendGrid's template on their website
+//connect the hover website to the heroku app
 
 ////login page is last
 //create your first page to udpate a page with a logged in user, and then audit on heroku to see if the updates show before you apply web sockets
 
 ////FAQ for logged in user
 //look at how julie did the amenities and/or photo stuff in the roomer app for a user friendly way to drag/drop to organize the sort order
+
+////contact us email receipt viewing
+//css work via sendGrid's template on their website
 
 const express = require("express");
 const app = express();
