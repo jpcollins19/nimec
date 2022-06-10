@@ -38,13 +38,67 @@
 }
 
 .cancel-cont {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   margin-top: 1rem;
-  cursor: pointer;
   color: blue;
   text-decoration: underline;
+  border-bottom: solid 2px rgb(181, 179, 179);
+  padding-bottom: 1rem;
+}
+
+.cancel-cont > div {
+  cursor: pointer;
 }
 
 .member-cont {
-  border: solid 2px red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: solid 2px red; */
+}
+
+.input-cont {
+  display: flex;
+  margin: 1rem;
+  padding-bottom: 1%;
+  border-bottom: solid 2px rgb(188, 183, 183);
+}
+
+.input-cont > div {
+  display: flex;
+  align-items: center;
+  margin-right: 1%;
+}
+
+.param-name {
+  font-size: 1.5rem;
+}
+
+.input-cont > input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+}
+
+.input-cont > input[type="text"] {
+  font-size: 1.5rem;
+  width: 40rem;
+}
+
+.member-cont > .submit-cont-admin {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.member-cont > .submit-cont-admin > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 2rem;
+  font-size: 1.5rem;
+  padding: 1.2rem;
 }

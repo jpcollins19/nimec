@@ -10,9 +10,10 @@ const Action_Page = ({ action, setAction }) => {
   return (
     <div className="edit-cont">
       <div className="edit-header">{action && obj[action]} Member</div>
-      <div className="cancel-cont" onClick={() => setAction(null)}>
-        Cancel
+      <div className="cancel-cont">
+        <div onClick={() => setAction(null)}>Cancel</div>
       </div>
+
       {action && action === 1 ? <Add_Member /> : ""}
     </div>
   );

@@ -166,7 +166,7 @@ const clients = [
     organization: "Library",
   },
   { name: "Island Lake", municipalAgg: true, organization: "Municipality" },
-  { name: "Inner City Impact", municipalAgg: false, organization: "School" },
+  { name: "Inner City Impact", municipalAgg: false, organization: "Misc" },
   {
     name: "Joliet Montessori School",
     municipalAgg: false,
