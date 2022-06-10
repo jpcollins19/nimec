@@ -1,4 +1,6 @@
-const Edit_Page = ({ action, setAction }) => {
+import Add_Member from "./Add_Member";
+
+const Action_Page = ({ action, setAction }) => {
   const obj = {
     1: "Add",
     2: "Edit",
@@ -6,13 +8,14 @@ const Edit_Page = ({ action, setAction }) => {
   };
 
   return (
-    <form className="edit-cont">
+    <div className="edit-cont">
       <div className="edit-header">{action && obj[action]} Member</div>
       <div className="cancel-cont" onClick={() => setAction(null)}>
         Cancel
       </div>
-    </form>
+      {action && action === 1 ? <Add_Member /> : ""}
+    </div>
   );
 };
 
-export default Edit_Page;
+export default Action_Page;

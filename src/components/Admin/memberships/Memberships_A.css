@@ -44,3 +44,7 @@
   color: blue;
   text-decoration: underline;
 }
+
+.member-cont {
+  border: solid 2px red;
+}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
-import Edit_Page from "./Edit_Page";
+import Action_Page from "./Action_Page";
 import "./Memberships_A.css";
 
 const Memberships_Page_A = () => {
@@ -30,7 +30,7 @@ const Memberships_Page_A = () => {
           </button>
         ))}
       </div>
-      {action && <Edit_Page action={action} setAction={setAction} />}
+      {action && <Action_Page action={action} setAction={setAction} />}
     </Box>
   );
 };
