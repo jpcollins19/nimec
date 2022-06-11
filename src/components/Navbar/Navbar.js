@@ -14,6 +14,7 @@ import EmojiPeople from "@mui/icons-material/EmojiPeople";
 import Groups from "@mui/icons-material/Groups";
 import Admin from "@mui/icons-material/SportsSoccer";
 import Navbar_Item from "./Navbar_Item";
+
 import "./Navbar.css";
 
 const Navbar = ({ auth }) => {
@@ -52,7 +53,14 @@ const Navbar = ({ auth }) => {
   return (
     <Drawer variant="permanent">
       <List disablePadding>
-        <Box height="100vh" width="17vw" sx={{ bgcolor: "#101F33", pb: 3 }}>
+        <Box
+          height="100vh"
+          width="17vw"
+          sx={{
+            bgcolor: "#101F33",
+            pb: 3,
+          }}
+        >
           <ListItem
             sx={{
               bgcolor: "#ffffff",

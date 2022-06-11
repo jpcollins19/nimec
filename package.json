@@ -54,6 +54,7 @@
     "pg": "^8.7.3",
     "react-feather": "^2.0.9",
     "react-hot-toast": "^2.2.0",
+    "react-pdf": "^5.7.2",
     "sequelize": "^6.19.0",
     "spinners-react": "^1.0.7",
     "style-loader": "^3.3.1"

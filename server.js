@@ -10,7 +10,8 @@
 //connect the hover website to the heroku app
 
 ////login
-
+//add error handling for when you add a new member
+//then move into editing a member
 ////FAQ for logged in user
 //look at how julie did the amenities and/or photo stuff in the roomer app for a user friendly way to drag/drop to organize the sort order
 
