@@ -13,6 +13,11 @@ const Service = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
+  /*To Prevent right click on screen*/
+  document.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+  });
+
   const service = useSelector((state) => state.services).find(
     (service) =>
       service.service === formatFirstLettertoUpperCase(pathname.split("/")[2])
@@ -22,6 +27,20 @@ const Service = () => {
     setNumPages(numPages);
     setPageNumber(1);
   };
+
+  console.log(numPages && numPages._pdfInfo.numPages);
+
+  function changePage(offset) {
+    setPageNumber((prevPageNumber) => prevPageNumber + offset);
+  }
+
+  function previousPage() {
+    changePage(-1);
+  }
+
+  function nextPage() {
+    changePage(1);
+  }
 
   return (
     <div>
@@ -45,6 +64,37 @@ const Service = () => {
         >
           <Page pageNumber={pageNumber} />
         </Document>
+        <div>
+          <div className="pagec">
+            Page{" "}
+            {pageNumber || (numPages && numPages._pdfInfo.numPages ? 1 : "--")}{" "}
+            of {(numPages && numPages._pdfInfo.numPages) || "--"}
+          </div>
+          <div className="buttonc">
+            <button
+              type="button"
+              disabled={pageNumber <= 1}
+              onClick={previousPage}
+              className="Pre"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              disabled={pageNumber >= numPages}
+              onClick={nextPage}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        {/* <Document
+          file={service && service.newsletter}
+          onLoadSuccess={onDocumentLoadSuccess}
+        >
+          <Page pageNumber={pageNumber} />
+        </Document> */}
       </div>
       {/* <div className="service-newsletter-cont">
         <div className="header">

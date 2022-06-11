@@ -8,7 +8,7 @@
   min-width: 48vw;
   padding: 20px;
   font-family: sans-serif;
-  margin-top: 9rem;
+  margin-top: 2%;
   border: solid 3px black;
   border-radius: 0.4rem;
   background-color: #1d395e;
@@ -33,7 +33,7 @@
   padding: 0px;
   display: block;
   font-weight: bold;
-  color: rgb(0, 191, 255);
+  color: white;
 }
 
 .form-style-1 .required {
@@ -134,14 +134,14 @@ input[type="file"] {
   display: flex;
   justify-content: center;
   margin: 1rem 0rem 0rem 0rem;
-  color: rgb(0, 191, 255);
+  color: white;
 }
 
 .form-style-1 > h5 {
   display: flex;
   justify-content: center;
   margin: 0rem 0rem 1rem 0rem;
-  color: rgb(0, 191, 255);
+  color: white;
 }
 
 .loading-cont {
@@ -149,8 +149,8 @@ input[type="file"] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 45.5vw;
-  min-width: 45.5vw;
+  max-width: 45vw;
+  min-width: 45vw;
   max-height: 24.5vh;
   min-height: 24.5vh;
   background-color: #162c49;
@@ -160,12 +160,14 @@ input[type="file"] {
 
 .loading-cont > h2 {
   color: white;
-  margin: 1% 0% 0% 0%;
+  margin: 2% 0% 0% 0%;
+  font-size: 16px;
 }
 
 .loading-cont > h3 {
   color: white;
   margin: 0;
+  font-size: 13px;
 }
 
 .attachments {
@@ -204,13 +206,13 @@ input[type="file"] {
 }
 
 .no-attachments > input[type="file"]::before {
-  content: "Drag/drop files here";
+  content: "Optional- Drag/Drop your utility bills to see how NIMEC can help achieve the best savings";
   color: black;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 10%;
-  font-size: 2rem;
+  font-size: 17px;
   opacity: 0.5;
   padding-left: 2rem;
 }
@@ -255,8 +257,8 @@ input[type="file"] {
 
 .no-attachments > div {
   text-align: center;
-  max-width: 45vw;
-  min-width: 45vw;
+  max-width: 43vw;
+  min-width: 43vw;
   max-height: 24vh;
   min-height: 24vh;
   color: black;

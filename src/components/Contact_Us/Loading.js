@@ -4,7 +4,7 @@ const Loading = () => {
   return (
     <div className="loading-cont">
       <SpinnerDotted
-        size={100}
+        size={60}
         thickness={100}
         speed={100}
         color="rgba(57, 128, 172, 0.93)"

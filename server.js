@@ -1,6 +1,8 @@
+////our services - resindential
+//fix page number css at bottom of newsletter
+
 ////savings comparison
-//waiting on hoov for answers
-//this page will house the poppa hoov charts
+//hoov answers in word doc
 
 ////about us
 //waiting on pics for all, and all of chads info
