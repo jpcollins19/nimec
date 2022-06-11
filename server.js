@@ -11,7 +11,7 @@
 
 //connect the hover website to the heroku app
 
-////login
+////login page
 //add error handling for when you add a new member
 //then move into editing a member
 ////FAQ for logged in user
