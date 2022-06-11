@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 const Youtube_Video = () => (
   <div className="video-responsive">
     <iframe

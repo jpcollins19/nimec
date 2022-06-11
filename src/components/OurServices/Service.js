@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { formatFirstLettertoUpperCase } from "../../store";
 import { useSelector } from "react-redux";
+import { Document, Page, pdfjs } from "react-pdf";
 import Youtube_Video from "./Youtube_Video";
 import "./OurServices.css";
-import { Document, Page, pdfjs } from "react-pdf";
 
 const Service = () => {
   const { pathname } = useLocation();
