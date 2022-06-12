@@ -55,15 +55,17 @@ const Service = () => {
       )}
 
       {service && service.service === "Residential" && <Youtube_Video />}
+
       <div className="service-newsletter-cont">
         <h2> NIMEC Newsletter</h2>
-
-        <Document
-          file={service && service.newsletter}
-          onLoadSuccess={onDocumentLoadSuccess}
-        >
-          <Page pageNumber={pageNumber} />
-        </Document>
+        <div>
+          <Document
+            file={service && service.newsletter}
+            onLoadSuccess={onDocumentLoadSuccess}
+          >
+            <Page pageNumber={pageNumber} />
+          </Document>
+        </div>
         <div>
           <div className="pagec">
             Page{" "}

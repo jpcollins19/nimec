@@ -67,7 +67,13 @@
 }
 
 .service-newsletter-cont > div {
-  border: solid 2px black;
+  border-radius: 0.5rem;
+  border: solid 4px #101f33;
+}
+
+.service-newsletter-cont > div > div {
+  border-radius: 0.3rem;
+  border: solid 4px rgba(19, 139, 213, 0.397);
 }
 
 /*old div*/
