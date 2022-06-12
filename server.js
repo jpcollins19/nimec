@@ -1,13 +1,15 @@
-////our services - resindential
-//fix page number css at bottom of newsletter
+////our services page
+//service page - study and fix pdf funcs
+//service page - make so the Next Page button is disabled if there isnt a next page
+//resindential page - fix page number css at bottom of newsletter
 
 ////savings comparison
-//hoov answers in word doc
+//need to do - hoov answers in word doc
 
 ////about us
 //waiting on pics for all, and all of chads info
 
-//final css work onall pages
+//final css work on all pages
 
 //connect the hover website to the heroku app
 
