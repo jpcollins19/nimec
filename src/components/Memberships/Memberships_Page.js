@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { loadClients } from "../../store";
 import Member_Column from "./Member_Column";
 import Select from "react-select";
 import "./Memberships.css";
 
 const Memberships_Page = () => {
+  const dispatch = useDispatch();
+
   const [selectedOrg, setSelectedOrg] = useState(null);
+
+  useEffect(() => {
+    dispatch(loadClients());
+  }, []);
 
   const organizations = useSelector((state) => state.clients)
     .filter((client) => client.organization !== null)
@@ -86,7 +93,7 @@ const Memberships_Page = () => {
         color: "black",
         border: "solid black 1px",
         cursor: "pointer",
-        width: "15rem",
+        width: "16rem",
         height: 38,
         minHeight: 38,
         fontSize: "1rem",

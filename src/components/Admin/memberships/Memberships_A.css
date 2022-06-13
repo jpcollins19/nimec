@@ -73,6 +73,11 @@
 
 .param-name {
   font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.param-val {
+  font-size: 1.5rem;
 }
 
 .input-cont > input {
@@ -90,7 +95,7 @@
 .member-cont > .submit-cont-admin {
   display: flex;
   justify-content: center;
-  margin-top: 5%;
+  margin-top: 1%;
 }
 
 .member-cont > .submit-cont-admin > button {
@@ -101,4 +106,23 @@
   height: 2rem;
   font-size: 1.5rem;
   padding: 1.2rem;
+}
+
+.membs-dropdown-admin-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1%;
+}
+
+.mems-select-admin-page {
+  background: linear-gradient(
+    to bottom,
+    rgba(39, 135, 195, 0.397) 0%,
+    rgba(179, 200, 213, 0.397) 25%,
+    rgba(156, 191, 213, 0.397) 50%,
+    rgba(179, 200, 213, 0.397) 75%,
+    rgba(19, 139, 213, 0.397) 100%
+  );
+  border-radius: 0.5rem;
 }

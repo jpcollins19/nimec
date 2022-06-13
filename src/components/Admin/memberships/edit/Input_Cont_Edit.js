@@ -1,10 +1,11 @@
-const Input_Cont = ({ onChange, toggle, set, param }) => {
+const Input_Cont_Edit = ({ onChange, toggle, set, val, param }) => {
   return (
     <div className="input-cont">
       <div className="param-name">{param}:</div>
       <input
         type={param === "MunicipalAgg" ? "checkbox" : "text"}
-        placeholder={param}
+        checked={val}
+        defaultValue={val}
         onChange={
           param === "MunicipalAgg"
             ? toggle
@@ -16,4 +17,4 @@ const Input_Cont = ({ onChange, toggle, set, param }) => {
   );
 };
 
-export default Input_Cont;
+export default Input_Cont_Edit;

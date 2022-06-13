@@ -2,6 +2,8 @@ import axios from "axios";
 
 const LOAD_CLIENTS = "LOAD_CLIENTS";
 const ADD_CLIENT = "ADD_CLIENT";
+const UPDATE_CLIENT = "UPDATE CLIENT";
+const DELETE_CLIENT = "DELETE CLIENT";
 
 const _loadClients = (clients) => {
   return { type: LOAD_CLIENTS, clients };
@@ -9,6 +11,14 @@ const _loadClients = (clients) => {
 
 const _addClient = (client) => {
   return { type: ADD_CLIENT, client };
+};
+
+const _updateClient = (client) => {
+  return { type: UPDATE_CLIENT, client };
+};
+
+const _deleteClient = (client) => {
+  return { type: DELETE_CLIENT, client };
 };
 
 export const loadClients = () => {
@@ -26,12 +36,30 @@ export const addClient = (client, history) => {
   };
 };
 
+export const updateClient = (client, history) => {
+  return async (dispatch) => {
+    client = (await axios.put(`/api/clients/${client.id}`, client)).data;
+    dispatch(_updateClient(client));
+    history.push("/memberships");
+  };
+};
+
+export const deleteClient = (client, history) => {
+  return async (dispatch) => {
+    await axios.delete(`/api/clients/${client.id}`);
+    dispatch(_deleteClient(client));
+    history.push("/memberships");
+  };
+};
+
 export const clients = (state = [], action) => {
   switch (action.type) {
     case LOAD_CLIENTS:
       return action.clients;
     case ADD_CLIENT:
       return [...state, action.client];
+    case DELETE_CLIENT:
+      return [...state].filter((client) => client.id !== action.client.id);
     default:
       return state;
   }

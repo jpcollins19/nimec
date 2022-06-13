@@ -1,6 +1,3 @@
-////savings comparison
-//need to do - hoov answers in word doc
-
 ////about us
 //waiting on pics for all, and all of chads info
 
@@ -10,11 +7,15 @@
 
 //connect the hover website to the heroku app
 
-////login page
-//add error handling for when you add a new member
-//then move into editing a member
-////FAQ for logged in user
+////////loged in user////////////////////////////////
+////services - do
+
+////FAQ -do
 //look at how julie did the amenities and/or photo stuff in the roomer app for a user friendly way to drag/drop to organize the sort order
+
+////savings - do
+
+////////loged in user////////////////////////////////
 
 ////contact us email receipt viewing
 //css work via sendGrid's template on their website
