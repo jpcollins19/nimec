@@ -4,6 +4,7 @@ import { formatFirstLettertoUpperCase } from "../../store";
 import { useSelector } from "react-redux";
 import { Document, Page, pdfjs } from "react-pdf";
 import Youtube_Video from "./Youtube_Video";
+import Pagination from "./Pagination";
 import "./OurServices.css";
 
 const Service = () => {
@@ -28,19 +29,17 @@ const Service = () => {
     setPageNumber(1);
   };
 
-  console.log(numPages && numPages._pdfInfo.numPages);
-
-  function changePage(offset) {
+  const changePage = (offset) => {
     setPageNumber((prevPageNumber) => prevPageNumber + offset);
-  }
+  };
 
-  function previousPage() {
+  const previousPage = () => {
     changePage(-1);
-  }
+  };
 
-  function nextPage() {
+  const nextPage = () => {
     changePage(1);
-  }
+  };
 
   return (
     <div>
@@ -66,30 +65,6 @@ const Service = () => {
             <Page pageNumber={pageNumber} />
           </Document>
         </div>
-        <div>
-          <div className="pagec">
-            Page{" "}
-            {pageNumber || (numPages && numPages._pdfInfo.numPages ? 1 : "--")}{" "}
-            of {(numPages && numPages._pdfInfo.numPages) || "--"}
-          </div>
-          <div className="buttonc">
-            <button
-              type="button"
-              disabled={pageNumber <= 1}
-              onClick={previousPage}
-              className="Pre"
-            >
-              Previous
-            </button>
-            <button
-              type="button"
-              disabled={pageNumber >= numPages}
-              onClick={nextPage}
-            >
-              Next
-            </button>
-          </div>
-        </div>
 
         {/* <Document
           file={service && service.newsletter}
@@ -98,6 +73,12 @@ const Service = () => {
           <Page pageNumber={pageNumber} />
         </Document> */}
       </div>
+      <Pagination
+        pageNumber={pageNumber}
+        numPages={numPages}
+        previousPage={previousPage}
+        nextPage={nextPage}
+      />
       {/* <div className="service-newsletter-cont">
         <div className="header">
           NIMEC Newsletter - {service && service.date}

@@ -407,4 +407,5 @@ input[type="file"] {
   margin-left: 17.2%;
   min-width: 30rem;
   font-weight: bold;
+  border: solid 2px black;
 }
