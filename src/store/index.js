@@ -9,6 +9,7 @@ const { attachments, attachmentCount } = require("./attachments_store");
 const { EEs } = require("./ees_store");
 const { faqs } = require("./faqs_store");
 const { missions } = require("./missions_store");
+const { savings } = require("./savings_store");
 
 const reducer = combineReducers({
   auth,
@@ -19,6 +20,7 @@ const reducer = combineReducers({
   EEs,
   faqs,
   missions,
+  savings,
 });
 const middleware = applyMiddleware(thunk);
 const store = createStore(reducer, middleware);
@@ -31,4 +33,5 @@ export * from "./attachments_store";
 export * from "./ees_store";
 export * from "./faqs_store";
 export * from "./missions_store";
+export * from "./savings_store";
 export * from "./funcs";

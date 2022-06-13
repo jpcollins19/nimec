@@ -1,6 +1,6 @@
 const {
   db,
-  models: { User, Client, Reference, Service, EE, FAQ, Mission },
+  models: { User, Client, Reference, Service, EE, FAQ, Mission, Savings },
 } = require("../db/index.js");
 
 const users = [{ email: "ahoover@nimec.net", password: "lincoln" }];
@@ -542,6 +542,15 @@ const missions = [
   },
 ];
 
+const savings = [
+  {
+    idd: 1,
+    synopsis:
+      "A new opportunity has opened up for residents in Illinois.  Community Solar, which is backed and incentivized by the state of Illinois, allows for guaranteed 20% savings on the supply of your electric bill, while creating energy from a local solar field (no solar panels on property is required). Yet, the program is so popular that there is limited availability. If interested, please reach out and see what options are available. ",
+    attachment: "../../../public/pics/Nimec Rate Comparison.png",
+  },
+];
+
 const syncAndSeed = async () => {
   await db.sync({ force: true });
   /////////////////////////////////////////////////////////////
@@ -794,6 +803,16 @@ const syncAndSeed = async () => {
       Mission.create({
         idd: mission.idd,
         statement: mission.statement,
+      })
+    )
+  );
+
+  const [savings1] = await Promise.all(
+    savings.map((saving) =>
+      Savings.create({
+        idd: saving.idd,
+        synopsis: saving.synopsis,
+        attachment: saving.attachment,
       })
     )
   );

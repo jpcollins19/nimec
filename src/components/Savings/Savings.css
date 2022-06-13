@@ -1,0 +1,29 @@
+.savings-page {
+  overflow: auto;
+  background-color: white;
+  cursor: default;
+}
+
+.savings-header {
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+  font-size: 3rem;
+  font-weight: bold;
+  /* border-bottom: solid 2px rgb(193, 193, 205); */
+  color: rgb(11, 131, 178);
+}
+
+.savings-synopsis {
+  display: flex;
+  justify-content: center;
+  margin: 2% 1% 1% 1%;
+  font-size: 18px;
+  text-align: center;
+}
+
+.chart-cont {
+  margin: 3% 0% 2% 0%;
+  border: solid 2px black;
+  height: 100vh;
+}

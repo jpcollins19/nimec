@@ -36,7 +36,7 @@ const Navbar = ({ auth }) => {
     {
       title: "Savings Comparison",
       icon: <Paid />,
-      url: "/savings_comparison",
+      url: "/savings",
     },
     {
       title: "About Us",

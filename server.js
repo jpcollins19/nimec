@@ -1,8 +1,3 @@
-////our services page
-//service page - study and fix pdf funcs
-//service page - make so the Next Page button is disabled if there isnt a next page
-//resindential page - fix page number css at bottom of newsletter
-
 ////savings comparison
 //need to do - hoov answers in word doc
 
@@ -10,6 +5,8 @@
 //waiting on pics for all, and all of chads info
 
 //final css work on all pages
+
+////after ccs work complete, roll through each file and delete commented out info
 
 //connect the hover website to the heroku app
 
@@ -37,6 +34,7 @@ app.use("/dist", express.static(path.join(__dirname, "dist")));
 
 app.use("/public/pics", express.static(path.join(__dirname, "public/pics")));
 
+app.use("/", require("./server/api/savings.js"));
 app.use("/", require("./server/api/mission.js"));
 app.use("/", require("./server/api/faqs.js"));
 app.use("/", require("./server/api/ees.js"));

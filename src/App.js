@@ -9,6 +9,7 @@ import {
   loadEEs,
   loadFaqs,
   loadMissions,
+  loadSavings,
   me,
 } from "./store";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -26,6 +27,7 @@ const App = () => {
     dispatch(loadEEs());
     dispatch(loadFaqs());
     dispatch(loadMissions());
+    dispatch(loadSavings());
     dispatch(me());
   }, []);
 
