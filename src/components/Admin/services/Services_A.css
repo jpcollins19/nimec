@@ -1,0 +1,73 @@
+.services-page-a {
+  overflow: auto;
+  cursor: default;
+  overflow: auto;
+}
+
+.header-admin {
+  margin-top: 2%;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.services-dropdown-admin-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1%;
+}
+
+.services-select-admin-page {
+  background: linear-gradient(
+    to bottom,
+    rgba(39, 135, 195, 0.397) 0%,
+    rgba(179, 200, 213, 0.397) 25%,
+    rgba(156, 191, 213, 0.397) 50%,
+    rgba(179, 200, 213, 0.397) 75%,
+    rgba(19, 139, 213, 0.397) 100%
+  );
+  border-radius: 0.5rem;
+}
+
+.service-cont-admin {
+  border-top: solid 2px grey;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 80vw;
+  margin-top: 2%;
+}
+
+.service-cont-header {
+  margin-top: 1%;
+  font-size: 2rem;
+}
+
+.service-synopsis {
+  font-family: sans-serif;
+  font-size: 20px;
+  min-width: 40vw;
+  max-width: 40vw;
+  min-height: 15vw;
+  max-height: 15vw;
+  margin: 2%;
+  border: solid rgb(110, 108, 108);
+}
+
+.change-newsletter-button {
+  border: solid 1px black;
+  padding: 0.5rem;
+  background-color: rgb(202, 192, 192);
+  cursor: pointer;
+}
+
+.newsletter-cont {
+  margin: 2%;
+  min-height: 10rem;
+}
+
+.service-cont-admin > button {
+  font-size: 1.3rem;
+  cursor: pointer;
+}

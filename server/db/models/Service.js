@@ -16,12 +16,6 @@ const Service = db.define("services", {
       notEmpty: true,
     },
   },
-  date: {
-    type: STRING,
-  },
-  title: {
-    type: STRING,
-  },
   synopsis: {
     type: TEXT,
     defaultValue: null,
