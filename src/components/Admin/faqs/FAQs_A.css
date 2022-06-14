@@ -1,0 +1,26 @@
+.faq-page-a {
+  overflow: auto;
+  cursor: default;
+  overflow: auto;
+}
+
+.faq-cont-admin {
+  margin-top: 1%;
+  padding: 1rem;
+  width: 80vw;
+  height: 50vh;
+  overflow: auto;
+  border: solid 2px black;
+}
+
+.faq-single-cont-admin {
+  border: solid 2px blue;
+}
+
+.faq-cont-admin-action {
+  padding: 1rem;
+  width: 80vw;
+  height: 50vh;
+  overflow: auto;
+  border: solid 2px black;
+}

@@ -49,7 +49,7 @@ const Navbar_Item = ({ category }) => {
     "Home",
     "Memberships",
     "Services",
-    "FAQ",
+    "FAQs",
     "Savings",
     "About",
   ];

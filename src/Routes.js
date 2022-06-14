@@ -10,12 +10,14 @@ import Login_Page from "./components/Login/Login_Page";
 import Home_Page_A from "./components/Admin/home/Home_Page_A";
 import Memberships_Page_A from "./components/Admin/memberships/Memberships_Page_A";
 import Services_Page_A from "./components/Admin/services/Services_Page_A";
+import FAQs_Page_A from "./components/Admin/faqs/FAQs_Page_A";
 
 const Routes = ({ auth }) => {
   const adminOptions = [
     { path: "/admin/home", component: Home_Page_A },
     { path: "/admin/memberships", component: Memberships_Page_A },
     { path: "/admin/services", component: Services_Page_A },
+    { path: "/admin/faqs", component: FAQs_Page_A },
   ];
 
   const routeOptions = [
