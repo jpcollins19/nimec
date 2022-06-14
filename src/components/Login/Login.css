@@ -23,12 +23,12 @@
   padding-bottom: 1rem;
 }
 
-.button-cont {
+.button-cont-login {
   display: flex;
   justify-content: center;
 }
 
-.button-cont > button {
+.button-cont-login > button {
   font-size: 17px;
   font-weight: bold;
   padding: 2%;

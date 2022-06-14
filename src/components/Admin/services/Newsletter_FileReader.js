@@ -5,7 +5,7 @@ import {
   resetAttachmentCount,
   resetAttachments,
 } from "../../../store";
-import Loading from "../../Contact_Us/Loading";
+import Loading from "./Loading";
 
 const Newsletter_FileReader = ({
   uploadImage,
@@ -31,31 +31,35 @@ const Newsletter_FileReader = ({
       <h5>**File must be pdf**</h5>
       <h5>**Can only upload one file**</h5>
       <li className={!attachmentUploaded ? "no-atchmnts" : "atchmnts"}>
-        <input
-          type="file"
-          accept=".pdf, .png, .jpg"
-          multiple
-          onChange={uploadImage}
-        />
-        <div>
-          {loading && loading ? (
-            <Loading />
-          ) : (
-            attachments &&
-            attachments.length > 0 &&
-            attachments.map((attachment, idx) => (
-              <div key={idx} className="atchmnt-single-cont">
-                <div className="fileName-cont-admin">{attachment.name}</div>
-                <button
-                  onClick={() => dispatch(deleteAttachment(attachment))}
-                  className="clear-admin"
-                >
-                  X
-                </button>
-              </div>
-            ))
-          )}
-        </div>
+        {attachments && !attachments.length ? (
+          <input
+            type="file"
+            accept=".pdf, .png, .jpg"
+            multiple
+            onChange={uploadImage}
+          />
+        ) : (
+          <div>
+            {loading && loading ? (
+              <Loading />
+            ) : (
+              attachments &&
+              attachments.length > 0 &&
+              attachments.map((attachment, idx) => (
+                <div key={idx} className="atchmnt-single-cont">
+                  <div className="fileName-cont-admin">{attachment.name}</div>
+                  <button
+                    onClick={() => dispatch(deleteAttachment(attachment))}
+                    className="clear-admin"
+                  >
+                    X
+                  </button>
+                </div>
+              ))
+            )}
+          </div>
+        )}
+        {}
       </li>
     </ul>
   );

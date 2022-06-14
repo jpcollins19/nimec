@@ -11,7 +11,7 @@ import "./Login.css";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
-    border: "solid 2px black",
+    border: "solid 1px black",
     borderRadius: "9px",
   },
 }));
@@ -72,9 +72,6 @@ const Login_Page = () => {
           Sign in
         </Typography>
 
-        {/* <div className="error-cont-login">
-          <Alert severity="error">Alert goes here blah blah blah</Alert>
-        </div> */}
         <Box
           component="form"
           onSubmit={onSubmit}
@@ -149,9 +146,9 @@ const Login_Page = () => {
           <div className="view-pw" onClick={() => showPwClick()}>
             View Password
           </div>
-          <div className="button-cont">
+          <div className="button-cont-login">
             <button disabled={!email || !password}>
-              <span className="button_top"> Sign In</span>
+              <span> Sign In</span>
             </button>
           </div>
         </Box>

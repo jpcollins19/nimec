@@ -39,18 +39,22 @@
   margin-top: 2%;
 }
 
+#services-form {
+  text-align: center;
+}
+
 .service-cont-header {
   margin-top: 1%;
   font-size: 2rem;
 }
 
-.service-cont-admin > button {
-  margin-top: 2%;
+.service-cont-admin > form > button {
+  margin-top: 4%;
   font-size: 1.3rem;
   cursor: pointer;
 }
 
-.service-synopsis {
+.service-synopsis-admin {
   font-family: sans-serif;
   font-size: 20px;
   min-width: 40vw;
@@ -68,13 +72,6 @@
   cursor: pointer;
 }
 
-.newsletter-cont {
-  margin: 2%;
-  min-height: 10rem;
-}
-
-/**/
-
 .newsletter-upload-cont {
   max-width: 48vw;
   min-width: 48vw;
@@ -86,115 +83,16 @@
   background-color: #1d395e;
 }
 
-.joint-cont {
-  display: flex;
-  justify-content: space-around;
-}
-
-.joint-cont-li {
-  padding: 0;
-  display: block;
-  list-style: none;
-  margin: 10px 0 0 0;
-  max-width: 20vw;
-  min-width: 20vw;
-}
-
-.newsletter-upload-cont label {
-  margin: 0 0 3px 0;
-  padding: 0px;
-  display: block;
-  font-weight: bold;
-  color: white;
-}
-
-.newsletter-upload-cont .required {
-  color: red;
-}
-
 .newsletter-upload-cont input {
   font-family: sans-serif;
   font-size: 1rem;
 }
 
-.newsletter-upload-cont input[type="text"],
-input[type="email"],
-textarea,
-select {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  border: 1px solid #bebebe;
-  padding: 7px;
-  margin: 0px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  outline: none;
-}
-
-.newsletter-upload-cont input[type="file"],
-select {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  border: "none";
-  padding: 7px;
-  margin: 0px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  outline: none;
-}
-
-.newsletter-upload-cont input[type="text"]:focus,
-.newsletter-upload-cont input[type="email"]:focus,
-textarea:focus,
-.newsletter-upload-cont select:focus {
+.newsletter-upload-cont input[type="text"]:focus {
   -moz-box-shadow: 0 0 8px #88d5e9;
   -webkit-box-shadow: 0 0 8px #88d5e9;
   box-shadow: 0 0 8px #88d5e9;
   border: 1px solid #88d5e9;
-}
-
-.newsletter-upload-cont .field-divided {
-  width: 100%;
-  height: 60%;
-}
-
-.message-cont {
-  display: flex;
-  justify-content: center;
-}
-
-.message-file {
-  padding: 0;
-  display: block;
-  list-style: none;
-  margin: 10px 0 0 0;
-  max-width: 43vw;
-  min-width: 43vw;
-}
-
-.newsletter-upload-cont .field-long {
-  width: 100%;
-}
-
-.newsletter-upload-cont .field-textarea {
-  font-family: sans-serif;
-  font-size: 1rem;
-  height: 150px;
-  max-width: 100%;
-  min-width: 100%;
-}
-
-.newsletter-upload-cont > h4 {
-  display: flex;
-  justify-content: center;
-  margin: 1rem 0rem 0rem 0rem;
-  color: white;
 }
 
 .newsletter-upload-cont > h5 {
@@ -202,32 +100,6 @@ textarea:focus,
   justify-content: center;
   margin: 0rem 0rem 1rem 0rem;
   color: white;
-}
-
-.loading-cont {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 45vw;
-  min-width: 45vw;
-  max-height: 24.5vh;
-  min-height: 24.5vh;
-  background-color: #162c49;
-  opacity: 0.8;
-  position: absolute;
-}
-
-.loading-cont > h2 {
-  color: white;
-  margin: 2% 0% 0% 0%;
-  font-size: 16px;
-}
-
-.loading-cont > h3 {
-  color: white;
-  margin: 0;
-  font-size: 13px;
 }
 
 .atchmnts {
@@ -259,19 +131,18 @@ textarea:focus,
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10%;
   font-size: 2rem;
   opacity: 0.5;
   padding: 0;
 }
 
 .no-atchmnts > input[type="file"]::before {
-  content: "Optional- Drag/Drop your utility bills to see how NIMEC can help achieve the best savings";
+  content: "Drag/Drop pdf here";
   color: black;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 13%;
   font-size: 17px;
   opacity: 0.5;
   padding-left: 2rem;
@@ -280,40 +151,34 @@ textarea:focus,
 .atchmnts > input {
   color: transparent;
   cursor: pointer;
-  position: absolute;
   margin: 0;
   padding: 0;
   max-width: 43vw;
   min-width: 43vw;
   max-height: 23vh;
   min-height: 23vh;
-  /* border: solid 2px blue; */
 }
 
 .no-atchmnts > input {
   color: transparent;
   cursor: pointer;
-  position: absolute;
   margin: 0;
   padding: 0;
   max-width: 43.5vw;
   min-width: 43.5vw;
   max-height: 24vh;
   min-height: 24vh;
-
-  /* border: solid 2px blue; */
 }
 
 .atchmnts > div {
   text-align: center;
-  max-width: 44vw;
-  min-width: 44vw;
+  max-width: 42vw;
+  min-width: 42vw;
   max-height: 24vh;
   min-height: 24vh;
   color: black;
   font-family: Arial;
   margin: 0;
-  /* border: solid 2px red; */
 }
 
 .no-atchmnts > div {
@@ -325,7 +190,6 @@ textarea:focus,
   color: black;
   font-family: Arial;
   margin: 0;
-  /* border: solid 2px red; */
 }
 
 .atchmnts > div > div {
@@ -346,10 +210,6 @@ textarea:focus,
   margin-bottom: 1px;
 }
 
-::-webkit-file-upload-button {
-  display: none;
-}
-
 .fileName-cont-admin {
   display: flex;
   flex: 1;
@@ -359,109 +219,27 @@ textarea:focus,
   cursor: pointer;
 }
 
-.submit-cont {
+.loading-cont-admin {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0rem 0rem 0rem;
+  max-width: 44.5vw;
+  min-width: 44.5vw;
+  max-height: 24vh;
+  min-height: 24vh;
+  background-color: #162c49;
+  opacity: 0.8;
 }
 
-.submit-cont > button {
-  position: relative;
-  padding: 1em 1.8em;
-  outline: none;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 15px;
-  overflow: hidden;
-  border-radius: 1rem;
-  font-weight: bold;
-  border: 1px solid rgb(0, 191, 255);
-  background: #162c49;
-  color: rgb(0, 191, 255);
-  transition: 0.2s;
-  cursor: pointer;
-  margin-top: 4%;
+.loading-cont-admin > h2 {
+  color: white;
+  margin: 2% 0% 0% 0%;
+  font-size: 16px;
 }
 
-.submit-cont > button:disabled {
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-  cursor: default;
-  pointer-events: none;
-}
-
-.submit-cont > button:hover {
-  box-shadow: 0 0 10px rgb(0, 191, 255), 0 0 25px rgb(2, 166, 220),
-    0 0 50px #162c49;
-  transition-delay: 0.9s;
-}
-
-.submit-cont > button span {
-  position: absolute;
-}
-
-.submit-cont > button span:nth-child(1) {
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgb(2, 166, 220));
-}
-
-.submit-cont > button:hover span:nth-child(1) {
-  left: 100%;
-  transition: 0.8s;
-}
-
-.submit-cont > button span:nth-child(3) {
-  bottom: 0;
-  right: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgb(2, 166, 220));
-}
-
-.submit-cont > button:hover span:nth-child(3) {
-  right: 100%;
-  transition: 0.8s;
-  transition-delay: 0.35s;
-}
-
-.submit-cont > button span:nth-child(2) {
-  top: -100%;
-  right: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, rgb(2, 166, 220));
-}
-
-.submit-cont > button:hover span:nth-child(2) {
-  top: 100%;
-  transition: 0.7s;
-  transition-delay: 0.15s;
-}
-
-.submit-cont > button span:nth-child(4) {
-  bottom: -100%;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(360deg, transparent, rgb(2, 166, 220));
-}
-
-.submit-cont > button:hover span:nth-child(4) {
-  bottom: 100%;
-  transition: 0.7s;
-  transition-delay: 0.52s;
-}
-
-.toaster-submit-confirmation {
-  text-align: center;
-  padding: 1rem 0rem 1rem 0rem;
-  margin-left: 17.2%;
-  min-width: 30rem;
-  font-weight: bold;
-  border: solid 2px black;
+.loading-cont-admin > h3 {
+  color: white;
+  margin: 0;
+  font-size: 13px;
 }

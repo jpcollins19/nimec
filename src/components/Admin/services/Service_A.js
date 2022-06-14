@@ -92,11 +92,15 @@ const Service_A = ({ service, changeNewsletter, setChangeNewsletter }) => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="service-cont-admin">
-      <div className="service-cont-header"> {service && service.service}</div>
-      <button disabled={!canSubmit}>Submit</button>
+    <div className="service-cont-admin">
+      <form id="services-form" onSubmit={onSubmit}>
+        <div className="service-cont-header"> {service && service.service}</div>
+        <button form="services-form" type="submit" disabled={!canSubmit}>
+          Update Service Info
+        </button>
+      </form>
       <textarea
-        className="service-synopsis"
+        className="service-synopsis-admin"
         defaultValue={service && service.synopsis}
         onChange={onSynopsisChange}
       ></textarea>
@@ -106,20 +110,19 @@ const Service_A = ({ service, changeNewsletter, setChangeNewsletter }) => {
       >
         Change Newsletter
       </div>
-      <div className="newsletter-cont">
-        {changeNewsletter && changeNewsletter && (
-          <Newsletter_FileReader
-            uploadImage={uploadImage}
-            attachmentUploaded={attachmentUploaded}
-            setAttachmentUploaded={setAttachmentUploaded}
-            setCanSubmit={setCanSubmit}
-            loading={loading}
-            setLoading={setLoading}
-            attachments={attachments}
-          />
-        )}
-      </div>
-    </form>
+
+      {changeNewsletter && changeNewsletter && (
+        <Newsletter_FileReader
+          uploadImage={uploadImage}
+          attachmentUploaded={attachmentUploaded}
+          setAttachmentUploaded={setAttachmentUploaded}
+          setCanSubmit={setCanSubmit}
+          loading={loading}
+          setLoading={setLoading}
+          attachments={attachments}
+        />
+      )}
+    </div>
   );
 };
 

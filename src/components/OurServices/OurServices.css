@@ -16,15 +16,9 @@
 
 .service-synopsis {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
-  /* text-align: center; */
   margin: 1% 1% 1% 1%;
   font-size: 18px;
-  /* border-bottom: solid 2px rgb(193, 193, 205); */
-
-  /* min-height: 10%;
-  max-height: 10%; */
 }
 
 .service-synopsis > div {
