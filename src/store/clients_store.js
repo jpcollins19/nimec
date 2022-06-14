@@ -2,7 +2,6 @@ import axios from "axios";
 
 const LOAD_CLIENTS = "LOAD_CLIENTS";
 const ADD_CLIENT = "ADD_CLIENT";
-const UPDATE_CLIENT = "UPDATE CLIENT";
 const DELETE_CLIENT = "DELETE CLIENT";
 
 const _loadClients = (clients) => {
@@ -11,10 +10,6 @@ const _loadClients = (clients) => {
 
 const _addClient = (client) => {
   return { type: ADD_CLIENT, client };
-};
-
-const _updateClient = (client) => {
-  return { type: UPDATE_CLIENT, client };
 };
 
 const _deleteClient = (client) => {
@@ -39,7 +34,6 @@ export const addClient = (client, history) => {
 export const updateClient = (client, history) => {
   return async (dispatch) => {
     client = (await axios.put(`/api/clients/${client.id}`, client)).data;
-    dispatch(_updateClient(client));
     history.push("/memberships");
   };
 };

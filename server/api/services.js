@@ -13,4 +13,13 @@ app.get("/api/services", async (req, res, next) => {
   }
 });
 
+app.put("/api/services/:id", async (req, res, next) => {
+  try {
+    const service = await Service.findByPk(req.params.id);
+    res.status(204).send(await service.update(req.body));
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = app;

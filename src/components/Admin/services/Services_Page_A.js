@@ -92,6 +92,7 @@ const Services_Page_A = () => {
         <Select
           options={services && services}
           onChange={(value) => setService(value.value)}
+          isSearchable={false}
           styles={styles}
           placeholder={"Select Service"}
           className="services-select-admin-page"

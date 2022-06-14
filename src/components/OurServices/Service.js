@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { formatFirstLettertoUpperCase } from "../../store";
+import { formatFirstLettertoUpperCase, loadServices } from "../../store";
 import { useSelector } from "react-redux";
 import { Document, Page, pdfjs } from "react-pdf";
 import Youtube_Video from "./Youtube_Video";
@@ -8,7 +9,12 @@ import Pagination from "./Pagination";
 import "./OurServices.css";
 
 const Service = () => {
+  const dispatch = useDispatch();
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    dispatch(loadServices());
+  }, []);
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
   const [numPages, setNumPages] = useState(null);

@@ -1,3 +1,14 @@
+//roll through services admin submission, and then try to do a contact us submission, and then go back and do a services submission
+//test submit disabled button functionality
+
+////services page - admin
+//roll through css page and remove everything that is not needed from Newsletter_Filereader.js file
+//fix css on loading container
+//^^apply above fixes on css on loading container to the contact us page
+
+////services page
+//fix css
+
 ////about us
 //waiting on pics for all, and all of chads info
 
