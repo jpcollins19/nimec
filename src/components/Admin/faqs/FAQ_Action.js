@@ -18,13 +18,20 @@ const FAQ_Action = ({
   setDeleteNeeded,
   deleteNeeded,
   setDeleteConfirmed,
+  setAddNeeded,
 }) => {
   return (
     <div className="faq-cont-admin-action">
       <h2>{action} FAQ Section</h2>
       {action && action === "Add" ? (
         <form onSubmit={onSubmit} className="action-cont">
-          <button>Submit FAQ</button>
+          {error && <Alert severity="error">{error}</Alert>}
+          <button
+            disabled={order === null || Q === null || A === null}
+            onClick={() => setAddNeeded(true)}
+          >
+            Submit FAQ
+          </button>
           <input
             type="checkbox"
             onChange={() => setEditLinkChecked(!editLinkChecked)}

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { formatFirstLettertoUpperCase } from "../../../store";
 import { useHistory } from "react-router-dom";
-import { updateFaq, deleteFaq } from "../../../store";
+import { updateFaq, deleteFaq, addFaq } from "../../../store";
 import Box from "@mui/material/Box";
 import FAQ_Listing from "./FAQ_Listing";
 import FAQ_Action from "./FAQ_Action";
@@ -25,6 +25,7 @@ const FAQs_Page_A = () => {
   const [linkWord, setLinkWord] = useState(null);
   const [error, setError] = useState(null);
 
+  const [addNeeded, setAddNeeded] = useState(false);
   const [updateNeeded, setUpdateNeeded] = useState(false);
   const [deleteNeeded, setDeleteNeeded] = useState(false);
   const [deleteConfirmed, setDeleteConfirmed] = useState(false);
@@ -58,57 +59,75 @@ const FAQs_Page_A = () => {
         ? setEditLinkChecked(true)
         : setEditLinkChecked(false);
 
+      setAddNeeded(false);
+      setUpdateReady(false);
       setUpdateNeeded(false);
       setDeleteNeeded(false);
       setDeleteConfirmed(false);
+      setError(null);
     }
   }, [currentFAQ]);
+
+  const performAudit = () => {
+    let answer = false;
+
+    if (isNaN(Number(order)) || order.length === 0) {
+      answer = true;
+      setError("Invalid Order entry");
+    }
+
+    if (Q.length === 0) {
+      answer = true;
+      setError("Invalid Q entry");
+    }
+
+    if (A.length === 0) {
+      answer = true;
+      setError("Invalid A entry");
+    }
+
+    if (editLinkChecked) {
+      if (link === null || link.length === 0) {
+        answer = true;
+        setError("Invalid Link entry");
+      }
+
+      if (linkWord === null || linkWord.length === 0) {
+        answer = true;
+        setError("Invalid LinkWord entry");
+      }
+    }
+
+    return answer;
+  };
 
   const onSubmit = async (evt) => {
     evt.preventDefault();
 
     try {
-      if (updateNeeded) {
-        if (order.length === 0) {
-          return setError("Invalid Order entry");
-        }
+      const obj = {
+        order: Number(order),
+        Q,
+        A,
+      };
 
-        if (Q.length === 0) {
-          return setError("Invalid Q entry");
-        }
-
-        if (A.length === 0) {
-          return setError("Invalid A entry");
-        }
-
-        if (editLinkChecked) {
-          if (link === null || link.length === 0) {
-            return setError("Invalid Link entry");
-          }
-
-          if (linkWord === null || linkWord.length === 0) {
-            return setError("Invalid LinkWord entry");
-          }
-        }
-
-        const obj = {
-          id: currentFAQ.id,
-          order: Number(order),
-          Q,
-          A,
-        };
-
-        if (editLinkChecked) {
-          (obj.linkNeeded = true), (obj.link = link), (obj.linkWord = linkWord);
-        } else {
-          obj.linkNeeded = false;
-        }
-
-        dispatch(updateFaq(obj, history));
+      if (editLinkChecked) {
+        (obj.linkNeeded = true), (obj.link = link), (obj.linkWord = linkWord);
+      } else {
+        obj.linkNeeded = false;
       }
 
-      if (deleteConfirmed) {
+      const audit = performAudit();
+
+      if (audit) {
+        return;
+      } else if (updateNeeded) {
+        obj.id = currentFAQ.id;
+        dispatch(updateFaq(obj, history));
+      } else if (deleteConfirmed) {
         dispatch(deleteFaq({ id: currentFAQ.id }, history));
+      } else if (addNeeded) {
+        dispatch(addFaq(obj, history));
       }
     } catch (err) {
       console.log(err);
@@ -141,6 +160,9 @@ const FAQs_Page_A = () => {
           setLink(null);
           setLinkWord(null);
           setError(null);
+          setAddNeeded(false);
+          setUpdateNeeded(false);
+          setDeleteNeeded(false);
           setDeleteNeeded(false);
         }}
       >
@@ -164,6 +186,7 @@ const FAQs_Page_A = () => {
           setDeleteNeeded={setDeleteNeeded}
           deleteNeeded={deleteNeeded}
           setDeleteConfirmed={setDeleteConfirmed}
+          setAddNeeded={setAddNeeded}
         />
       )}
     </Box>
