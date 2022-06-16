@@ -4,23 +4,124 @@
   overflow: auto;
 }
 
+.add-butt {
+  margin-top: 1.5%;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 .faq-cont-admin {
   margin-top: 1%;
-  padding: 1rem;
+  padding-bottom: 1rem;
   width: 80vw;
-  height: 50vh;
+  height: 40vh;
   overflow: auto;
   border: solid 2px black;
 }
 
 .faq-single-cont-admin {
-  border: solid 2px blue;
+  margin-top: 2%;
+  padding-bottom: 2%;
+  display: flex;
+  border-bottom: solid 2px grey;
+}
+
+.selected {
+  margin-top: 2%;
+  padding-bottom: 2%;
+  display: flex;
+  border: solid 4px dodgerblue;
+}
+
+.faq-a-order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 7%;
+  /* border: solid 2px red; */
+}
+
+.q-a-cont {
+  padding-left: 1%;
+  min-width: 80%;
+  max-width: 80%;
+  border-left: solid 2px grey;
+  border-right: solid 2px grey;
+}
+/* 
+.faq-a-q {
+  border-left: solid 2px grey;
+  border-right: solid 2px grey;
+} */
+
+/* .faq-a-a {
+  border: solid 2px purple;
+} */
+
+.edit-butt {
+  margin-left: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: solid 2px purple; */
+}
+
+.edit-butt > button {
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .faq-cont-admin-action {
-  padding: 1rem;
+  margin-top: 1%;
+  /* padding: 1rem; */
   width: 80vw;
-  height: 50vh;
+  height: 40vh;
   overflow: auto;
-  border: solid 2px black;
+  border-top: solid 2px rgb(206, 200, 200);
+}
+.faq-cont-admin-action > h2 {
+  text-align: center;
+}
+
+.action-cont {
+  display: flex;
+  justify-content: center;
+}
+
+.action-cont > button {
+  margin: 0rem 2rem 0rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.action-cont > div {
+  font-size: 14px;
+}
+
+.error-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.error-cont > button {
+  width: 15rem;
+  font-size: 1.2rem;
+  margin-top: 2%;
+  cursor: pointer;
+}
+
+.input-cont {
+  border-bottom: solid 2px rgb(185, 179, 179);
+}
+
+.input-cont > input {
+  width: 3rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.input-cont > textarea {
+  width: 100%;
 }

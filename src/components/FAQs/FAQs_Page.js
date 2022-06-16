@@ -1,12 +1,19 @@
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { urlNeeded, loadFaqs } from "../../store";
 import Box from "@mui/material/Box";
-import { useSelector } from "react-redux";
-import { urlNeeded } from "../../store";
 import "./FAQs.css";
 
 const FAQs_Page = () => {
+  const dispatch = useDispatch();
+
   const FAQs = useSelector((state) => state.faqs).sort(
     (a, b) => a.order - b.order
   );
+
+  useEffect(() => {
+    dispatch(loadFaqs());
+  }, []);
 
   return (
     <Box

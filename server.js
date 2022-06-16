@@ -7,7 +7,6 @@
 ////////logged in user////////////////////////////////
 
 ////FAQ -do
-//look at how julie did the amenities and/or photo stuff in the roomer app for a user friendly way to drag/drop to organize the sort order
 
 ////savings - do
 
