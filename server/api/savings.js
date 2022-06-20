@@ -13,4 +13,13 @@ app.get("/api/savings", async (req, res, next) => {
   }
 });
 
+app.put("/api/savings/:id", async (req, res, next) => {
+  try {
+    const savings = await Savings.findByPk(req.params.id);
+    res.status(204).send(await savings.update(req.body));
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = app;

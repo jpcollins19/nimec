@@ -13,6 +13,13 @@ export const loadSavings = () => {
   };
 };
 
+export const updateSavings = (savings, history) => {
+  return async (dispatch) => {
+    savings = (await axios.put(`/api/savings/${savings.id}`, savings)).data;
+    history.push("/savings");
+  };
+};
+
 export const savings = (state = [], action) => {
   switch (action.type) {
     case LOAD_SAVINGS:

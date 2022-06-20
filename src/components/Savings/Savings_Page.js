@@ -1,9 +1,17 @@
-import { useSelector } from "react-redux";
+import { useEffect, useeffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { loadSavings } from "../../store";
 import Box from "@mui/material/Box";
 import "./Savings.css";
 
 const Savings_Page = () => {
+  const dispatch = useDispatch();
+
   const savings = useSelector((state) => state.savings)[0];
+
+  useEffect(() => {
+    dispatch(loadSavings());
+  }, []);
 
   return (
     <Box
