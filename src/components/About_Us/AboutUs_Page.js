@@ -1,8 +1,16 @@
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { loadEEs } from "../../store";
 import Box from "@mui/material/Box";
-import { useSelector } from "react-redux";
 import "./AboutUs.css";
 
 const AboutUs_Page = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadEEs());
+  }, []);
+
   const EEs = useSelector((state) => state.EEs).sort(
     (a, b) => a.order - b.order
   );

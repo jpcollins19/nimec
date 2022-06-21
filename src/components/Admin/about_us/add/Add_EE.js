@@ -43,8 +43,8 @@ const Add_EE = () => {
   }, [attachments]);
 
   const onChange = (val, set) => {
-    setCanSubmit(true);
     set(val);
+    setError("");
   };
 
   const uploadImage = (e) => {
@@ -68,7 +68,6 @@ const Add_EE = () => {
           const url = ev.target.result;
           dispatch(addAttachment({ name, url }, options));
           setPhoto(fileReader.result);
-          setCanSubmit(true);
         }
       };
 
@@ -95,7 +94,7 @@ const Add_EE = () => {
 
     try {
       if (isNaN(Number(order))) {
-        setError("Order needs to be a number");
+        return setError("Order needs to be a number");
       }
 
       const obj = {

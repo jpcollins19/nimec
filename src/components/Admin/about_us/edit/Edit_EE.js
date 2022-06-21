@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { formatFirstLettertoUpperCase, updateEE } from "../../../../store";
+import {
+  formatFirstLettertoUpperCase,
+  updateEE,
+  addAttachment,
+  resetAttachments,
+  resetAttachmentCount,
+} from "../../../../store";
 import Select from "react-select";
 import Input_Cont_Edit from "./Input_Cont_Edit";
+import Alert from "@mui/material/Alert";
 
 const Edit_EE = () => {
   const dispatch = useDispatch();
@@ -17,7 +24,25 @@ const Edit_EE = () => {
   const [synopsis, setSynopsis] = useState("");
   const [order, setOrder] = useState("");
   const [photo, setPhoto] = useState("");
-  const [changed, setChanged] = useState(false);
+  const [error, setError] = useState("");
+
+  const attachments = useSelector((state) => state.attachments);
+  const count = useSelector((state) => state.attachmentCount);
+
+  const [attachmentUploaded, setAttachmentUploaded] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const [canSubmit, setCanSubmit] = useState(false);
+
+  useEffect(() => {
+    attachments.length === count ? setLoading(false) : setLoading(true);
+    attachments.length === 0 && setAttachmentUploaded(false);
+  }, [count]);
+
+  useEffect(() => {
+    attachments.length === count ? setLoading(false) : setLoading(true);
+    attachments.length && !attachmentUploaded && dispatch(resetAttachments());
+  }, [attachments]);
 
   useEffect(() => {
     if (ee) {
@@ -27,23 +52,12 @@ const Edit_EE = () => {
       setPhone(ee.phone);
       setSynopsis(ee.synopsis);
       setOrder(ee.order);
-      // setPhoto(ee.photo);
+      setPhoto(ee.photo);
     }
   }, [ee]);
 
-  const ees = useSelector((state) => state.ees)
-    .sort((a, b) => {
-      let fa = a.name.toLowerCase(),
-        fb = b.name.toLowerCase();
-
-      if (fa < fb) {
-        return -1;
-      }
-      if (fa > fb) {
-        return 1;
-      }
-      return 0;
-    })
+  const ees = useSelector((state) => state.EEs)
+    .sort((a, b) => a.order - b.order)
     .map((ee) => {
       return { value: ee, label: ee.name };
     });
@@ -106,8 +120,38 @@ const Edit_EE = () => {
   };
 
   const onChange = (val, set) => {
-    setChanged(true);
+    val.length > 0 ? setCanSubmit(true) : setCanSubmit(false);
     set(val);
+    setError("");
+  };
+
+  const uploadImage = (e) => {
+    setAttachmentUploaded(true);
+
+    const files = e.target.files;
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const fileReader = new FileReader();
+      fileReader.onload = (ev) => {
+        if (fileReader.readyState === 2) {
+          const options = {
+            onUploadProgress: (progressEvent) => {
+              const { loaded, total } = progressEvent;
+              let percentComplete = Math.floor((loaded * 100) / total);
+
+              percentComplete < 100 && setLoading(true);
+            },
+          };
+          const name = file.name;
+          const url = ev.target.result;
+          dispatch(addAttachment({ name, url }, options));
+          setPhoto(fileReader.result);
+          setCanSubmit(true);
+        }
+      };
+
+      fileReader.readAsDataURL(file);
+    }
   };
 
   const params = [
@@ -124,15 +168,26 @@ const Edit_EE = () => {
     evt.preventDefault();
 
     try {
-      console.log("update EE submit ran");
-      // const obj = {
-      //   id: client.id,
-      //   name,
-      //   municipalAgg,
-      //   organization,
-      // };
+      if (isNaN(Number(order))) {
+        return setError("Order needs to be a number");
+      }
 
-      // dispatch(updateEE(obj, history));
+      const obj = {
+        id: ee && ee.id,
+        name,
+        title,
+        email,
+        phone,
+        synopsis,
+        order: Number(order),
+        photo,
+      };
+
+      dispatch(updateEE(obj, history));
+
+      dispatch(resetAttachments());
+      dispatch(resetAttachmentCount());
+      setCanSubmit(false);
     } catch (err) {
       console.log(err);
     }
@@ -142,13 +197,21 @@ const Edit_EE = () => {
     <form onSubmit={onSubmit} className="member-cont">
       <div className="membs-dropdown-admin-page">
         <Select
-          options={ees.length && ees}
+          options={ees && ees}
           onChange={(value) => setEE(value.value)}
           styles={styles}
           placeholder="Search For EE"
           className="mems-select-admin-page"
         />
       </div>
+      {ee && (
+        <div className="submit-cont-about-us-admin">
+          <button disabled={!canSubmit}>Update EE</button>
+          <div className="error-cont-admin">
+            {error && <Alert severity="error">{error}</Alert>}
+          </div>
+        </div>
+      )}
       {ee &&
         params.map((param) => {
           const set = eval(`set${formatFirstLettertoUpperCase(param)}`);
@@ -160,14 +223,16 @@ const Edit_EE = () => {
               set={set}
               val={val}
               param={formatFirstLettertoUpperCase(param)}
+              uploadImage={uploadImage}
+              attachmentUploaded={attachmentUploaded}
+              setAttachmentUploaded={setAttachmentUploaded}
+              setCanSubmit={setCanSubmit}
+              loading={loading}
+              setLoading={setLoading}
+              attachments={attachments}
             />
           );
         })}
-      {ee && (
-        <div className="submit-cont-admin">
-          <button disabled={!changed}>Update EE</button>
-        </div>
-      )}
     </form>
   );
 };
