@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { updateSavings, addAttachment, resetAttachments } from "../../../store";
+import {
+  updateSavings,
+  addAttachment,
+  resetAttachments,
+  resetAttachmentCount,
+} from "../../../store";
 import Newsletter_FileReader from "./Newsletter_FileReader";
 import Box from "@mui/material/Box";
 import "./Savings_A.css";

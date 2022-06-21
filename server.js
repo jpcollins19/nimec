@@ -1,8 +1,3 @@
-////setup hoovs account with sendgrid
-
-////our services page
-//fix arrow format on bottom of pdf
-
 //final css work on all pages - hoovs directions
 
 ////after ccs work complete, roll through each file and delete commented out info
@@ -11,17 +6,12 @@
 
 ////////logged in user////////////////////////////////
 
-////memberships
-//delete feature has a confirmation route, like in the FAQ section
-
-////savings - do
-
 ////about us - do
-//delete feature has a confirmation route, like in the FAQ section
 
 ////////logged in user////////////////////////////////
 
 /////next call with hoov
+//test out sendgrid from local state.  assuming it works, need to adjust heroku app and then test from heroku app
 //remind him about "our services" municpal pdf
 //figure out sendgrid - test with local state first - see sendgrid email
 //waiting on pics for all, and all of chads info

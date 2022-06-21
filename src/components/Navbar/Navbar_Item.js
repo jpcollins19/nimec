@@ -48,10 +48,10 @@ const Navbar_Item = ({ category }) => {
   const adminPages = [
     "Home",
     "Memberships",
-    "Services",
     "FAQs",
     "Savings",
-    "About",
+    "Services",
+    "About_us",
   ];
 
   return category && category.title === "Our Services" ? (

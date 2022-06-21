@@ -1,5 +1,63 @@
-.about_us-page-a {
+.about-us-page-a {
   overflow: auto;
   cursor: default;
   overflow: auto;
+}
+
+.edit-cont-about-us-admin {
+  margin-top: 3%;
+  width: 80vw;
+  border: solid 2px rgb(104, 102, 102);
+}
+
+.input-cont-about-us-admin {
+  display: flex;
+  margin: 1rem;
+  padding-bottom: 1%;
+  border-bottom: solid 2px rgb(188, 183, 183);
+}
+
+.input-cont-about-us-admin > div {
+  display: flex;
+  align-items: center;
+  margin-right: 1%;
+}
+
+.input-cont-about-us-admin > input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+}
+
+.input-cont-about-us-admin > input[type="text"] {
+  font-size: 1.5rem;
+  width: 40rem;
+  text-align: center;
+}
+
+.input-cont-about-us-admin > textarea {
+  font-size: 1rem;
+  width: 60rem;
+  height: 10rem;
+}
+
+.submit-cont-about-us-admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1% 0% 1% 0%;
+}
+
+.submit-cont-about-us-admin > button {
+  width: 10rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.error-cont-admin {
+  height: 2rem;
 }

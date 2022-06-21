@@ -29,7 +29,7 @@ const sendEmail = async (incomingMsg) => {
   const finalMessage = {
     to: process.env.SENDGRID_TO_ADDRESS,
     from: process.env.SENDGRID_FROM_ADDRESS,
-    templateId: "d-aa4acc9d661c423ab5b95a9ff545f4e0",
+    templateId: "d-70d1eb6f21b54dd5bea82b5947780b99",
     dynamicTemplateData: {
       firstName,
       lastName,

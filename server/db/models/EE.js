@@ -16,12 +16,8 @@ const EE = db.define("EEs", {
     },
   },
   photo: {
-    type: STRING,
+    type: TEXT,
     defaultValue: null,
-    img: { type: STRING },
-    validate: {
-      notEmpty: true,
-    },
   },
   title: {
     type: STRING,

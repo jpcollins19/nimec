@@ -25,7 +25,7 @@
 }
 
 .edit-cont {
-  margin-top: 5%;
+  margin-top: 3%;
   width: 80vw;
   min-height: 70vh;
   border: solid 2px rgb(104, 102, 102);
@@ -72,8 +72,11 @@
 }
 
 .param-name {
+  display: flex;
+  justify-content: center;
   font-size: 1.5rem;
   font-weight: bold;
+  min-width: 10rem;
 }
 
 .param-val {

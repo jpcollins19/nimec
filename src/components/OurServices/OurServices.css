@@ -78,6 +78,8 @@
 }
 
 .button-cont {
+  display: flex;
+  justify-content: center;
   width: 10%;
 }
 

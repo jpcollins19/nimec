@@ -18,7 +18,7 @@ const Add_Member = () => {
 
   const toggle = () => setMunicipalAgg((value) => !value);
 
-  const params = ["name", "municipalAgg", "organization"];
+  const params = ["name", "organization", "municipalAgg"];
 
   const onSubmit = async (evt) => {
     evt.preventDefault();
