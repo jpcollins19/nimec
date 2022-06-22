@@ -11,19 +11,8 @@ const Delete_EE = () => {
 
   const [ee, setEE] = useState(null);
 
-  const ees = useSelector((state) => state.ees)
-    .sort((a, b) => {
-      let fa = a.name.toLowerCase(),
-        fb = b.name.toLowerCase();
-
-      if (fa < fb) {
-        return -1;
-      }
-      if (fa > fb) {
-        return 1;
-      }
-      return 0;
-    })
+  const ees = useSelector((state) => state.EEs)
+    .sort((a, b) => a.order - b.order)
     .map((ee) => {
       return { value: ee, label: ee.name };
     });
@@ -91,8 +80,7 @@ const Delete_EE = () => {
     evt.preventDefault();
 
     try {
-      console.log("delete submit ran");
-      // dispatch(deleteEE(ee, history));
+      dispatch(deleteEE({ id: ee && ee.id }, history));
     } catch (err) {
       console.log(err);
     }
