@@ -9,7 +9,6 @@
   flex-direction: column;
   padding-top: 3%;
   margin: 1rem;
-  /* border: solid 2px green; */
 }
 
 .faq-single-cont {
@@ -20,7 +19,6 @@
 .row-cont {
   display: flex;
   align-items: center;
-  /* border: solid 2px green; */
 }
 
 .head {
@@ -34,21 +32,18 @@
   font-size: 1.1rem;
   font-weight: bold;
   font-style: italic;
-  /* border: solid 2px blue; */
 }
 
 .a {
   margin: 0.4rem 0rem 0rem 0.5rem;
   padding: 0.5rem 0.5rem 0.5rem 0rem;
   font-size: 1.1rem;
-  /* border: solid 2px orange; */
 }
 
 .a-l {
   margin: 0.4rem 0rem 0rem 0.5rem;
   padding: 0.5rem 0.5rem 0.5rem 0rem;
   font-size: 1.1rem;
-  /* border: solid 2px purple; */
 }
 
 .link {

@@ -38,7 +38,6 @@
   align-items: center;
   justify-content: center;
   min-width: 7%;
-  /* border: solid 2px red; */
 }
 
 .q-a-cont {
@@ -48,22 +47,12 @@
   border-left: solid 2px grey;
   border-right: solid 2px grey;
 }
-/* 
-.faq-a-q {
-  border-left: solid 2px grey;
-  border-right: solid 2px grey;
-} */
-
-/* .faq-a-a {
-  border: solid 2px purple;
-} */
 
 .edit-butt {
   margin-left: 2%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: solid 2px purple; */
 }
 
 .edit-butt > button {

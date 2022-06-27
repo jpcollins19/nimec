@@ -20,7 +20,6 @@ const Service = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
-  /*To Prevent right click on screen*/
   document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
   });
@@ -71,13 +70,6 @@ const Service = () => {
             <Page pageNumber={pageNumber} />
           </Document>
         </div>
-
-        {/* <Document
-          file={service && service.newsletter}
-          onLoadSuccess={onDocumentLoadSuccess}
-        >
-          <Page pageNumber={pageNumber} />
-        </Document> */}
       </div>
       <Pagination
         pageNumber={pageNumber}
@@ -85,19 +77,6 @@ const Service = () => {
         previousPage={previousPage}
         nextPage={nextPage}
       />
-      {/* <div className="service-newsletter-cont">
-        <div className="header">
-          NIMEC Newsletter - {service && service.date}
-        </div>
-        <div className="border-services">
-          <div className="service-newsletter">
-            <div className="newsletter-header">
-              <div className="title"> {service && service.title}</div>
-            </div>
-            <div className="verbiage"> {service && service.newsletter}</div>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

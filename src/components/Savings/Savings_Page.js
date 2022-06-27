@@ -1,4 +1,4 @@
-import { useEffect, useeffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { loadSavings } from "../../store";
 import Box from "@mui/material/Box";

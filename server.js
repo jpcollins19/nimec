@@ -1,22 +1,12 @@
 //final css work on all pages - hoovs directions
 
-////after ccs work complete, roll through each file and delete commented out info
-
 //connect the hover website to the heroku app
-
-////////logged in user////////////////////////////////
-
-////about us - do
-
-////////logged in user////////////////////////////////
 
 /////next call with hoov
 //test out sendgrid from local state.  assuming it works, need to adjust heroku app and then test from heroku app
 //remind him about "our services" municpal pdf
-//figure out sendgrid - test with local state first - see sendgrid email
 //waiting on pics for all, and all of chads info
 
-////contact us email receipt viewing
 //css work via sendGrid's template on their website
 
 const express = require("express");

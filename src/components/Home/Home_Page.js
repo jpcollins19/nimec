@@ -25,25 +25,6 @@ const Home_Page = () => {
       height="100vh"
       className="home-page"
     >
-      {/* <div className="banner">
-        <img
-          className="home-img"
-          src="https://imageio.forbes.com/specials-images/imageserve/1057157166/Chicago-skyline-aerial-drone-view-from-above--lake-Michigan-and-city-of-Chicago/960x0.jpg?format=jpg&width=960"
-        ></img> */}
-      {/* <div
-          className="home-img"
-          style={{
-            backgroundImage: `url(
-            "https://imageio.forbes.com/specials-images/imageserve/1057157166/Chicago-skyline-aerial-drone-view-from-above--lake-Michigan-and-city-of-Chicago/960x0.jpg?format=jpg&width=960"
-          )`,
-          }}
-        ></div> */}
-      {/* <div className="statement">
-          NIMEC is a collaborative of {clients && clients.length} municipalities
-          that band together to drive down pricing for residential and municipal
-          electricity.
-        </div>
-      </div> */}
       <article
         className="article"
         style={{

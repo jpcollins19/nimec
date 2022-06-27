@@ -1,12 +1,11 @@
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { authenticate } from "../../store";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Alert from "@mui/material/Alert";
 import "./Login.css";
 
 const useStyles = makeStyles((theme) => ({

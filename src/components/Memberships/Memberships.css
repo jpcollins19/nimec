@@ -10,7 +10,6 @@
   align-items: center;
   width: 50vw;
   margin: 2% 0% 2% 0%;
-  /* border: solid 2px blue; */
 }
 
 .mems-select {
@@ -67,12 +66,7 @@
   justify-content: space-around;
   min-width: 140vh;
   margin: 1% 0% 1% 0%;
-  /* border: solid 2px red; */
 }
-
-/* .membs-text-cont > div {
-  border: solid 2px green;
-} */
 
 .membs-text-cont > div > div {
   min-width: 18rem;

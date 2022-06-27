@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
 import { useSelector, useDispatch } from "react-redux";
 import { loadClients } from "../../store";
+import Box from "@mui/material/Box";
 import Member_Column from "./Member_Column";
 import Select from "react-select";
 import "./Memberships.css";
