@@ -3,7 +3,8 @@
 //connect the hover website to the heroku app
 
 /////next call with hoov
-//test out sendgrid from local state.  assuming it works, need to adjust heroku app and then test from heroku app
+//test out sendgrid from local state.  need to create a brand new email template in his sendgrid login. adjust the api key and the template ID
+//assuming sendgrid works in local state, need to adjust the api key in heroku app and then test from heroku app
 //remind him about "our services" municpal pdf
 //waiting on pics for all, and all of chads info
 
